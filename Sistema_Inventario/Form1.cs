@@ -6,5 +6,7 @@ namespace Sistema_Inventario
         {
             InitializeComponent();
         }
+
+
     }
 }
