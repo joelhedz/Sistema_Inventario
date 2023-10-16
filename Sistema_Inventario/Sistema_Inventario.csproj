@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Formularios\" />
-    <Folder Include="Clases\" />
     <Folder Include="Iconos\" />
   </ItemGroup>
 
