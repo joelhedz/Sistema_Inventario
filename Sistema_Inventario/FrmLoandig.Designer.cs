@@ -1,6 +1,6 @@
 ﻿namespace Sistema_Inventario
 {
-    partial class Form1
+    partial class FrmLoanding
     {
         /// <summary>
         ///  Required designer variable.
@@ -40,14 +40,15 @@
             Probando.TabIndex = 0;
             Probando.Text = "Hola Mundo";
             // 
-            // Form1
+            // FrmLoanding
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(Probando);
-            Name = "Form1";
+            Name = "FrmLoanding";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }

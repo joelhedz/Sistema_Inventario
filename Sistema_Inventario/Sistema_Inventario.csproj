@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Formularios\" />
     <Folder Include="Iconos\" />
+    <Folder Include="Reportes\" />
   </ItemGroup>
 
 </Project>
