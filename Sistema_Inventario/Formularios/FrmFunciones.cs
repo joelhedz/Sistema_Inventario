@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace Sistema_Inventario.Formularios
 {
-    public partial class FrmUsuario : Form
+    public partial class FrmFunciones : Form
     {
-        public FrmUsuario()
+        public FrmFunciones()
         {
             InitializeComponent();
-        }
-
-
-
-
-        private void FrmUsuario_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -11,7 +11,8 @@ namespace Sistema_Inventario
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmLoanding());
+            Application.Run(new Formularios.FrmUsuario());
+            Application.Run(new Formularios.FrmUsuario());
         }
     }
 }

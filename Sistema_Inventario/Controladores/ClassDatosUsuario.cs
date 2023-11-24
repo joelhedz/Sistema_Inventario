@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sistema_Inventario.Clases
+namespace Sistema_Inventario.Controladores
 {
-    internal class ConSQL
+    internal class ClassDatosUsuario
     {
     }
 }
