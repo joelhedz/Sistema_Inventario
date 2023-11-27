@@ -21,7 +21,7 @@ namespace Sistema_Inventario.Formularios
         {
             label1 = new Label();
             txtidventas = new TextBox();
-            dataGridView1 = new DataGridView();
+            dataGridView = new DataGridView();
             label2 = new Label();
             txtidcliente = new TextBox();
             label3 = new Label();
@@ -32,12 +32,12 @@ namespace Sistema_Inventario.Formularios
             label6 = new Label();
             txtbuscar = new TextBox();
             btnbusacr = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnagregar = new Button();
+            btneliminar = new Button();
+            btnactualizar = new Button();
             button5 = new Button();
             dateTimePicker1 = new DateTimePicker();
-            ((ISupportInitialize)dataGridView1).BeginInit();
+            ((ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -57,14 +57,14 @@ namespace Sistema_Inventario.Formularios
             txtidventas.Size = new Size(100, 23);
             txtidventas.TabIndex = 1;
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 158);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(946, 338);
-            dataGridView1.TabIndex = 2;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Location = new Point(12, 158);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowTemplate.Height = 25;
+            dataGridView.Size = new Size(946, 338);
+            dataGridView.TabIndex = 2;
             // 
             // label2
             // 
@@ -148,32 +148,32 @@ namespace Sistema_Inventario.Formularios
             btnbusacr.Text = "Buscar";
             btnbusacr.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnagregar
             // 
-            button2.Location = new Point(204, 567);
-            button2.Name = "button2";
-            button2.Size = new Size(95, 40);
-            button2.TabIndex = 14;
-            button2.Text = "Agregar";
-            button2.UseVisualStyleBackColor = true;
+            btnagregar.Location = new Point(204, 567);
+            btnagregar.Name = "btnagregar";
+            btnagregar.Size = new Size(95, 40);
+            btnagregar.TabIndex = 14;
+            btnagregar.Text = "Agregar";
+            btnagregar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btneliminar
             // 
-            button3.Location = new Point(353, 567);
-            button3.Name = "button3";
-            button3.Size = new Size(95, 40);
-            button3.TabIndex = 15;
-            button3.Text = "Eliminar";
-            button3.UseVisualStyleBackColor = true;
+            btneliminar.Location = new Point(353, 567);
+            btneliminar.Name = "btneliminar";
+            btneliminar.Size = new Size(95, 40);
+            btneliminar.TabIndex = 15;
+            btneliminar.Text = "Eliminar";
+            btneliminar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnactualizar
             // 
-            button4.Location = new Point(490, 567);
-            button4.Name = "button4";
-            button4.Size = new Size(108, 40);
-            button4.TabIndex = 16;
-            button4.Text = "Actualizar";
-            button4.UseVisualStyleBackColor = true;
+            btnactualizar.Location = new Point(490, 567);
+            btnactualizar.Name = "btnactualizar";
+            btnactualizar.Size = new Size(108, 40);
+            btnactualizar.TabIndex = 16;
+            btnactualizar.Text = "Actualizar";
+            btnactualizar.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -196,9 +196,9 @@ namespace Sistema_Inventario.Formularios
             ClientSize = new Size(984, 661);
             Controls.Add(dateTimePicker1);
             Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(btnactualizar);
+            Controls.Add(btneliminar);
+            Controls.Add(btnagregar);
             Controls.Add(btnbusacr);
             Controls.Add(txtbuscar);
             Controls.Add(label6);
@@ -209,12 +209,12 @@ namespace Sistema_Inventario.Formularios
             Controls.Add(label3);
             Controls.Add(txtidcliente);
             Controls.Add(label2);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridView);
             Controls.Add(txtidventas);
             Controls.Add(label1);
             Name = "FrmVentas";
             Load += FrmVentas_Load;
-            ((ISupportInitialize)dataGridView1).EndInit();
+            ((ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

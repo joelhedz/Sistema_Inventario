@@ -22,7 +22,7 @@
 
         private Label label1;
         private TextBox txtidventas;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridView;
         private Label label2;
         private TextBox txtidcliente;
         private Label label3;
@@ -33,9 +33,9 @@
         private Label label6;
         private TextBox txtbuscar;
         private Button btnbusacr;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btnagregar;
+        private Button btneliminar;
+        private Button btnactualizar;
         private Button button5;
         private DateTimePicker dateTimePicker1;
     }
