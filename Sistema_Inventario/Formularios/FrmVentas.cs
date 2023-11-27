@@ -16,5 +16,21 @@ namespace Sistema_Inventario.Formularios
         {
             InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+            SuspendLayout();
+            // 
+            // FrmVentas
+            // 
+            ClientSize = new Size(984, 661);
+            Name = "FrmVentas";
+            Load += FrmVentas_Load;
+            ResumeLayout(false);
+        }
+
+        private void FrmVentas_Load(object sender, EventArgs e)
+        {
+        }
     }
 }
