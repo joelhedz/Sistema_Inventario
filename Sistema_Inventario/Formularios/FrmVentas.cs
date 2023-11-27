@@ -36,7 +36,7 @@ namespace Sistema_Inventario.Formularios
             btneliminar = new Button();
             btnactualizar = new Button();
             button5 = new Button();
-            dateTimePicker1 = new DateTimePicker();
+            dateTimePicker = new DateTimePicker();
             ((ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -184,17 +184,17 @@ namespace Sistema_Inventario.Formularios
             button5.Text = "Menu";
             button5.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            dateTimePicker1.Location = new Point(302, 73);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 18;
+            dateTimePicker.Location = new Point(302, 73);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(200, 23);
+            dateTimePicker.TabIndex = 18;
             // 
             // FrmVentas
             // 
             ClientSize = new Size(984, 661);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dateTimePicker);
             Controls.Add(button5);
             Controls.Add(btnactualizar);
             Controls.Add(btneliminar);

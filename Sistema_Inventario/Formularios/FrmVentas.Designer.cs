@@ -37,6 +37,6 @@
         private Button btneliminar;
         private Button btnactualizar;
         private Button button5;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker;
     }
 }
