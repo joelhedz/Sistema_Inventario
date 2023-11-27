@@ -16,5 +16,12 @@ namespace Sistema_Inventario.Formularios
         {
             InitializeComponent();
         }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

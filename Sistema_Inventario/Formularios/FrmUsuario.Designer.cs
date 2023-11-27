@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
+            textBox1 = new TextBox();
+            label1 = new Label();
+            tabControl1 = new TabControl();
+            tabpageListUsuario = new TabPage();
+            BtnBuscar = new Button();
+            BtnEstado = new Button();
+            BtnEditar = new Button();
+            BtnNuevo = new Button();
+            dataGridView1 = new DataGridView();
+            tabPageFormUsuarios = new TabPage();
+            BtnCancelar = new Button();
+            BtnGuardar = new Button();
             groupBox1 = new GroupBox();
             rbSuspendido = new RadioButton();
             rbActivo = new RadioButton();
@@ -39,21 +51,138 @@
             label8 = new Label();
             label3 = new Label();
             txtuser = new TextBox();
-            toolStrip1 = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
-            toolStripButton2 = new ToolStripButton();
-            toolStripSeparator2 = new ToolStripSeparator();
-            toolStripButton3 = new ToolStripButton();
-            toolStripSeparator3 = new ToolStripSeparator();
-            toolStripButton4 = new ToolStripButton();
-            dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            groupBox1.SuspendLayout();
-            toolStrip1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabpageListUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabPageFormUsuarios.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.Location = new Point(104, 50);
+            textBox1.Margin = new Padding(3, 2, 3, 2);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(363, 29);
+            textBox1.TabIndex = 23;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(29, 58);
+            label1.Name = "label1";
+            label1.Size = new Size(42, 15);
+            label1.TabIndex = 23;
+            label1.Text = "Buscar";
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabpageListUsuario);
+            tabControl1.Controls.Add(tabPageFormUsuarios);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(905, 548);
+            tabControl1.TabIndex = 24;
+            // 
+            // tabpageListUsuario
+            // 
+            tabpageListUsuario.Controls.Add(BtnBuscar);
+            tabpageListUsuario.Controls.Add(BtnEstado);
+            tabpageListUsuario.Controls.Add(BtnEditar);
+            tabpageListUsuario.Controls.Add(BtnNuevo);
+            tabpageListUsuario.Controls.Add(dataGridView1);
+            tabpageListUsuario.Controls.Add(label1);
+            tabpageListUsuario.Controls.Add(textBox1);
+            tabpageListUsuario.Location = new Point(4, 24);
+            tabpageListUsuario.Name = "tabpageListUsuario";
+            tabpageListUsuario.Padding = new Padding(3);
+            tabpageListUsuario.Size = new Size(897, 520);
+            tabpageListUsuario.TabIndex = 0;
+            tabpageListUsuario.Text = "Lista de Usuarios";
+            tabpageListUsuario.UseVisualStyleBackColor = true;
+            // 
+            // BtnBuscar
+            // 
+            BtnBuscar.Image = (Image)resources.GetObject("BtnBuscar.Image");
+            BtnBuscar.Location = new Point(486, 46);
+            BtnBuscar.Name = "BtnBuscar";
+            BtnBuscar.Size = new Size(160, 38);
+            BtnBuscar.TabIndex = 27;
+            BtnBuscar.Text = "   Buscar";
+            BtnBuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // BtnEstado
+            // 
+            BtnEstado.Location = new Point(758, 228);
+            BtnEstado.Name = "BtnEstado";
+            BtnEstado.Size = new Size(114, 40);
+            BtnEstado.TabIndex = 26;
+            BtnEstado.Text = "button3";
+            BtnEstado.UseVisualStyleBackColor = true;
+            // 
+            // BtnEditar
+            // 
+            BtnEditar.Location = new Point(758, 179);
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Size = new Size(114, 40);
+            BtnEditar.TabIndex = 25;
+            BtnEditar.Text = "Editar";
+            BtnEditar.UseVisualStyleBackColor = true;
+            // 
+            // BtnNuevo
+            // 
+            BtnNuevo.Location = new Point(758, 130);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(114, 40);
+            BtnNuevo.TabIndex = 24;
+            BtnNuevo.Text = "Nuevo";
+            BtnNuevo.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(29, 108);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(698, 379);
+            dataGridView1.TabIndex = 11;
+            // 
+            // tabPageFormUsuarios
+            // 
+            tabPageFormUsuarios.Controls.Add(BtnCancelar);
+            tabPageFormUsuarios.Controls.Add(BtnGuardar);
+            tabPageFormUsuarios.Controls.Add(groupBox1);
+            tabPageFormUsuarios.Location = new Point(4, 24);
+            tabPageFormUsuarios.Name = "tabPageFormUsuarios";
+            tabPageFormUsuarios.Padding = new Padding(3);
+            tabPageFormUsuarios.Size = new Size(897, 520);
+            tabPageFormUsuarios.TabIndex = 1;
+            tabPageFormUsuarios.Text = "Formulario Usuario";
+            tabPageFormUsuarios.UseVisualStyleBackColor = true;
+            // 
+            // BtnCancelar
+            // 
+            BtnCancelar.Location = new Point(483, 320);
+            BtnCancelar.Name = "BtnCancelar";
+            BtnCancelar.Size = new Size(113, 35);
+            BtnCancelar.TabIndex = 6;
+            BtnCancelar.Text = "Cancelar";
+            BtnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // BtnGuardar
+            // 
+            BtnGuardar.Location = new Point(310, 320);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(113, 35);
+            BtnGuardar.TabIndex = 5;
+            BtnGuardar.Text = "Guardar";
+            BtnGuardar.UseVisualStyleBackColor = true;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
             // groupBox1
             // 
@@ -66,10 +195,10 @@
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(txtuser);
-            groupBox1.Location = new Point(51, 75);
+            groupBox1.Location = new Point(39, 43);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(808, 172);
-            groupBox1.TabIndex = 3;
+            groupBox1.Size = new Size(808, 208);
+            groupBox1.TabIndex = 4;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
@@ -163,122 +292,36 @@
             txtuser.Size = new Size(368, 23);
             txtuser.TabIndex = 15;
             // 
-            // toolStrip1
-            // 
-            toolStrip1.AutoSize = false;
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripSeparator1, toolStripButton2, toolStripSeparator2, toolStripButton3, toolStripSeparator3, toolStripButton4 });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(905, 49);
-            toolStrip1.TabIndex = 9;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageAlign = ContentAlignment.TopCenter;
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(53, 46);
-            toolStripButton1.Text = "Guardar";
-            toolStripButton1.TextAlign = ContentAlignment.BottomCenter;
-            toolStripButton1.TextImageRelation = TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator1
-            // 
-            toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 49);
-            // 
-            // toolStripButton2
-            // 
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(63, 46);
-            toolStripButton2.Text = "Actualizar";
-            toolStripButton2.TextImageRelation = TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator2
-            // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 49);
-            // 
-            // toolStripButton3
-            // 
-            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(57, 46);
-            toolStripButton3.Text = "Cancelar";
-            toolStripButton3.TextImageRelation = TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 49);
-            // 
-            // toolStripButton4
-            // 
-            toolStripButton4.Image = (Image)resources.GetObject("toolStripButton4.Image");
-            toolStripButton4.ImageTransparentColor = Color.Magenta;
-            toolStripButton4.Name = "toolStripButton4";
-            toolStripButton4.Size = new Size(54, 46);
-            toolStripButton4.Text = "Eliminar";
-            toolStripButton4.TextDirection = ToolStripTextDirection.Horizontal;
-            toolStripButton4.TextImageRelation = TextImageRelation.ImageAboveText;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(51, 352);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(808, 150);
-            dataGridView1.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(126, 309);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(368, 23);
-            textBox1.TabIndex = 23;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(51, 312);
-            label1.Name = "label1";
-            label1.Size = new Size(42, 15);
-            label1.TabIndex = 23;
-            label1.Text = "Buscar";
-            // 
             // FrmUsuario
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(905, 548);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
-            Controls.Add(dataGridView1);
-            Controls.Add(toolStrip1);
-            Controls.Add(groupBox1);
+            Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FrmUsuario";
             Text = "FrmUsuario";
             Load += FrmUsuario_Load;
+            tabControl1.ResumeLayout(false);
+            tabpageListUsuario.ResumeLayout(false);
+            tabpageListUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabPageFormUsuarios.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
+        private TextBox textBox1;
+        private Label label1;
+        private TabControl tabControl1;
+        private TabPage tabpageListUsuario;
+        private Button BtnEstado;
+        private Button BtnEditar;
+        private Button BtnNuevo;
+        private DataGridView dataGridView1;
+        private TabPage tabPageFormUsuarios;
         private GroupBox groupBox1;
         private RadioButton rbSuspendido;
         private RadioButton rbActivo;
@@ -289,16 +332,8 @@
         private Label label8;
         private Label label3;
         private TextBox txtuser;
-        private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton3;
-        private ToolStripButton toolStripButton4;
-        private ToolStripSeparator toolStripSeparator1;
-        private ToolStripSeparator toolStripSeparator2;
-        private ToolStripSeparator toolStripSeparator3;
-        private DataGridView dataGridView1;
-        private TextBox textBox1;
-        private Label label1;
+        private Button BtnBuscar;
+        private Button BtnCancelar;
+        private Button BtnGuardar;
     }
 }
