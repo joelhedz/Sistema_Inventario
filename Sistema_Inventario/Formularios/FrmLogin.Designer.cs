@@ -120,12 +120,12 @@
             // FrmLogin
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
-<<<<<<< HEAD
+
             ClientSize = new Size(886, 448);
-=======
+
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1000, 600);
->>>>>>> 99f4e5878b010b0a9d61dbba297b043af8fa11d3
+
             ControlBox = false;
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
