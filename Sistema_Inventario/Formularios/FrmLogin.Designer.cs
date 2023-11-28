@@ -33,7 +33,7 @@
             // FrmLogin
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
-            ClientSize = new Size(1000, 600);
+            ClientSize = new Size(886, 448);
             ControlBox = false;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4);
