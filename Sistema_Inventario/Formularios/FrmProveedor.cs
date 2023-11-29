@@ -21,5 +21,17 @@ namespace Sistema_Inventario.Formularios
         {
 
         }
+
+        private void btnlmpiar_Click(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    ctrl.Text = "";
+
+                }
+            }
+        }
     }
 }
