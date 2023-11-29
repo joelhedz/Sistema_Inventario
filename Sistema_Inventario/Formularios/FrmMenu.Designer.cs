@@ -82,7 +82,7 @@
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.BackColor = SystemColors.ActiveCaptionText;
             label2.ForeColor = SystemColors.AppWorkspace;
-            label2.Location = new Point(0, 585);
+            label2.Location = new Point(0, 610);
             label2.Name = "label2";
             label2.Size = new Size(192, 3);
             label2.TabIndex = 11;
@@ -127,7 +127,7 @@
             BtnSalir.FlatStyle = FlatStyle.Flat;
             BtnSalir.ForeColor = Color.White;
             BtnSalir.Image = (Image)resources.GetObject("BtnSalir.Image");
-            BtnSalir.Location = new Point(0, 588);
+            BtnSalir.Location = new Point(1, 614);
             BtnSalir.Name = "BtnSalir";
             BtnSalir.Size = new Size(192, 49);
             BtnSalir.TabIndex = 9;

@@ -28,56 +28,126 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            pictureBox1 = new PictureBox();
+            groupBox1 = new GroupBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // pictureBox1
+            // groupBox1
             // 
-            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-1, -2);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(164, 80);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(button2);
+            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(136, 151);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(705, 328);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Ingrese los Datos Solicitados";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.Font = new Font("Sans Serif Collection", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.Silver;
-            label1.Location = new Point(312, 256);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.AutoSize = true;
+            label1.Location = new Point(89, 88);
             label1.Name = "label1";
-            label1.Size = new Size(369, 62);
-            label1.TabIndex = 4;
-            label1.Text = "LOADING...";
+            label1.Size = new Size(83, 30);
+            label1.TabIndex = 0;
+            label1.Text = "Usuario";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(54, 145);
+            label2.Name = "label2";
+            label2.Size = new Size(118, 30);
+            label2.TabIndex = 1;
+            label2.Text = "Contraseña";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(178, 80);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(264, 35);
+            textBox1.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(178, 142);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(264, 35);
+            textBox2.TabIndex = 3;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(475, 141);
+            button1.Name = "button1";
+            button1.Size = new Size(202, 39);
+            button1.TabIndex = 4;
+            button1.Text = "Salir";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(475, 79);
+            button2.Name = "button2";
+            button2.Size = new Size(202, 39);
+            button2.TabIndex = 5;
+            button2.Text = "Limpiar";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(210, 210);
+            button3.Name = "button3";
+            button3.Size = new Size(202, 39);
+            button3.TabIndex = 6;
+            button3.Text = "Ingresar";
+            button3.UseVisualStyleBackColor = true;
             // 
             // FrmLogin
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
+
+            ClientSize = new Size(886, 448);
+
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1000, 600);
+
             ControlBox = false;
-            Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmLogin";
             Load += FrmLogin_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private GroupBox groupBox1;
+        private Button button3;
+        private Button button2;
+        private Button button1;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private Label label2;
         private Label label1;
     }
 }

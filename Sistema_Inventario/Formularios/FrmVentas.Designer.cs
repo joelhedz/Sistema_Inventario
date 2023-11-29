@@ -20,20 +20,23 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmVentas";
-        }
-
-        #endregion
+        private Label label1;
+        private TextBox txtidventas;
+        private DataGridView dataGridView;
+        private Label label2;
+        private TextBox txtidcliente;
+        private Label label3;
+        private TextBox txtidusuario;
+        private Label label4;
+        private Label label5;
+        private TextBox txtestadodeventa;
+        private Label label6;
+        private TextBox txtbuscar;
+        private Button btnbusacr;
+        private Button btnagregar;
+        private Button btneliminar;
+        private Button btnactualizar;
+        private Button button5;
+        private DateTimePicker dateTimePicker;
     }
 }
