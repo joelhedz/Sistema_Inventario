@@ -33,5 +33,10 @@ namespace Sistema_Inventario.Formularios
                 }
             }
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

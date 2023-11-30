@@ -96,7 +96,7 @@ namespace Sistema_Inventario.Formularios
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
-            if(msj.Confirmar("¿Desea salir del sistema?") == true)
+            if (msj.Confirmar("¿Desea salir del sistema?") == true)
                 this.Close();
         }
 
@@ -125,6 +125,41 @@ namespace Sistema_Inventario.Formularios
         private void BtnUsuarios_Click(object sender, EventArgs e)
         {
             MostrarForm(new Formularios.FrmUsuario(), sender, Color.FromArgb(0, 122, 204));
+        }
+
+        private void BtnProveedores_Click(object sender, EventArgs e)
+        {
+            MostrarForm(new Formularios.FrmProveedor(), sender, Color.Teal);
+        }
+
+        private void BtnFactura_Click(object sender, EventArgs e)
+        {
+            MostrarForm(new Formularios.FrmFactura(), sender, Color.FromArgb(196, 46, 69));
+        }
+
+        private void BtnProductos_Click(object sender, EventArgs e)
+        {
+            MostrarForm(new Formularios.FrmProductos(), sender, Color.FromArgb(91, 122, 140));
+        }
+
+        private void BtnClientes_Click(object sender, EventArgs e)
+        {
+            MostrarForm(new Formularios.FrmCliente(), sender, Color.FromArgb(60, 85, 189));
+        }
+
+        private void BtnCompras_Click(object sender, EventArgs e)
+        {
+            MostrarForm(new Formularios.FrmCompras(), sender, Color.FromArgb(161, 32, 89));
+        }
+
+        private void BtnBitacora_Click(object sender, EventArgs e)
+        {
+            MostrarForm(new Formularios.FrmBitacora(), sender, Color.FromArgb(54, 75, 93));
+        }
+
+        private void BtnVentas_Click(object sender, EventArgs e)
+        {
+            MostrarForm(new Formularios.FrmVentas(), sender, Color.FromArgb(119, 119, 255));
         }
     }
 }

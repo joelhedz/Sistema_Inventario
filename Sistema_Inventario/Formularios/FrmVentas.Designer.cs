@@ -19,24 +19,16 @@
             }
             base.Dispose(disposing);
         }
-
-        private Label label1;
-        private TextBox txtidventas;
-        private DataGridView dataGridView;
-        private Label label2;
-        private TextBox txtidcliente;
-        private Label label3;
-        private TextBox txtidusuario;
         private Label label4;
-        private Label label5;
-        private TextBox txtestadodeventa;
-        private Label label6;
-        private TextBox txtbuscar;
         private Button btnbusacr;
-        private Button btnagregar;
-        private Button btneliminar;
-        private Button btnactualizar;
         private Button bntmenu;
         private DateTimePicker dateTimePicker;
+        private DataGridView dataGridView1;
+        private Button button2;
+        private GroupBox groupBox1;
+        private Label label1;
+        private DateTimePicker dateTimePicker1;
+        private Button BtnBuscar;
+        private Button BtnAnular;
     }
 }

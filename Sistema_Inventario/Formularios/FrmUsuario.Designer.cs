@@ -86,7 +86,7 @@
             tabControl1.Controls.Add(tabpageListUsuario);
             tabControl1.Controls.Add(tabPageFormUsuarios);
             tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            tabControl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.Padding = new Point(20, 3);
@@ -104,10 +104,10 @@
             tabpageListUsuario.Controls.Add(label1);
             tabpageListUsuario.Controls.Add(textBox1);
             tabpageListUsuario.ForeColor = SystemColors.ButtonHighlight;
-            tabpageListUsuario.Location = new Point(4, 34);
+            tabpageListUsuario.Location = new Point(4, 30);
             tabpageListUsuario.Name = "tabpageListUsuario";
             tabpageListUsuario.Padding = new Padding(3);
-            tabpageListUsuario.Size = new Size(1215, 707);
+            tabpageListUsuario.Size = new Size(1215, 711);
             tabpageListUsuario.TabIndex = 0;
             tabpageListUsuario.Text = "Lista de Usuarios";
             tabpageListUsuario.UseVisualStyleBackColor = true;
@@ -130,7 +130,7 @@
             // BtnEstado
             // 
             BtnEstado.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnEstado.BackColor = Color.Maroon;
+            BtnEstado.BackColor = Color.Firebrick;
             BtnEstado.FlatStyle = FlatStyle.Flat;
             BtnEstado.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnEstado.ForeColor = SystemColors.ButtonHighlight;
@@ -178,7 +178,7 @@
             dataGridView1.BackgroundColor = Color.White;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Teal;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = Color.White;
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 192, 255);
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
@@ -193,7 +193,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(923, 522);
+            dataGridView1.Size = new Size(923, 526);
             dataGridView1.TabIndex = 11;
             // 
             // tabPageFormUsuarios
@@ -295,7 +295,7 @@
             cmbRol.Location = new Point(139, 145);
             cmbRol.Margin = new Padding(3, 2, 3, 2);
             cmbRol.Name = "cmbRol";
-            cmbRol.Size = new Size(439, 33);
+            cmbRol.Size = new Size(439, 29);
             cmbRol.TabIndex = 19;
             // 
             // label5
@@ -313,7 +313,7 @@
             txtcontraseña.Location = new Point(139, 95);
             txtcontraseña.Margin = new Padding(3, 2, 3, 2);
             txtcontraseña.Name = "txtcontraseña";
-            txtcontraseña.Size = new Size(439, 33);
+            txtcontraseña.Size = new Size(439, 29);
             txtcontraseña.TabIndex = 16;
             // 
             // label8
@@ -341,7 +341,7 @@
             txtuser.Location = new Point(139, 43);
             txtuser.Margin = new Padding(3, 2, 3, 2);
             txtuser.Name = "txtuser";
-            txtuser.Size = new Size(439, 33);
+            txtuser.Size = new Size(439, 29);
             txtuser.TabIndex = 15;
             // 
             // FrmUsuario

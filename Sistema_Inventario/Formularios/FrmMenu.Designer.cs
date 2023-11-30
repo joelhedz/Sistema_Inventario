@@ -158,6 +158,7 @@
             BtnBitacora.TextAlign = ContentAlignment.MiddleLeft;
             BtnBitacora.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnBitacora.UseVisualStyleBackColor = false;
+            BtnBitacora.Click += BtnBitacora_Click;
             // 
             // BtnClientes
             // 
@@ -176,6 +177,7 @@
             BtnClientes.TextAlign = ContentAlignment.MiddleLeft;
             BtnClientes.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnClientes.UseVisualStyleBackColor = false;
+            BtnClientes.Click += BtnClientes_Click;
             // 
             // BtnFactura
             // 
@@ -194,6 +196,7 @@
             BtnFactura.TextAlign = ContentAlignment.MiddleLeft;
             BtnFactura.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnFactura.UseVisualStyleBackColor = false;
+            BtnFactura.Click += BtnFactura_Click;
             // 
             // BtnProductos
             // 
@@ -212,6 +215,7 @@
             BtnProductos.TextAlign = ContentAlignment.MiddleLeft;
             BtnProductos.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnProductos.UseVisualStyleBackColor = false;
+            BtnProductos.Click += BtnProductos_Click;
             // 
             // BtnCompras
             // 
@@ -230,6 +234,7 @@
             BtnCompras.TextAlign = ContentAlignment.MiddleLeft;
             BtnCompras.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnCompras.UseVisualStyleBackColor = false;
+            BtnCompras.Click += BtnCompras_Click;
             // 
             // BtnVentas
             // 
@@ -248,6 +253,7 @@
             BtnVentas.TextAlign = ContentAlignment.MiddleLeft;
             BtnVentas.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnVentas.UseVisualStyleBackColor = false;
+            BtnVentas.Click += BtnVentas_Click;
             // 
             // BtnUsuarios
             // 
@@ -285,6 +291,7 @@
             BtnProveedores.TextAlign = ContentAlignment.MiddleLeft;
             BtnProveedores.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnProveedores.UseVisualStyleBackColor = false;
+            BtnProveedores.Click += BtnProveedores_Click;
             // 
             // PanelCentral
             // 
