@@ -35,7 +35,7 @@ namespace Sistema_Inventario.Formularios
             btnagregar = new Button();
             btneliminar = new Button();
             btnactualizar = new Button();
-            button5 = new Button();
+            
             dateTimePicker = new DateTimePicker();
             ((ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
@@ -48,7 +48,7 @@ namespace Sistema_Inventario.Formularios
             label1.Size = new Size(55, 15);
             label1.TabIndex = 0;
             label1.Text = "ID Ventas";
-            label1.Click += label1_Click;
+            
             // 
             // txtidventas
             // 
@@ -175,14 +175,9 @@ namespace Sistema_Inventario.Formularios
             btnactualizar.Text = "Actualizar";
             btnactualizar.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // bntmenu
             // 
-            button5.Location = new Point(897, 12);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 17;
-            button5.Text = "Menu";
-            button5.UseVisualStyleBackColor = true;
+            
             // 
             // dateTimePicker
             // 
@@ -195,7 +190,7 @@ namespace Sistema_Inventario.Formularios
             // 
             ClientSize = new Size(984, 661);
             Controls.Add(dateTimePicker);
-            Controls.Add(button5);
+            
             Controls.Add(btnactualizar);
             Controls.Add(btneliminar);
             Controls.Add(btnagregar);
@@ -213,7 +208,7 @@ namespace Sistema_Inventario.Formularios
             Controls.Add(txtidventas);
             Controls.Add(label1);
             Name = "FrmVentas";
-            Load += FrmVentas_Load;
+          
             ((ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
