@@ -36,7 +36,6 @@
             pictureBox1 = new PictureBox();
             LblUsuario = new Label();
             BtnSalir = new Button();
-            BtnFunciones = new Button();
             BtnBitacora = new Button();
             BtnClientes = new Button();
             BtnFactura = new Button();
@@ -65,7 +64,6 @@
             panelIzquierdo.Controls.Add(label2);
             panelIzquierdo.Controls.Add(panel2);
             panelIzquierdo.Controls.Add(BtnSalir);
-            panelIzquierdo.Controls.Add(BtnFunciones);
             panelIzquierdo.Controls.Add(BtnBitacora);
             panelIzquierdo.Controls.Add(BtnClientes);
             panelIzquierdo.Controls.Add(BtnFactura);
@@ -142,24 +140,6 @@
             BtnSalir.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnSalir.UseVisualStyleBackColor = false;
             BtnSalir.Click += BtnSalir_Click;
-            // 
-            // BtnFunciones
-            // 
-            BtnFunciones.BackColor = Color.FromArgb(4, 41, 68);
-            BtnFunciones.FlatAppearance.BorderSize = 0;
-            BtnFunciones.FlatStyle = FlatStyle.Flat;
-            BtnFunciones.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnFunciones.ForeColor = Color.White;
-            BtnFunciones.Image = (Image)resources.GetObject("BtnFunciones.Image");
-            BtnFunciones.Location = new Point(-3, 569);
-            BtnFunciones.Name = "BtnFunciones";
-            BtnFunciones.Padding = new Padding(5, 5, 0, 5);
-            BtnFunciones.Size = new Size(224, 65);
-            BtnFunciones.TabIndex = 8;
-            BtnFunciones.Text = "Funciones";
-            BtnFunciones.TextAlign = ContentAlignment.MiddleLeft;
-            BtnFunciones.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BtnFunciones.UseVisualStyleBackColor = false;
             // 
             // BtnBitacora
             // 
@@ -418,7 +398,6 @@
         private Panel panelIzquierdo;
         private Panel PanelCentral;
         private Button BtnSalir;
-        private Button BtnFunciones;
         private Button BtnBitacora;
         private Button BtnClientes;
         private Button BtnFactura;
