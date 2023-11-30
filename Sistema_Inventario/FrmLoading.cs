@@ -16,5 +16,17 @@ namespace Sistema_Inventario
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            panel2.Width += 3;
+            if(panel2.Width >= 800)
+            {
+                timer1.Stop();
+                Formularios.FrmMenu menu = new Formularios.FrmMenu();
+                menu.Show();
+                this.Hide();
+            }
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Sistema_Inventario.BaseDatos
         private SqlDataReader reader; 
         private DataTable recordset = new DataTable();
 
-        public void executeQuery(string Query,List<SqlParameter> parametros,string msg) {
+        public void executeQuery(string Query,List<SqlParameter> parametros, string msg) {
             try {
                 using (com = new SqlCommand(Query, ConSql_))
                 {
@@ -51,18 +51,23 @@ namespace Sistema_Inventario.BaseDatos
             }
         }
 
-        public DataTable getInfo(string Query, List<SqlParameter> parametros) {
+        public DataTable getInfo(string Query, List<SqlParameter> parametros=null) {
             recordset = new DataTable();
 
             try {
                 using (com = new SqlCommand(Query,ConSql_))
                 {
-                    foreach(SqlParameter parameter in parametros)
+                    if (parametros != null)
                     {
-                        if (!com.Parameters.Contains(parameter)) {
-                            com.Parameters.Add(parameter);
+                        foreach (SqlParameter parameter in parametros)
+                        {
+                            if (!com.Parameters.Contains(parameter))
+                            {
+                                com.Parameters.Add(parameter);
+                            }
                         }
                     }
+                    
                     ConSql_.Open();
                     reader = com.ExecuteReader();  
 
