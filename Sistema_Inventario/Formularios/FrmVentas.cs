@@ -10,6 +10,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Sistema_Inventario.Formularios
 {
@@ -310,10 +315,60 @@ namespace Sistema_Inventario.Formularios
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ReporteFormulario reporteForm = new ReporteFormulario();
-            reporteForm.ReporteVentas(dataGridView2.DataSource as DataTable);
-            reporteForm.Show();
+            if (dataGridView2.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.");
+                return;
+            }
+
+            try
+            {
+                // Crear un nuevo archivo de Excel
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Archivos de Excel (*.xlsx)|*.xlsx";
+                saveFileDialog.FileName = "ReporteVentas.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileInfo newFile = new FileInfo(saveFileDialog.FileName);
+
+                    using (ExcelPackage package = new ExcelPackage(newFile))
+                    {
+                        // Agregar una nueva hoja al archivo Excel
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Ventas");
+
+                        // Llenar el archivo Excel con los datos del DataGridView
+                        int rowCount = dataGridView2.Rows.Count;
+                        int columnCount = dataGridView2.Columns.Count;
+
+                        // Encabezados de columna
+                        for (int i = 1; i <= columnCount; i++)
+                        {
+                            worksheet.Cells[1, i].Value = dataGridView2.Columns[i - 1].HeaderText;
+                        }
+
+                        // Datos de la tabla
+                        for (int row = 0; row < rowCount; row++)
+                        {
+                            for (int col = 0; col < columnCount; col++)
+                            {
+                                worksheet.Cells[row + 2, col + 1].Value = dataGridView2.Rows[row].Cells[col].Value?.ToString() ?? "";
+                            }
+                        }
+
+                        // Guardar el archivo
+                        package.Save();
+                        MessageBox.Show("Archivo de Excel generado exitosamente.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el archivo de Excel: " + ex.Message);
+            }
         }
     }
 }
+    
+
 
