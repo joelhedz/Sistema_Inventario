@@ -15,6 +15,8 @@ using OfficeOpenXml.Style;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace Sistema_Inventario.Formularios
 {
@@ -213,6 +215,7 @@ namespace Sistema_Inventario.Formularios
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.Size = new Size(1149, 365);
             dataGridView2.TabIndex = 62;
+            dataGridView2.CellClick += dataGridView2_CellClick;
             // 
             // FrmVentas
             // 
@@ -246,38 +249,46 @@ namespace Sistema_Inventario.Formularios
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            DateTime fechaInicio = dateTimePickerinicio.Value;
-            DateTime fechaFinal = dateTimePickerfinal.Value;
+            DateTime fechaInicio, fechaFinal;
+            if (DateTime.TryParse(dateTimePickerinicio.Text, out fechaInicio) && DateTime.TryParse(dateTimePickerfinal.Text, out fechaFinal))
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+                string consulta = "SELECT * FROM venta WHERE CONVERT(DATE, fecha_venta, 103) BETWEEN @FechaInicio AND @FechaFinal"; // Cambia el formato '103' según tu configuración
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@FechaInicio", fechaInicio);
+                comando.Parameters.AddWithValue("@FechaFinal", fechaFinal);
 
-            conexion.Open();
-            string consulta = "SELECT * FROM venta WHERE fecha_venta BETWEEN @FechaInicio AND @FechaFinal";
-            SqlCommand comando = new SqlCommand(consulta, conexion);
-            comando.Parameters.AddWithValue("@FechaInicio", fechaInicio);
-            comando.Parameters.AddWithValue("@FechaFinal", fechaFinal);
+                adaptador = new SqlDataAdapter(comando);
+                venta = new DataTable();
+                adaptador.Fill(venta);
 
-            adaptador = new SqlDataAdapter(comando);
-            venta = new DataTable();
-            adaptador.Fill(venta);
+                dataGridView2.DataSource = venta;
 
-            dataGridView2.DataSource = venta;
+                conexion.Close();
+            }
         }
 
         private void BtnAnular_Click(object sender, EventArgs e)
         {
             if (dataGridView2.SelectedRows.Count > 0)
             {
-               
-                int idVenta = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["id_venta"].Value);
+                // Obtener el id_venta de la fila seleccionada
+                int idVenta = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["idventa"].Value);
 
-                
-                string consulta = "UPDATE venta SET estado_de_venta = 'Anulada' WHERE id_venta = @IdVenta";
+                // Actualizar el estado de la venta a 'Anulada' en la base de datos
+                string consulta = "UPDATE venta SET estado_venta = '0' WHERE idventa = @IdVenta";
 
                 try
                 {
-                    
-                    conexion.Open();
+                    // Abre la conexión si no está abierta
+                    if (conexion.State != ConnectionState.Open)
+                    {
+                        conexion.Open();
+                    }
 
-                    
                     SqlCommand comando = new SqlCommand(consulta, conexion);
                     comando.Parameters.AddWithValue("@IdVenta", idVenta);
                     int filasActualizadas = comando.ExecuteNonQuery();
@@ -285,9 +296,7 @@ namespace Sistema_Inventario.Formularios
                     if (filasActualizadas > 0)
                     {
                         MessageBox.Show("Venta anulada correctamente.");
-
-                        
-                        BtnBuscar_Click(sender, e);
+                        BtnBuscar_Click(sender, e); // Vuelve a cargar los datos en el DataGridView
                     }
                     else
                     {
@@ -300,7 +309,6 @@ namespace Sistema_Inventario.Formularios
                 }
                 finally
                 {
-                    
                     if (conexion.State == ConnectionState.Open)
                     {
                         conexion.Close();
@@ -311,6 +319,8 @@ namespace Sistema_Inventario.Formularios
             {
                 MessageBox.Show("Por favor, seleccione una venta para anular.");
             }
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -323,41 +333,33 @@ namespace Sistema_Inventario.Formularios
 
             try
             {
-                // Crear un nuevo archivo de Excel
                 var saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "Archivos de Excel (*.xlsx)|*.xlsx";
                 saveFileDialog.FileName = "ReporteVentas.xlsx";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    FileInfo newFile = new FileInfo(saveFileDialog.FileName);
-
-                    using (ExcelPackage package = new ExcelPackage(newFile))
+                    using (var workbook = new ClosedXML.Excel.XLWorkbook())
                     {
-                        // Agregar una nueva hoja al archivo Excel
-                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Ventas");
+                        var worksheet = workbook.Worksheets.Add("Ventas");
 
-                        // Llenar el archivo Excel con los datos del DataGridView
                         int rowCount = dataGridView2.Rows.Count;
                         int columnCount = dataGridView2.Columns.Count;
 
-                        // Encabezados de columna
                         for (int i = 1; i <= columnCount; i++)
                         {
-                            worksheet.Cells[1, i].Value = dataGridView2.Columns[i - 1].HeaderText;
+                            worksheet.Cell(1, i).Value = dataGridView2.Columns[i - 1].HeaderText;
                         }
 
-                        // Datos de la tabla
                         for (int row = 0; row < rowCount; row++)
                         {
                             for (int col = 0; col < columnCount; col++)
                             {
-                                worksheet.Cells[row + 2, col + 1].Value = dataGridView2.Rows[row].Cells[col].Value?.ToString() ?? "";
+                                worksheet.Cell(row + 2, col + 1).Value = dataGridView2.Rows[row].Cells[col].Value?.ToString() ?? "";
                             }
                         }
 
-                        // Guardar el archivo
-                        package.Save();
+                        workbook.SaveAs(saveFileDialog.FileName);
                         MessageBox.Show("Archivo de Excel generado exitosamente.");
                     }
                 }
@@ -366,9 +368,25 @@ namespace Sistema_Inventario.Formularios
             {
                 MessageBox.Show("Error al generar el archivo de Excel: " + ex.Message);
             }
+
+        }
+    
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar si se hizo clic en una fila válida
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Obtener el valor de la celda de la columna "id_venta" en la fila seleccionada
+                int idVenta = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["idventa"].Value);
+
+                // Realizar la acción deseada con el idVenta, por ejemplo, mostrarlo en un MessageBox
+                MessageBox.Show("ID de Venta seleccionada: " + idVenta);
+            }
         }
     }
 }
-    
+
+
 
 
