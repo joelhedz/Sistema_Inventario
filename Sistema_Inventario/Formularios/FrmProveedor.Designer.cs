@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             tabControl1 = new TabControl();
             ListProveedores = new TabPage();
             label1 = new Label();
@@ -38,7 +40,6 @@
             BtnEditar = new Button();
             BtnNuevo = new Button();
             button2 = new Button();
-            dataGridView1 = new DataGridView();
             FormProveedor = new TabPage();
             BtnCancelar = new Button();
             BtnGuardar = new Button();
@@ -53,11 +54,12 @@
             label4 = new Label();
             label2 = new Label();
             label6 = new Label();
+            dataGridView1 = new DataGridView();
             tabControl1.SuspendLayout();
             ListProveedores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             FormProveedor.SuspendLayout();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -76,13 +78,13 @@
             // 
             // ListProveedores
             // 
+            ListProveedores.Controls.Add(dataGridView1);
             ListProveedores.Controls.Add(label1);
             ListProveedores.Controls.Add(textBox1);
             ListProveedores.Controls.Add(BtnEstado);
             ListProveedores.Controls.Add(BtnEditar);
             ListProveedores.Controls.Add(BtnNuevo);
             ListProveedores.Controls.Add(button2);
-            ListProveedores.Controls.Add(dataGridView1);
             ListProveedores.Location = new Point(4, 30);
             ListProveedores.Name = "ListProveedores";
             ListProveedores.Padding = new Padding(3);
@@ -167,33 +169,6 @@
             button2.TabIndex = 63;
             button2.Text = "    Reporte ";
             button2.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Teal;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 192, 255);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeight = 30;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.FromArgb(64, 0, 64);
-            dataGridView1.Location = new Point(54, 116);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(910, 449);
-            dataGridView1.TabIndex = 62;
             // 
             // FormProveedor
             // 
@@ -334,6 +309,51 @@
             label6.TabIndex = 5;
             label6.Text = "Telefono";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Teal;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.GridColor = Color.FromArgb(234, 219, 240);
+            dataGridView1.Location = new Point(54, 133);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(888, 473);
+            dataGridView1.TabIndex = 69;
+            // 
             // FrmProveedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -346,10 +366,10 @@
             tabControl1.ResumeLayout(false);
             ListProveedores.ResumeLayout(false);
             ListProveedores.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             FormProveedor.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -373,10 +393,10 @@
         private Button BtnEditar;
         private Button BtnNuevo;
         private Button button2;
-        private DataGridView dataGridView1;
         private Button BtnCancelar;
         private Button BtnGuardar;
         private Label label1;
         private TextBox textBox1;
+        private DataGridView dataGridView1;
     }
 }

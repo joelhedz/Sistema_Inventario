@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
@@ -43,6 +45,7 @@
             lblsalario = new Label();
             tabControl1 = new TabControl();
             listUsuario = new TabPage();
+            dataGridView1 = new DataGridView();
             BtnEstado = new Button();
             BtnEditar = new Button();
             BtnNuevo = new Button();
@@ -51,15 +54,14 @@
             rbNombre = new RadioButton();
             rbId = new RadioButton();
             textBox4 = new TextBox();
-            dataGridView1 = new DataGridView();
             formUsuarios = new TabPage();
             BtnCancelar = new Button();
             BtnGuardar = new Button();
             maskedTextBox1 = new MaskedTextBox();
             tabControl1.SuspendLayout();
             listUsuario.SuspendLayout();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
             formUsuarios.SuspendLayout();
             SuspendLayout();
             // 
@@ -167,12 +169,12 @@
             // 
             // listUsuario
             // 
+            listUsuario.Controls.Add(dataGridView1);
             listUsuario.Controls.Add(BtnEstado);
             listUsuario.Controls.Add(BtnEditar);
             listUsuario.Controls.Add(BtnNuevo);
             listUsuario.Controls.Add(button2);
             listUsuario.Controls.Add(groupBox1);
-            listUsuario.Controls.Add(dataGridView1);
             listUsuario.Location = new Point(4, 30);
             listUsuario.Name = "listUsuario";
             listUsuario.Padding = new Padding(3);
@@ -180,6 +182,51 @@
             listUsuario.TabIndex = 0;
             listUsuario.Text = "Lista Usuarios";
             listUsuario.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Teal;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.GridColor = Color.FromArgb(234, 219, 240);
+            dataGridView1.Location = new Point(83, 153);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(910, 478);
+            dataGridView1.TabIndex = 62;
             // 
             // BtnEstado
             // 
@@ -192,7 +239,7 @@
             BtnEstado.Name = "BtnEstado";
             BtnEstado.Size = new Size(168, 49);
             BtnEstado.TabIndex = 61;
-            BtnEstado.Text = "button3";
+            BtnEstado.Text = "Estado";
             BtnEstado.UseVisualStyleBackColor = false;
             // 
             // BtnEditar
@@ -286,33 +333,6 @@
             textBox4.Size = new Size(270, 29);
             textBox4.TabIndex = 12;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Teal;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(192, 192, 255);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeight = 30;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.FromArgb(64, 0, 64);
-            dataGridView1.Location = new Point(83, 153);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(910, 455);
-            dataGridView1.TabIndex = 12;
-            // 
             // formUsuarios
             // 
             formUsuarios.Controls.Add(BtnCancelar);
@@ -381,9 +401,9 @@
             Text = "Cliente";
             tabControl1.ResumeLayout(false);
             listUsuario.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             formUsuarios.ResumeLayout(false);
             formUsuarios.PerformLayout();
             ResumeLayout(false);
@@ -404,7 +424,6 @@
         private TabControl tabControl1;
         private TabPage listUsuario;
         private TabPage formUsuarios;
-        private DataGridView dataGridView1;
         private MaskedTextBox maskedTextBox1;
         private Button button2;
         private GroupBox groupBox1;
@@ -416,5 +435,6 @@
         private Button BtnEstado;
         private Button BtnEditar;
         private Button BtnNuevo;
+        private DataGridView dataGridView1;
     }
 }

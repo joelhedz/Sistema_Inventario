@@ -23,12 +23,12 @@
         private Button btnbusacr;
         private Button bntmenu;
         private DateTimePicker dateTimePicker;
-        private DataGridView dataGridView1;
         private Button button2;
         private GroupBox groupBox1;
         private Label label1;
         private DateTimePicker dateTimePicker1;
         private Button BtnBuscar;
         private Button BtnAnular;
+        private DataGridView dataGridView2;
     }
 }

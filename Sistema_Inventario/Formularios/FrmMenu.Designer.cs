@@ -158,6 +158,7 @@
             BtnBitacora.TextAlign = ContentAlignment.MiddleLeft;
             BtnBitacora.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnBitacora.UseVisualStyleBackColor = false;
+            BtnBitacora.Visible = false;
             BtnBitacora.Click += BtnBitacora_Click;
             // 
             // BtnClientes
@@ -177,6 +178,7 @@
             BtnClientes.TextAlign = ContentAlignment.MiddleLeft;
             BtnClientes.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnClientes.UseVisualStyleBackColor = false;
+            BtnClientes.Visible = false;
             BtnClientes.Click += BtnClientes_Click;
             // 
             // BtnFactura
@@ -196,6 +198,7 @@
             BtnFactura.TextAlign = ContentAlignment.MiddleLeft;
             BtnFactura.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnFactura.UseVisualStyleBackColor = false;
+            BtnFactura.Visible = false;
             BtnFactura.Click += BtnFactura_Click;
             // 
             // BtnProductos
@@ -215,6 +218,7 @@
             BtnProductos.TextAlign = ContentAlignment.MiddleLeft;
             BtnProductos.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnProductos.UseVisualStyleBackColor = false;
+            BtnProductos.Visible = false;
             BtnProductos.Click += BtnProductos_Click;
             // 
             // BtnCompras
@@ -234,6 +238,7 @@
             BtnCompras.TextAlign = ContentAlignment.MiddleLeft;
             BtnCompras.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnCompras.UseVisualStyleBackColor = false;
+            BtnCompras.Visible = false;
             BtnCompras.Click += BtnCompras_Click;
             // 
             // BtnVentas
@@ -253,6 +258,7 @@
             BtnVentas.TextAlign = ContentAlignment.MiddleLeft;
             BtnVentas.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnVentas.UseVisualStyleBackColor = false;
+            BtnVentas.Visible = false;
             BtnVentas.Click += BtnVentas_Click;
             // 
             // BtnUsuarios
@@ -272,6 +278,7 @@
             BtnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
             BtnUsuarios.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnUsuarios.UseVisualStyleBackColor = false;
+            BtnUsuarios.Visible = false;
             BtnUsuarios.Click += BtnUsuarios_Click;
             // 
             // BtnProveedores
@@ -291,6 +298,7 @@
             BtnProveedores.TextAlign = ContentAlignment.MiddleLeft;
             BtnProveedores.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnProveedores.UseVisualStyleBackColor = false;
+            BtnProveedores.Visible = false;
             BtnProveedores.Click += BtnProveedores_Click;
             // 
             // PanelCentral

@@ -13,6 +13,7 @@ namespace Sistema_Inventario.Formularios
     public partial class FrmMenu : Form
     {
         Controladores.ClassMensajes msj = new Controladores.ClassMensajes();
+        Controladores.ClassRoles roles = new Controladores.ClassRoles();
         private Button currentButton;
         private Form activeForm;
         public FrmMenu()
@@ -91,7 +92,7 @@ namespace Sistema_Inventario.Formularios
 
         private void FrmMenu_Load_1(object sender, EventArgs e)
         {
-
+            roles.AlCargarForm(panelIzquierdo,BtnBitacora,BtnClientes,BtnCompras,BtnFactura,BtnProductos,BtnProveedores,BtnUsuarios,BtnVentas);
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)

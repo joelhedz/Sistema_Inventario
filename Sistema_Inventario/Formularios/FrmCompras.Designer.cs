@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompras));
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             lblnombreproducto = new Label();
             lblprecio = new Label();
             lblcantidad = new Label();
@@ -37,44 +39,44 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             groupBox1 = new GroupBox();
+            comboBox2 = new ComboBox();
+            label9 = new Label();
+            rbExistente = new RadioButton();
+            rbNuevo = new RadioButton();
+            dtFecha = new DateTimePicker();
+            label6 = new Label();
             groupBox2 = new GroupBox();
+            textBox4 = new TextBox();
+            label1 = new Label();
+            comboBox1 = new ComboBox();
+            PbFoto = new PictureBox();
+            btnimagen = new Button();
             textBox7 = new TextBox();
             lblproductos = new Label();
             textBox8 = new TextBox();
             lBLIGV = new Label();
             tabControl1 = new TabControl();
             ListCompra = new TabPage();
-            FormCompra = new TabPage();
-            BtnEstado = new Button();
-            BtnEditar = new Button();
-            BtnNuevo = new Button();
-            button2 = new Button();
-            dataGridView1 = new DataGridView();
-            PbFoto = new PictureBox();
-            btnimagen = new Button();
-            label9 = new Label();
-            rbExistente = new RadioButton();
-            rbNuevo = new RadioButton();
-            dtFecha = new DateTimePicker();
-            label6 = new Label();
-            comboBox1 = new ComboBox();
-            textBox4 = new TextBox();
-            label1 = new Label();
-            comboBox2 = new ComboBox();
             groupBox3 = new GroupBox();
             rbNombre = new RadioButton();
             rbId = new RadioButton();
             textBox1 = new TextBox();
+            BtnEstado = new Button();
+            BtnNuevo = new Button();
+            BtnEditar = new Button();
+            button2 = new Button();
+            FormCompra = new TabPage();
             BtnCancelar = new Button();
             BtnGuardar = new Button();
+            dataGridView1 = new DataGridView();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PbFoto).BeginInit();
             tabControl1.SuspendLayout();
             ListCompra.SuspendLayout();
+            groupBox3.SuspendLayout();
             FormCompra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PbFoto).BeginInit();
-            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // lblnombreproducto
@@ -144,214 +146,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Ingresar Datos";
             // 
-            // groupBox2
+            // comboBox2
             // 
-            groupBox2.Controls.Add(textBox4);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Controls.Add(comboBox1);
-            groupBox2.Controls.Add(PbFoto);
-            groupBox2.Controls.Add(lbltotalapagar);
-            groupBox2.Controls.Add(textBox3);
-            groupBox2.Controls.Add(lblcantidad);
-            groupBox2.Controls.Add(textBox2);
-            groupBox2.Controls.Add(btnimagen);
-            groupBox2.Controls.Add(textBox7);
-            groupBox2.Controls.Add(lblproductos);
-            groupBox2.Controls.Add(lblprecio);
-            groupBox2.Controls.Add(textBox8);
-            groupBox2.Controls.Add(lBLIGV);
-            groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(52, 173);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1101, 264);
-            groupBox2.TabIndex = 19;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Detalles";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(43, 66);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(202, 29);
-            textBox7.TabIndex = 6;
-            // 
-            // lblproductos
-            // 
-            lblproductos.AutoSize = true;
-            lblproductos.Location = new Point(259, 42);
-            lblproductos.Name = "lblproductos";
-            lblproductos.Size = new Size(87, 21);
-            lblproductos.TabIndex = 0;
-            lblproductos.Text = " Productos:";
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(43, 131);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(631, 29);
-            textBox8.TabIndex = 7;
-            // 
-            // lBLIGV
-            // 
-            lBLIGV.AutoSize = true;
-            lBLIGV.Location = new Point(43, 107);
-            lBLIGV.Name = "lBLIGV";
-            lBLIGV.Size = new Size(94, 21);
-            lBLIGV.TabIndex = 1;
-            lBLIGV.Text = "Descripcion:";
-            // 
-            // tabControl1
-            // 
-            tabControl1.Controls.Add(ListCompra);
-            tabControl1.Controls.Add(FormCompra);
-            tabControl1.Dock = DockStyle.Fill;
-            tabControl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            tabControl1.Location = new Point(0, 0);
-            tabControl1.Name = "tabControl1";
-            tabControl1.Padding = new Point(10, 3);
-            tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1223, 693);
-            tabControl1.TabIndex = 20;
-            // 
-            // ListCompra
-            // 
-            ListCompra.Controls.Add(groupBox3);
-            ListCompra.Controls.Add(dataGridView1);
-            ListCompra.Controls.Add(BtnEstado);
-            ListCompra.Controls.Add(BtnNuevo);
-            ListCompra.Controls.Add(BtnEditar);
-            ListCompra.Controls.Add(button2);
-            ListCompra.Location = new Point(4, 30);
-            ListCompra.Name = "ListCompra";
-            ListCompra.Padding = new Padding(3);
-            ListCompra.Size = new Size(1215, 659);
-            ListCompra.TabIndex = 0;
-            ListCompra.Text = "Compras";
-            ListCompra.UseVisualStyleBackColor = true;
-            // 
-            // FormCompra
-            // 
-            FormCompra.Controls.Add(BtnCancelar);
-            FormCompra.Controls.Add(BtnGuardar);
-            FormCompra.Controls.Add(groupBox1);
-            FormCompra.Controls.Add(groupBox2);
-            FormCompra.Location = new Point(4, 30);
-            FormCompra.Name = "FormCompra";
-            FormCompra.Padding = new Padding(3);
-            FormCompra.Size = new Size(1215, 659);
-            FormCompra.TabIndex = 1;
-            FormCompra.Text = "Compra";
-            FormCompra.UseVisualStyleBackColor = true;
-            // 
-            // BtnEstado
-            // 
-            BtnEstado.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnEstado.BackColor = Color.Maroon;
-            BtnEstado.FlatStyle = FlatStyle.Flat;
-            BtnEstado.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnEstado.ForeColor = SystemColors.ButtonHighlight;
-            BtnEstado.Location = new Point(1015, 279);
-            BtnEstado.Name = "BtnEstado";
-            BtnEstado.Size = new Size(168, 49);
-            BtnEstado.TabIndex = 65;
-            BtnEstado.Text = "button3";
-            BtnEstado.UseVisualStyleBackColor = false;
-            // 
-            // BtnEditar
-            // 
-            BtnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnEditar.BackColor = Color.Teal;
-            BtnEditar.FlatStyle = FlatStyle.Flat;
-            BtnEditar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnEditar.ForeColor = SystemColors.ButtonHighlight;
-            BtnEditar.Location = new Point(1015, 218);
-            BtnEditar.Name = "BtnEditar";
-            BtnEditar.Size = new Size(168, 49);
-            BtnEditar.TabIndex = 64;
-            BtnEditar.Text = "Editar";
-            BtnEditar.UseVisualStyleBackColor = false;
-            // 
-            // BtnNuevo
-            // 
-            BtnNuevo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BtnNuevo.BackColor = Color.Green;
-            BtnNuevo.FlatStyle = FlatStyle.Flat;
-            BtnNuevo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnNuevo.ForeColor = SystemColors.ButtonHighlight;
-            BtnNuevo.Location = new Point(1015, 157);
-            BtnNuevo.Name = "BtnNuevo";
-            BtnNuevo.Size = new Size(168, 49);
-            BtnNuevo.TabIndex = 63;
-            BtnNuevo.Text = "Nuevo";
-            BtnNuevo.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.FromArgb(38, 56, 78);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(1015, 344);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(168, 50);
-            button2.TabIndex = 62;
-            button2.Text = "    Reporte ";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.Teal;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(192, 192, 255);
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dataGridView1.ColumnHeadersHeight = 30;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.FromArgb(64, 0, 64);
-            dataGridView1.Location = new Point(68, 133);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(910, 455);
-            dataGridView1.TabIndex = 66;
-            // 
-            // PbFoto
-            // 
-            PbFoto.BorderStyle = BorderStyle.FixedSingle;
-            PbFoto.Location = new Point(795, 27);
-            PbFoto.Margin = new Padding(3, 2, 3, 2);
-            PbFoto.Name = "PbFoto";
-            PbFoto.Size = new Size(151, 135);
-            PbFoto.SizeMode = PictureBoxSizeMode.StretchImage;
-            PbFoto.TabIndex = 39;
-            PbFoto.TabStop = false;
-            // 
-            // btnimagen
-            // 
-            btnimagen.BackColor = Color.FromArgb(10, 153, 246);
-            btnimagen.FlatStyle = FlatStyle.Flat;
-            btnimagen.ForeColor = Color.White;
-            btnimagen.Location = new Point(795, 176);
-            btnimagen.Margin = new Padding(3, 2, 3, 2);
-            btnimagen.Name = "btnimagen";
-            btnimagen.Size = new Size(151, 40);
-            btnimagen.TabIndex = 38;
-            btnimagen.Text = "Cargar Imagen";
-            btnimagen.UseVisualStyleBackColor = false;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(152, 48);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(257, 29);
+            comboBox2.TabIndex = 43;
             // 
             // label9
             // 
@@ -405,13 +206,29 @@
             label6.TabIndex = 30;
             label6.Text = "Fecha Compra:";
             // 
-            // comboBox1
+            // groupBox2
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(417, 198);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(257, 29);
-            comboBox1.TabIndex = 40;
+            groupBox2.Controls.Add(textBox4);
+            groupBox2.Controls.Add(label1);
+            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(PbFoto);
+            groupBox2.Controls.Add(lbltotalapagar);
+            groupBox2.Controls.Add(textBox3);
+            groupBox2.Controls.Add(lblcantidad);
+            groupBox2.Controls.Add(textBox2);
+            groupBox2.Controls.Add(btnimagen);
+            groupBox2.Controls.Add(textBox7);
+            groupBox2.Controls.Add(lblproductos);
+            groupBox2.Controls.Add(lblprecio);
+            groupBox2.Controls.Add(textBox8);
+            groupBox2.Controls.Add(lBLIGV);
+            groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox2.Location = new Point(52, 173);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(1101, 264);
+            groupBox2.TabIndex = 19;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Detalles";
             // 
             // textBox4
             // 
@@ -429,13 +246,98 @@
             label1.TabIndex = 41;
             label1.Text = "Id Articulo:";
             // 
-            // comboBox2
+            // comboBox1
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(152, 48);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(257, 29);
-            comboBox2.TabIndex = 43;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(417, 198);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(257, 29);
+            comboBox1.TabIndex = 40;
+            // 
+            // PbFoto
+            // 
+            PbFoto.BorderStyle = BorderStyle.FixedSingle;
+            PbFoto.Location = new Point(795, 27);
+            PbFoto.Margin = new Padding(3, 2, 3, 2);
+            PbFoto.Name = "PbFoto";
+            PbFoto.Size = new Size(151, 135);
+            PbFoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            PbFoto.TabIndex = 39;
+            PbFoto.TabStop = false;
+            // 
+            // btnimagen
+            // 
+            btnimagen.BackColor = Color.FromArgb(10, 153, 246);
+            btnimagen.FlatStyle = FlatStyle.Flat;
+            btnimagen.ForeColor = Color.White;
+            btnimagen.Location = new Point(795, 176);
+            btnimagen.Margin = new Padding(3, 2, 3, 2);
+            btnimagen.Name = "btnimagen";
+            btnimagen.Size = new Size(151, 40);
+            btnimagen.TabIndex = 38;
+            btnimagen.Text = "Cargar Imagen";
+            btnimagen.UseVisualStyleBackColor = false;
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(43, 66);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(202, 29);
+            textBox7.TabIndex = 6;
+            // 
+            // lblproductos
+            // 
+            lblproductos.AutoSize = true;
+            lblproductos.Location = new Point(259, 42);
+            lblproductos.Name = "lblproductos";
+            lblproductos.Size = new Size(87, 21);
+            lblproductos.TabIndex = 0;
+            lblproductos.Text = " Productos:";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(43, 131);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(631, 29);
+            textBox8.TabIndex = 7;
+            // 
+            // lBLIGV
+            // 
+            lBLIGV.AutoSize = true;
+            lBLIGV.Location = new Point(43, 107);
+            lBLIGV.Name = "lBLIGV";
+            lBLIGV.Size = new Size(94, 21);
+            lBLIGV.TabIndex = 1;
+            lBLIGV.Text = "Descripcion:";
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(ListCompra);
+            tabControl1.Controls.Add(FormCompra);
+            tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tabControl1.Location = new Point(0, 0);
+            tabControl1.Name = "tabControl1";
+            tabControl1.Padding = new Point(10, 3);
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1223, 693);
+            tabControl1.TabIndex = 20;
+            // 
+            // ListCompra
+            // 
+            ListCompra.Controls.Add(dataGridView1);
+            ListCompra.Controls.Add(groupBox3);
+            ListCompra.Controls.Add(BtnEstado);
+            ListCompra.Controls.Add(BtnNuevo);
+            ListCompra.Controls.Add(BtnEditar);
+            ListCompra.Controls.Add(button2);
+            ListCompra.Location = new Point(4, 30);
+            ListCompra.Name = "ListCompra";
+            ListCompra.Padding = new Padding(3);
+            ListCompra.Size = new Size(1215, 659);
+            ListCompra.TabIndex = 0;
+            ListCompra.Text = "Compras";
+            ListCompra.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -483,6 +385,79 @@
             textBox1.Size = new Size(270, 29);
             textBox1.TabIndex = 12;
             // 
+            // BtnEstado
+            // 
+            BtnEstado.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnEstado.BackColor = Color.Maroon;
+            BtnEstado.FlatStyle = FlatStyle.Flat;
+            BtnEstado.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnEstado.ForeColor = SystemColors.ButtonHighlight;
+            BtnEstado.Location = new Point(1015, 279);
+            BtnEstado.Name = "BtnEstado";
+            BtnEstado.Size = new Size(168, 49);
+            BtnEstado.TabIndex = 65;
+            BtnEstado.Text = "button3";
+            BtnEstado.UseVisualStyleBackColor = false;
+            // 
+            // BtnNuevo
+            // 
+            BtnNuevo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnNuevo.BackColor = Color.Green;
+            BtnNuevo.FlatStyle = FlatStyle.Flat;
+            BtnNuevo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnNuevo.ForeColor = SystemColors.ButtonHighlight;
+            BtnNuevo.Location = new Point(1015, 157);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(168, 49);
+            BtnNuevo.TabIndex = 63;
+            BtnNuevo.Text = "Nuevo";
+            BtnNuevo.UseVisualStyleBackColor = false;
+            // 
+            // BtnEditar
+            // 
+            BtnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnEditar.BackColor = Color.Teal;
+            BtnEditar.FlatStyle = FlatStyle.Flat;
+            BtnEditar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnEditar.ForeColor = SystemColors.ButtonHighlight;
+            BtnEditar.Location = new Point(1015, 218);
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Size = new Size(168, 49);
+            BtnEditar.TabIndex = 64;
+            BtnEditar.Text = "Editar";
+            BtnEditar.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button2.BackColor = Color.FromArgb(38, 56, 78);
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.ForeColor = Color.White;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(1015, 344);
+            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Name = "button2";
+            button2.Size = new Size(168, 50);
+            button2.TabIndex = 62;
+            button2.Text = "    Reporte ";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // FormCompra
+            // 
+            FormCompra.Controls.Add(BtnCancelar);
+            FormCompra.Controls.Add(BtnGuardar);
+            FormCompra.Controls.Add(groupBox1);
+            FormCompra.Controls.Add(groupBox2);
+            FormCompra.Location = new Point(4, 30);
+            FormCompra.Name = "FormCompra";
+            FormCompra.Padding = new Padding(3);
+            FormCompra.Size = new Size(1215, 659);
+            FormCompra.TabIndex = 1;
+            FormCompra.Text = "Compra";
+            FormCompra.UseVisualStyleBackColor = true;
+            // 
             // BtnCancelar
             // 
             BtnCancelar.Anchor = AnchorStyles.None;
@@ -509,6 +484,51 @@
             BtnGuardar.Text = "Guardar";
             BtnGuardar.UseVisualStyleBackColor = false;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Teal;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.GridColor = Color.FromArgb(234, 219, 240);
+            dataGridView1.Location = new Point(68, 157);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(910, 448);
+            dataGridView1.TabIndex = 68;
+            // 
             // FrmCompras
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -521,13 +541,13 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PbFoto).EndInit();
             tabControl1.ResumeLayout(false);
             ListCompra.ResumeLayout(false);
-            FormCompra.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PbFoto).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            FormCompra.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -552,7 +572,6 @@
         private Button BtnNuevo;
         private Button BtnEditar;
         private Button button2;
-        private DataGridView dataGridView1;
         private PictureBox PbFoto;
         private Button btnimagen;
         private Label label9;
@@ -570,5 +589,6 @@
         private TextBox textBox1;
         private Button BtnCancelar;
         private Button BtnGuardar;
+        private DataGridView dataGridView1;
     }
 }

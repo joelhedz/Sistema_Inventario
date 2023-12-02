@@ -12,6 +12,7 @@ namespace Sistema_Inventario.Formularios
 {
     public partial class FrmUsuario : Form
     {
+        Controladores.ClassRoles roles = new Controladores.ClassRoles();
         Controladores.ClassMensajes msj = new Controladores.ClassMensajes();
         BaseDatos.ClassCrud crud = new BaseDatos.ClassCrud();
         private Form activeForm;
@@ -34,6 +35,7 @@ namespace Sistema_Inventario.Formularios
         }
         private void FrmUsuario_Load(object sender, EventArgs e)
         {
+            roles.BotonesAccesos(BtnNuevo,BtnEstado,BtnGuardar,dataGridView1);
             getUsuarios();
         }
 
