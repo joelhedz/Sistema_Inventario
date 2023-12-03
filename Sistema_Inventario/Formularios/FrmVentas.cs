@@ -1,20 +1,37 @@
-﻿using System;
+﻿using Sistema_Inventario.BaseDatos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
+using System.IO;
+using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace Sistema_Inventario.Formularios
 {
     public partial class FrmVentas : Form
     {
+        private SqlConnection conexion;
+        private SqlDataAdapter adaptador;
+        private DataTable venta;
+
         public FrmVentas()
         {
             InitializeComponent();
+            conexion = new SqlConnection(ClassConexion.ConnectionString);
+            string connectionString = "Server=LAPTOP-NGSPQNQG\\CRISTOPHERNUÑEZ;Database=alphaInventary;User id=criss;Password=12345;";
+
         }
 
         private void InitializeComponent()
@@ -25,16 +42,16 @@ namespace Sistema_Inventario.Formularios
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label4 = new Label();
             btnbusacr = new Button();
-            dateTimePicker = new DateTimePicker();
+            dateTimePickerinicio = new DateTimePicker();
             button2 = new Button();
             groupBox1 = new GroupBox();
             BtnBuscar = new Button();
             label1 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dateTimePickerfinal = new DateTimePicker();
             BtnAnular = new Button();
-            this.dataGridView2 = new DataGridView();
+            dataGridView2 = new DataGridView();
             groupBox1.SuspendLayout();
-            ((ISupportInitialize)this.dataGridView2).BeginInit();
+            ((ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // label4
@@ -58,15 +75,15 @@ namespace Sistema_Inventario.Formularios
             btnbusacr.Text = "Eliminar Filtro";
             btnbusacr.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker
+            // dateTimePickerinicio
             // 
-            dateTimePicker.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            dateTimePicker.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker.Format = DateTimePickerFormat.Short;
-            dateTimePicker.Location = new Point(15, 61);
-            dateTimePicker.Name = "dateTimePicker";
-            dateTimePicker.Size = new Size(367, 29);
-            dateTimePicker.TabIndex = 18;
+            dateTimePickerinicio.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dateTimePickerinicio.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerinicio.Format = DateTimePickerFormat.Short;
+            dateTimePickerinicio.Location = new Point(15, 61);
+            dateTimePickerinicio.Name = "dateTimePickerinicio";
+            dateTimePickerinicio.Size = new Size(367, 29);
+            dateTimePickerinicio.TabIndex = 18;
             // 
             // button2
             // 
@@ -84,15 +101,16 @@ namespace Sistema_Inventario.Formularios
             button2.TabIndex = 59;
             button2.Text = "    Reporte ";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(BtnBuscar);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(dateTimePickerfinal);
             groupBox1.Controls.Add(btnbusacr);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(dateTimePicker);
+            groupBox1.Controls.Add(dateTimePickerinicio);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.Location = new Point(37, 29);
             groupBox1.Name = "groupBox1";
@@ -114,6 +132,7 @@ namespace Sistema_Inventario.Formularios
             BtnBuscar.Text = "   Buscar";
             BtnBuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnBuscar.UseVisualStyleBackColor = false;
+            BtnBuscar.Click += BtnBuscar_Click;
             // 
             // label1
             // 
@@ -126,15 +145,15 @@ namespace Sistema_Inventario.Formularios
             label1.TabIndex = 19;
             label1.Text = "Fecha Final";
             // 
-            // dateTimePicker1
+            // dateTimePickerfinal
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dateTimePicker1.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(456, 61);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(321, 29);
-            dateTimePicker1.TabIndex = 20;
+            dateTimePickerfinal.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            dateTimePickerfinal.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dateTimePickerfinal.Format = DateTimePickerFormat.Short;
+            dateTimePickerfinal.Location = new Point(456, 61);
+            dateTimePickerfinal.Name = "dateTimePickerfinal";
+            dateTimePickerfinal.Size = new Size(321, 29);
+            dateTimePickerfinal.TabIndex = 20;
             // 
             // BtnAnular
             // 
@@ -150,16 +169,17 @@ namespace Sistema_Inventario.Formularios
             BtnAnular.TabIndex = 61;
             BtnAnular.Text = "Anular Venta";
             BtnAnular.UseVisualStyleBackColor = false;
+            BtnAnular.Click += BtnAnular_Click;
             // 
             // dataGridView2
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            this.dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.BackgroundColor = Color.White;
-            this.dataGridView2.BorderStyle = BorderStyle.None;
-            this.dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.BackgroundColor = Color.White;
+            dataGridView2.BorderStyle = BorderStyle.None;
+            dataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Teal;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -167,8 +187,8 @@ namespace Sistema_Inventario.Formularios
             dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.ColumnHeadersHeight = 30;
+            dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView2.ColumnHeadersHeight = 30;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -176,12 +196,12 @@ namespace Sistema_Inventario.Formularios
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.EnableHeadersVisualStyles = false;
-            this.dataGridView2.GridColor = Color.FromArgb(234, 219, 240);
-            this.dataGridView2.Location = new Point(37, 292);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
+            dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView2.EnableHeadersVisualStyles = false;
+            dataGridView2.GridColor = Color.FromArgb(234, 219, 240);
+            dataGridView2.Location = new Point(37, 292);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -189,25 +209,27 @@ namespace Sistema_Inventario.Formularios
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new Size(1149, 365);
-            this.dataGridView2.TabIndex = 62;
+            dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView2.RowHeadersVisible = false;
+            dataGridView2.RowTemplate.Height = 25;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.Size = new Size(1149, 365);
+            dataGridView2.TabIndex = 62;
+            dataGridView2.CellClick += dataGridView2_CellClick;
             // 
             // FrmVentas
             // 
             ClientSize = new Size(1223, 693);
-            Controls.Add(this.dataGridView2);
+            Controls.Add(dataGridView2);
             Controls.Add(BtnAnular);
             Controls.Add(groupBox1);
             Controls.Add(button2);
             Name = "FrmVentas";
             Text = "Ventas";
+            Load += FrmVentas_Load_1;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((ISupportInitialize)this.dataGridView2).EndInit();
+            ((ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
         }
 
@@ -219,5 +241,152 @@ namespace Sistema_Inventario.Formularios
         {
 
         }
+
+        private void FrmVentas_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            DateTime fechaInicio, fechaFinal;
+            if (DateTime.TryParse(dateTimePickerinicio.Text, out fechaInicio) && DateTime.TryParse(dateTimePickerfinal.Text, out fechaFinal))
+            {
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+                string consulta = "SELECT * FROM venta WHERE CONVERT(DATE, fecha_venta, 103) BETWEEN @FechaInicio AND @FechaFinal"; // Cambia el formato '103' según tu configuración
+                SqlCommand comando = new SqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@FechaInicio", fechaInicio);
+                comando.Parameters.AddWithValue("@FechaFinal", fechaFinal);
+
+                adaptador = new SqlDataAdapter(comando);
+                venta = new DataTable();
+                adaptador.Fill(venta);
+
+                dataGridView2.DataSource = venta;
+
+                conexion.Close();
+            }
+        }
+
+        private void BtnAnular_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                // Obtener el id_venta de la fila seleccionada
+                int idVenta = Convert.ToInt32(dataGridView2.SelectedRows[0].Cells["idventa"].Value);
+
+                // Actualizar el estado de la venta a 'Anulada' en la base de datos
+                string consulta = "UPDATE venta SET estado_venta = '0' WHERE idventa = @IdVenta";
+
+                try
+                {
+                    // Abre la conexión si no está abierta
+                    if (conexion.State != ConnectionState.Open)
+                    {
+                        conexion.Open();
+                    }
+
+                    SqlCommand comando = new SqlCommand(consulta, conexion);
+                    comando.Parameters.AddWithValue("@IdVenta", idVenta);
+                    int filasActualizadas = comando.ExecuteNonQuery();
+
+                    if (filasActualizadas > 0)
+                    {
+                        MessageBox.Show("Venta anulada correctamente.");
+                        BtnBuscar_Click(sender, e); // Vuelve a cargar los datos en el DataGridView
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo anular la venta.");
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Error al anular la venta: " + ex.Message);
+                }
+                finally
+                {
+                    if (conexion.State == ConnectionState.Open)
+                    {
+                        conexion.Close();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una venta para anular.");
+            }
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos para exportar.");
+                return;
+            }
+
+            try
+            {
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Archivos de Excel (*.xlsx)|*.xlsx";
+                saveFileDialog.FileName = "ReporteVentas.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (var workbook = new ClosedXML.Excel.XLWorkbook())
+                    {
+                        var worksheet = workbook.Worksheets.Add("Ventas");
+
+                        int rowCount = dataGridView2.Rows.Count;
+                        int columnCount = dataGridView2.Columns.Count;
+
+                        for (int i = 1; i <= columnCount; i++)
+                        {
+                            worksheet.Cell(1, i).Value = dataGridView2.Columns[i - 1].HeaderText;
+                        }
+
+                        for (int row = 0; row < rowCount; row++)
+                        {
+                            for (int col = 0; col < columnCount; col++)
+                            {
+                                worksheet.Cell(row + 2, col + 1).Value = dataGridView2.Rows[row].Cells[col].Value?.ToString() ?? "";
+                            }
+                        }
+
+                        workbook.SaveAs(saveFileDialog.FileName);
+                        MessageBox.Show("Archivo de Excel generado exitosamente.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el archivo de Excel: " + ex.Message);
+            }
+
+        }
+    
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar si se hizo clic en una fila válida
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Obtener el valor de la celda de la columna "id_venta" en la fila seleccionada
+                int idVenta = Convert.ToInt32(dataGridView2.Rows[e.RowIndex].Cells["idventa"].Value);
+
+                // Realizar la acción deseada con el idVenta, por ejemplo, mostrarlo en un MessageBox
+                MessageBox.Show("ID de Venta seleccionada: " + idVenta);
+            }
+        }
     }
 }
+
+
+
+
