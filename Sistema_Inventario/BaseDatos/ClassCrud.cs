@@ -33,7 +33,7 @@ namespace Sistema_Inventario.BaseDatos
                     com.Dispose();
                     ConSql_.Close();
 
-                    if (msg != null)
+                    if (msg != "")
                     {
                         mensaje.Exito(msg);               
                     }

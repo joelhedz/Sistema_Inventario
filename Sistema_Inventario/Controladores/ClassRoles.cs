@@ -54,7 +54,7 @@ namespace Sistema_Inventario.Controladores
 
             //Se valida si el usuario tiene permiso para ver el formulario
             List<SqlParameter> Params = new List<SqlParameter>();
-            Params.Add(new SqlParameter("@rolcode", "AUDIT"));
+            Params.Add(new SqlParameter("@rolcode", "ADMIN"));
 
             BaseDatos.ClassCrud crud = new BaseDatos.ClassCrud();
             
@@ -112,13 +112,25 @@ namespace Sistema_Inventario.Controladores
 
 
         //Se crea un metodo para cargar los botones del formulario, segun el rol del usuario
-        public void BotonesAccesos(Button ButtonNuevo_, Button ButtonEliminaroEstado,Button ButtonConfirmar, DataGridView Dgv_Name )
+        public void BotonesAccesos(Button ButtonNuevo_,Button ButtonGuardar,Button ButtonEditar ,Button ButtonEliminaroEstado,Button ButtonConfirmar, DataGridView Dgv_Name, Button ButtonReportes = null)
         {
             List<String> Mode = new List<String>();
             Mode.Add("GUARDAR");
             Mode.Add("ELIMINAR");
             Mode.Add("ACTUALIZAR");
             Mode.Add("LECTURA");
+            Mode.Add("REPORTES");   
+
+            ButtonNuevo_.Visible = false;
+            ButtonGuardar.Visible = false;
+            ButtonEditar.Visible = false;
+            ButtonEliminaroEstado.Visible = false;
+            ButtonConfirmar.Visible = false;
+            Dgv_Name.Enabled = false;
+            if(ButtonReportes != null)
+            {
+                ButtonReportes.Visible = false;
+            }
 
             foreach (DataRow dr in dtFunciones_Roles.Rows)
             {
@@ -127,40 +139,32 @@ namespace Sistema_Inventario.Controladores
                 {
                     if (Funcion == "ELIMINAR")
                     {
-                        ButtonEliminaroEstado.Enabled = true;
+                        ButtonEliminaroEstado.Visible = true;
                     }
                     if (Funcion == "GUARDAR")
                     {
-                        ButtonConfirmar.Enabled = true;
+                        ButtonNuevo_.Visible = true;
+                        ButtonGuardar.Visible = true;
+                        
                     }
                     if (Funcion == "ACTUALIZAR")
                     {
-                        ButtonConfirmar.Enabled = true;
+                        ButtonEditar.Visible = true;
+                        ButtonConfirmar.Visible = true;
                     }
                     if (Funcion == "LECTURA")
                     {
                         Dgv_Name.Enabled = true;
                     }
-                }
-                else
-                {
-                    if (Funcion != "ELIMINAR")
+                    if (ButtonReportes != null)
                     {
-                        ButtonEliminaroEstado.Enabled = false;
-                    }
-                    if (Funcion != "GUARDAR")
-                    {
-                        ButtonConfirmar.Enabled = false;
-                    }
-                    if (Funcion != "ACTUALIZAR")
-                    {
-                        ButtonConfirmar.Enabled = false;
-                    }
-                    if (Funcion != "LECTURA")
-                    {
-                        Dgv_Name.Enabled = false;
+                        if (Funcion == "REPORTES")
+                        {
+                            ButtonReportes.Visible = false;
+                        }
                     }
                 }
+            
             }
         }
     }

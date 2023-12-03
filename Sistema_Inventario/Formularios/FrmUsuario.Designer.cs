@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            textBox1 = new TextBox();
+            TxtBuscar = new TextBox();
             label1 = new Label();
             tabControl1 = new TabControl();
             tabpageListUsuario = new TabPage();
@@ -41,36 +42,41 @@
             BtnEstado = new Button();
             BtnEditar = new Button();
             BtnNuevo = new Button();
-            dataGridView1 = new DataGridView();
+            dgvUsuario = new DataGridView();
             tabPageFormUsuarios = new TabPage();
+            BtnConfirmar = new Button();
             BtnCancelar = new Button();
             BtnGuardar = new Button();
             groupBox1 = new GroupBox();
-            rbSuspendido = new RadioButton();
+            gboxEstados = new GroupBox();
+            rbInactivo = new RadioButton();
             rbActivo = new RadioButton();
-            label9 = new Label();
             cmbRol = new ComboBox();
             label5 = new Label();
             txtcontraseña = new TextBox();
             label8 = new Label();
             label3 = new Label();
             txtuser = new TextBox();
+            errorProvider1 = new ErrorProvider(components);
             tabControl1.SuspendLayout();
             tabpageListUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuario).BeginInit();
             tabPageFormUsuarios.SuspendLayout();
             groupBox1.SuspendLayout();
+            gboxEstados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // TxtBuscar
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(203, 65);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(363, 29);
-            textBox1.TabIndex = 23;
+            TxtBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            TxtBuscar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtBuscar.Location = new Point(203, 65);
+            TxtBuscar.Margin = new Padding(3, 2, 3, 2);
+            TxtBuscar.Name = "TxtBuscar";
+            TxtBuscar.Size = new Size(363, 29);
+            TxtBuscar.TabIndex = 23;
+            TxtBuscar.TextChanged += TxtBuscar_TextChanged;
             // 
             // label1
             // 
@@ -103,9 +109,9 @@
             tabpageListUsuario.Controls.Add(BtnEstado);
             tabpageListUsuario.Controls.Add(BtnEditar);
             tabpageListUsuario.Controls.Add(BtnNuevo);
-            tabpageListUsuario.Controls.Add(dataGridView1);
+            tabpageListUsuario.Controls.Add(dgvUsuario);
             tabpageListUsuario.Controls.Add(label1);
-            tabpageListUsuario.Controls.Add(textBox1);
+            tabpageListUsuario.Controls.Add(TxtBuscar);
             tabpageListUsuario.ForeColor = SystemColors.ButtonHighlight;
             tabpageListUsuario.Location = new Point(4, 30);
             tabpageListUsuario.Name = "tabpageListUsuario";
@@ -129,6 +135,7 @@
             BtnBuscar.Text = "   Buscar";
             BtnBuscar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnBuscar.UseVisualStyleBackColor = false;
+            BtnBuscar.Click += BtnBuscar_Click;
             // 
             // BtnEstado
             // 
@@ -141,8 +148,9 @@
             BtnEstado.Name = "BtnEstado";
             BtnEstado.Size = new Size(168, 46);
             BtnEstado.TabIndex = 26;
-            BtnEstado.Text = "button3";
+            BtnEstado.Text = "Estado";
             BtnEstado.UseVisualStyleBackColor = false;
+            BtnEstado.Click += BtnEstado_Click;
             // 
             // BtnEditar
             // 
@@ -157,6 +165,7 @@
             BtnEditar.TabIndex = 25;
             BtnEditar.Text = "Editar";
             BtnEditar.UseVisualStyleBackColor = false;
+            BtnEditar.Click += BtnEditar_Click;
             // 
             // BtnNuevo
             // 
@@ -171,16 +180,17 @@
             BtnNuevo.TabIndex = 24;
             BtnNuevo.Text = "Nuevo";
             BtnNuevo.UseVisualStyleBackColor = false;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
-            // dataGridView1
+            // dgvUsuario
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvUsuario.AllowUserToAddRows = false;
+            dgvUsuario.AllowUserToDeleteRows = false;
+            dgvUsuario.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvUsuario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsuario.BackgroundColor = Color.White;
+            dgvUsuario.BorderStyle = BorderStyle.None;
+            dgvUsuario.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.Teal;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -188,21 +198,21 @@
             dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
             dataGridViewCellStyle1.SelectionForeColor = Color.White;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeight = 30;
+            dgvUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvUsuario.ColumnHeadersHeight = 30;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.Black;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.FromArgb(234, 219, 240);
-            dataGridView1.Location = new Point(40, 136);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
+            dgvUsuario.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvUsuario.EnableHeadersVisualStyles = false;
+            dgvUsuario.GridColor = Color.FromArgb(234, 219, 240);
+            dgvUsuario.Location = new Point(40, 136);
+            dgvUsuario.Name = "dgvUsuario";
+            dgvUsuario.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -210,17 +220,19 @@
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersVisible = false;
+            dgvUsuario.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvUsuario.RowHeadersVisible = false;
             dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(923, 526);
-            dataGridView1.TabIndex = 11;
+            dgvUsuario.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvUsuario.RowTemplate.Height = 25;
+            dgvUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUsuario.Size = new Size(923, 526);
+            dgvUsuario.TabIndex = 11;
+            dgvUsuario.Click += dgvUsuario_Click;
             // 
             // tabPageFormUsuarios
             // 
+            tabPageFormUsuarios.Controls.Add(BtnConfirmar);
             tabPageFormUsuarios.Controls.Add(BtnCancelar);
             tabPageFormUsuarios.Controls.Add(BtnGuardar);
             tabPageFormUsuarios.Controls.Add(groupBox1);
@@ -231,6 +243,19 @@
             tabPageFormUsuarios.TabIndex = 1;
             tabPageFormUsuarios.Text = "Formulario Usuario";
             tabPageFormUsuarios.UseVisualStyleBackColor = true;
+            // 
+            // BtnConfirmar
+            // 
+            BtnConfirmar.BackColor = Color.FromArgb(0, 64, 64);
+            BtnConfirmar.FlatAppearance.BorderSize = 0;
+            BtnConfirmar.ForeColor = Color.White;
+            BtnConfirmar.Location = new Point(424, 410);
+            BtnConfirmar.Name = "BtnConfirmar";
+            BtnConfirmar.Size = new Size(153, 44);
+            BtnConfirmar.TabIndex = 7;
+            BtnConfirmar.Text = "Confirmar";
+            BtnConfirmar.UseVisualStyleBackColor = false;
+            BtnConfirmar.Click += BtnConfirmar_Click;
             // 
             // BtnCancelar
             // 
@@ -243,6 +268,7 @@
             BtnCancelar.TabIndex = 6;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = false;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnGuardar
             // 
@@ -253,15 +279,14 @@
             BtnGuardar.Name = "BtnGuardar";
             BtnGuardar.Size = new Size(153, 44);
             BtnGuardar.TabIndex = 5;
-            BtnGuardar.Text = "Confirmar";
+            BtnGuardar.Text = "Guardar";
             BtnGuardar.UseVisualStyleBackColor = false;
             BtnGuardar.Click += BtnGuardar_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(rbSuspendido);
-            groupBox1.Controls.Add(rbActivo);
-            groupBox1.Controls.Add(label9);
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(gboxEstados);
             groupBox1.Controls.Add(cmbRol);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(txtcontraseña);
@@ -275,24 +300,37 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
-            // rbSuspendido
+            // gboxEstados
             // 
-            rbSuspendido.AutoSize = true;
-            rbSuspendido.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            rbSuspendido.Location = new Point(804, 120);
-            rbSuspendido.Margin = new Padding(3, 2, 3, 2);
-            rbSuspendido.Name = "rbSuspendido";
-            rbSuspendido.Size = new Size(115, 25);
-            rbSuspendido.TabIndex = 21;
-            rbSuspendido.TabStop = true;
-            rbSuspendido.Text = "Suspendido";
-            rbSuspendido.UseVisualStyleBackColor = true;
+            gboxEstados.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            gboxEstados.Controls.Add(rbInactivo);
+            gboxEstados.Controls.Add(rbActivo);
+            gboxEstados.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            gboxEstados.Location = new Point(818, 43);
+            gboxEstados.Name = "gboxEstados";
+            gboxEstados.Size = new Size(217, 178);
+            gboxEstados.TabIndex = 23;
+            gboxEstados.TabStop = false;
+            gboxEstados.Text = "Estado";
+            // 
+            // rbInactivo
+            // 
+            rbInactivo.AutoSize = true;
+            rbInactivo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            rbInactivo.Location = new Point(45, 89);
+            rbInactivo.Margin = new Padding(3, 2, 3, 2);
+            rbInactivo.Name = "rbInactivo";
+            rbInactivo.Size = new Size(86, 25);
+            rbInactivo.TabIndex = 21;
+            rbInactivo.TabStop = true;
+            rbInactivo.Text = "Inactivo";
+            rbInactivo.UseVisualStyleBackColor = true;
             // 
             // rbActivo
             // 
             rbActivo.AutoSize = true;
             rbActivo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            rbActivo.Location = new Point(804, 79);
+            rbActivo.Location = new Point(45, 48);
             rbActivo.Margin = new Padding(3, 2, 3, 2);
             rbActivo.Name = "rbActivo";
             rbActivo.Size = new Size(75, 25);
@@ -301,25 +339,16 @@
             rbActivo.Text = "Activo";
             rbActivo.UseVisualStyleBackColor = true;
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(804, 43);
-            label9.Name = "label9";
-            label9.Size = new Size(63, 21);
-            label9.TabIndex = 22;
-            label9.Text = "Estado:";
-            // 
             // cmbRol
             // 
             cmbRol.FormattingEnabled = true;
-            cmbRol.Items.AddRange(new object[] { "", "Basico", "Avanzado", "Administrador", "Desarrollador" });
+            cmbRol.Items.AddRange(new object[] { "" });
             cmbRol.Location = new Point(139, 145);
             cmbRol.Margin = new Padding(3, 2, 3, 2);
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(439, 29);
             cmbRol.TabIndex = 19;
+            cmbRol.SelectedIndexChanged += cmbRol_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -367,6 +396,10 @@
             txtuser.Size = new Size(439, 29);
             txtuser.TabIndex = 15;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // FrmUsuario
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -380,27 +413,27 @@
             tabControl1.ResumeLayout(false);
             tabpageListUsuario.ResumeLayout(false);
             tabpageListUsuario.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuario).EndInit();
             tabPageFormUsuarios.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            gboxEstados.ResumeLayout(false);
+            gboxEstados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private TextBox textBox1;
+        private TextBox TxtBuscar;
         private Label label1;
         private TabControl tabControl1;
         private TabPage tabpageListUsuario;
         private Button BtnEstado;
         private Button BtnEditar;
         private Button BtnNuevo;
-        private DataGridView dataGridView1;
+        private DataGridView dgvUsuario;
         private TabPage tabPageFormUsuarios;
         private GroupBox groupBox1;
-        private RadioButton rbSuspendido;
-        private RadioButton rbActivo;
-        private Label label9;
         private ComboBox cmbRol;
         private Label label5;
         private TextBox txtcontraseña;
@@ -410,5 +443,10 @@
         private Button BtnBuscar;
         private Button BtnCancelar;
         private Button BtnGuardar;
+        private ErrorProvider errorProvider1;
+        private Button BtnConfirmar;
+        private GroupBox gboxEstados;
+        private RadioButton rbInactivo;
+        private RadioButton rbActivo;
     }
 }
