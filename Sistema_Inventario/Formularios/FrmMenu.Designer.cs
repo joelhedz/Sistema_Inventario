@@ -154,7 +154,7 @@
             BtnBitacora.Padding = new Padding(5, 5, 0, 5);
             BtnBitacora.Size = new Size(224, 65);
             BtnBitacora.TabIndex = 7;
-            BtnBitacora.Text = "Bitacora";
+            BtnBitacora.Text = "      Bitacora";
             BtnBitacora.TextAlign = ContentAlignment.MiddleLeft;
             BtnBitacora.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnBitacora.UseVisualStyleBackColor = false;
@@ -174,7 +174,7 @@
             BtnClientes.Padding = new Padding(5, 5, 0, 5);
             BtnClientes.Size = new Size(224, 65);
             BtnClientes.TabIndex = 6;
-            BtnClientes.Text = "Clientes";
+            BtnClientes.Text = "      Clientes";
             BtnClientes.TextAlign = ContentAlignment.MiddleLeft;
             BtnClientes.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnClientes.UseVisualStyleBackColor = false;
@@ -194,7 +194,7 @@
             BtnFactura.Padding = new Padding(5, 5, 0, 5);
             BtnFactura.Size = new Size(224, 65);
             BtnFactura.TabIndex = 5;
-            BtnFactura.Text = "Factura";
+            BtnFactura.Text = "      Factura";
             BtnFactura.TextAlign = ContentAlignment.MiddleLeft;
             BtnFactura.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnFactura.UseVisualStyleBackColor = false;
@@ -214,7 +214,7 @@
             BtnProductos.Padding = new Padding(5, 5, 0, 5);
             BtnProductos.Size = new Size(224, 60);
             BtnProductos.TabIndex = 4;
-            BtnProductos.Text = "Productos";
+            BtnProductos.Text = "      Productos";
             BtnProductos.TextAlign = ContentAlignment.MiddleLeft;
             BtnProductos.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnProductos.UseVisualStyleBackColor = false;
@@ -234,7 +234,7 @@
             BtnCompras.Padding = new Padding(5, 5, 0, 5);
             BtnCompras.Size = new Size(224, 65);
             BtnCompras.TabIndex = 3;
-            BtnCompras.Text = "Compras";
+            BtnCompras.Text = "      Compras";
             BtnCompras.TextAlign = ContentAlignment.MiddleLeft;
             BtnCompras.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnCompras.UseVisualStyleBackColor = false;
@@ -254,7 +254,7 @@
             BtnVentas.Padding = new Padding(5, 5, 0, 5);
             BtnVentas.Size = new Size(224, 65);
             BtnVentas.TabIndex = 2;
-            BtnVentas.Text = "Ventas";
+            BtnVentas.Text = "      Ventas";
             BtnVentas.TextAlign = ContentAlignment.MiddleLeft;
             BtnVentas.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnVentas.UseVisualStyleBackColor = false;
@@ -274,7 +274,7 @@
             BtnUsuarios.Padding = new Padding(5, 5, 0, 5);
             BtnUsuarios.Size = new Size(224, 65);
             BtnUsuarios.TabIndex = 1;
-            BtnUsuarios.Text = "Usuario";
+            BtnUsuarios.Text = "      Usuario";
             BtnUsuarios.TextAlign = ContentAlignment.MiddleLeft;
             BtnUsuarios.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnUsuarios.UseVisualStyleBackColor = false;
@@ -294,7 +294,7 @@
             BtnProveedores.Padding = new Padding(5, 5, 0, 5);
             BtnProveedores.Size = new Size(224, 65);
             BtnProveedores.TabIndex = 0;
-            BtnProveedores.Text = "Provedores ";
+            BtnProveedores.Text = "      Provedores ";
             BtnProveedores.TextAlign = ContentAlignment.MiddleLeft;
             BtnProveedores.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnProveedores.UseVisualStyleBackColor = false;

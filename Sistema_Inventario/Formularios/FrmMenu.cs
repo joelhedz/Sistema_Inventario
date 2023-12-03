@@ -160,7 +160,7 @@ namespace Sistema_Inventario.Formularios
 
         private void BtnVentas_Click(object sender, EventArgs e)
         {
-            MostrarForm(new Formularios.FrmVentas(), sender, Color.FromArgb(119, 119, 255));
+            MostrarForm(new Formularios.FrmVenta(), sender, Color.FromArgb(119, 119, 255));
         }
     }
 }

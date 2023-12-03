@@ -28,38 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             tabControl1 = new TabControl();
             ListProveedores = new TabPage();
+            dataGridView1 = new DataGridView();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtBuscar = new TextBox();
             BtnEstado = new Button();
             BtnEditar = new Button();
             BtnNuevo = new Button();
-            button2 = new Button();
+            btnReporte = new Button();
             FormProveedor = new TabPage();
+            BtnConfirmar = new Button();
             BtnCancelar = new Button();
             BtnGuardar = new Button();
             groupBox1 = new GroupBox();
-            maskedTextBox1 = new MaskedTextBox();
-            textBox5 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            txtTelefono = new MaskedTextBox();
+            txtEmail = new TextBox();
+            txtRtn = new TextBox();
+            txtDireccion = new TextBox();
             label5 = new Label();
-            textBox2 = new TextBox();
+            txtNombre = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label2 = new Label();
             label6 = new Label();
-            dataGridView1 = new DataGridView();
+            errorProvider1 = new ErrorProvider(components);
             tabControl1.SuspendLayout();
             ListProveedores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             FormProveedor.SuspendLayout();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -80,11 +85,11 @@
             // 
             ListProveedores.Controls.Add(dataGridView1);
             ListProveedores.Controls.Add(label1);
-            ListProveedores.Controls.Add(textBox1);
+            ListProveedores.Controls.Add(txtBuscar);
             ListProveedores.Controls.Add(BtnEstado);
             ListProveedores.Controls.Add(BtnEditar);
             ListProveedores.Controls.Add(BtnNuevo);
-            ListProveedores.Controls.Add(button2);
+            ListProveedores.Controls.Add(btnReporte);
             ListProveedores.Location = new Point(4, 30);
             ListProveedores.Name = "ListProveedores";
             ListProveedores.Padding = new Padding(3);
@@ -92,6 +97,55 @@
             ListProveedores.TabIndex = 0;
             ListProveedores.Text = "Proveedores";
             ListProveedores.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Teal;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.GridColor = Color.FromArgb(234, 219, 240);
+            dataGridView1.Location = new Point(54, 124);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(903, 481);
+            dataGridView1.TabIndex = 70;
+    
+            dataGridView1.Click += dataGridView1_Click_1;
             // 
             // label1
             // 
@@ -103,13 +157,14 @@
             label1.TabIndex = 67;
             label1.Text = "Buscar:";
             // 
-            // textBox1
+            // txtBuscar
             // 
-            textBox1.Location = new Point(135, 58);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(387, 29);
-            textBox1.TabIndex = 68;
+            txtBuscar.Location = new Point(135, 58);
+            txtBuscar.Margin = new Padding(3, 2, 3, 2);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(387, 29);
+            txtBuscar.TabIndex = 68;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // BtnEstado
             // 
@@ -124,6 +179,7 @@
             BtnEstado.TabIndex = 66;
             BtnEstado.Text = "Eliminar";
             BtnEstado.UseVisualStyleBackColor = false;
+            BtnEstado.Click += BtnEstado_Click;
             // 
             // BtnEditar
             // 
@@ -138,6 +194,7 @@
             BtnEditar.TabIndex = 65;
             BtnEditar.Text = "Editar";
             BtnEditar.UseVisualStyleBackColor = false;
+            BtnEditar.Click += BtnEditar_Click;
             // 
             // BtnNuevo
             // 
@@ -152,26 +209,28 @@
             BtnNuevo.TabIndex = 64;
             BtnNuevo.Text = "Nuevo";
             BtnNuevo.UseVisualStyleBackColor = false;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
-            // button2
+            // btnReporte
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.FromArgb(38, 56, 78);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(1000, 303);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(168, 50);
-            button2.TabIndex = 63;
-            button2.Text = "    Reporte ";
-            button2.UseVisualStyleBackColor = false;
+            btnReporte.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnReporte.BackColor = Color.FromArgb(38, 56, 78);
+            btnReporte.FlatStyle = FlatStyle.Flat;
+            btnReporte.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnReporte.ForeColor = Color.White;
+            btnReporte.Image = (Image)resources.GetObject("btnReporte.Image");
+            btnReporte.ImageAlign = ContentAlignment.MiddleLeft;
+            btnReporte.Location = new Point(1000, 303);
+            btnReporte.Margin = new Padding(3, 2, 3, 2);
+            btnReporte.Name = "btnReporte";
+            btnReporte.Size = new Size(168, 50);
+            btnReporte.TabIndex = 63;
+            btnReporte.Text = "    Reporte ";
+            btnReporte.UseVisualStyleBackColor = false;
             // 
             // FormProveedor
             // 
+            FormProveedor.Controls.Add(BtnConfirmar);
             FormProveedor.Controls.Add(BtnCancelar);
             FormProveedor.Controls.Add(BtnGuardar);
             FormProveedor.Controls.Add(groupBox1);
@@ -183,6 +242,20 @@
             FormProveedor.Text = "Proveedor";
             FormProveedor.UseVisualStyleBackColor = true;
             // 
+            // BtnConfirmar
+            // 
+            BtnConfirmar.Anchor = AnchorStyles.None;
+            BtnConfirmar.BackColor = Color.FromArgb(0, 64, 64);
+            BtnConfirmar.FlatAppearance.BorderSize = 0;
+            BtnConfirmar.ForeColor = Color.White;
+            BtnConfirmar.Location = new Point(428, 437);
+            BtnConfirmar.Name = "BtnConfirmar";
+            BtnConfirmar.Size = new Size(153, 44);
+            BtnConfirmar.TabIndex = 15;
+            BtnConfirmar.Text = "Confirmar";
+            BtnConfirmar.UseVisualStyleBackColor = false;
+            BtnConfirmar.Click += BtnConfirmar_Click;
+            // 
             // BtnCancelar
             // 
             BtnCancelar.Anchor = AnchorStyles.None;
@@ -192,7 +265,7 @@
             BtnCancelar.Location = new Point(633, 437);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(153, 44);
-            BtnCancelar.TabIndex = 36;
+            BtnCancelar.TabIndex = 16;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = false;
             // 
@@ -208,54 +281,55 @@
             BtnGuardar.TabIndex = 35;
             BtnGuardar.Text = "Guardar";
             BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(maskedTextBox1);
-            groupBox1.Controls.Add(textBox5);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(txtTelefono);
+            groupBox1.Controls.Add(txtEmail);
+            groupBox1.Controls.Add(txtRtn);
+            groupBox1.Controls.Add(txtDireccion);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(txtNombre);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label6);
             groupBox1.Location = new Point(80, 87);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1056, 301);
+            groupBox1.Size = new Size(1056, 306);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
-            // maskedTextBox1
+            // txtTelefono
             // 
-            maskedTextBox1.Location = new Point(579, 137);
-            maskedTextBox1.Mask = "0000-0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(401, 29);
-            maskedTextBox1.TabIndex = 12;
+            txtTelefono.Location = new Point(579, 137);
+            txtTelefono.Mask = "0000-0000";
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(401, 29);
+            txtTelefono.TabIndex = 12;
             // 
-            // textBox5
+            // txtEmail
             // 
-            textBox5.Location = new Point(579, 210);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(401, 29);
-            textBox5.TabIndex = 10;
+            txtEmail.Location = new Point(579, 210);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(401, 29);
+            txtEmail.TabIndex = 14;
             // 
-            // textBox3
+            // txtRtn
             // 
-            textBox3.Location = new Point(57, 66);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(348, 29);
-            textBox3.TabIndex = 8;
+            txtRtn.Location = new Point(57, 66);
+            txtRtn.Name = "txtRtn";
+            txtRtn.Size = new Size(348, 29);
+            txtRtn.TabIndex = 10;
             // 
-            // textBox4
+            // txtDireccion
             // 
-            textBox4.Location = new Point(57, 210);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(444, 29);
-            textBox4.TabIndex = 9;
+            txtDireccion.Location = new Point(57, 210);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(444, 29);
+            txtDireccion.TabIndex = 13;
             // 
             // label5
             // 
@@ -266,12 +340,12 @@
             label5.TabIndex = 4;
             label5.Text = "Email";
             // 
-            // textBox2
+            // txtNombre
             // 
-            textBox2.Location = new Point(57, 137);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(444, 29);
-            textBox2.TabIndex = 7;
+            txtNombre.Location = new Point(57, 137);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(444, 29);
+            txtNombre.TabIndex = 11;
             // 
             // label3
             // 
@@ -309,50 +383,9 @@
             label6.TabIndex = 5;
             label6.Text = "Telefono";
             // 
-            // dataGridView1
+            // errorProvider1
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Teal;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.FromArgb(234, 219, 240);
-            dataGridView1.Location = new Point(54, 133);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(888, 473);
-            dataGridView1.TabIndex = 69;
+            errorProvider1.ContainerControl = this;
             // 
             // FrmProveedor
             // 
@@ -366,10 +399,11 @@
             tabControl1.ResumeLayout(false);
             ListProveedores.ResumeLayout(false);
             ListProveedores.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             FormProveedor.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -379,11 +413,11 @@
         private TabPage ListProveedores;
         private TabPage FormProveedor;
         private GroupBox groupBox1;
-        private MaskedTextBox maskedTextBox1;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private MaskedTextBox txtTelefono;
+        private TextBox txtEmail;
+        private TextBox txtDireccion;
+        private TextBox txtRtn;
+        private TextBox txtNombre;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -392,11 +426,13 @@
         private Button BtnEstado;
         private Button BtnEditar;
         private Button BtnNuevo;
-        private Button button2;
+        private Button btnReporte;
         private Button BtnCancelar;
         private Button BtnGuardar;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtBuscar;
+        private Button BtnConfirmar;
+        private ErrorProvider errorProvider1;
         private DataGridView dataGridView1;
     }
 }

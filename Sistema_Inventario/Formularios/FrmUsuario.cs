@@ -237,72 +237,78 @@ namespace Sistema_Inventario.Formularios
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             //validar que solo se permita actualizar, cuando el usuario sea el mismo o diferente a los que ya existen
-            string userName = dgvUsuario.CurrentRow.Cells["Nombre_de_Usuario"].Value.ToString();
-            string userData = "";
-            if (ExistenciaUsuario(txtuser).Rows.Count > 0)
-            {
-                userData = ExistenciaUsuario(txtuser).Rows[0]["nombre_usuario"].ToString();
-            }
+            val.contError = 0;
+            errorProvider1.Clear();
+            ValidadText();
 
-            if (userName == txtuser.Text || txtuser.Text != userData)
+            if (val.contError == 0)
             {
-                if (msj.Confirmar("¿Desea Actualizar el usuario?") == true)
+                string userName = dgvUsuario.CurrentRow.Cells["Nombre_de_Usuario"].Value.ToString();
+                string userData = "";
+                if (ExistenciaUsuario(txtuser).Rows.Count > 0)
                 {
-                    val.contError = 0;
-                    ValidadText();
-                    if (val.contError == 0)
+                    userData = ExistenciaUsuario(txtuser).Rows[0]["nombre_usuario"].ToString();
+                }
+
+                if (userName == txtuser.Text || txtuser.Text != userData)
+                {
+                    if (msj.Confirmar("¿Desea Actualizar el usuario?") == true)
                     {
-                        if (rbActivo.Checked == true)
+                        val.contError = 0;
+                        ValidadText();
+                        if (val.contError == 0)
                         {
-                            gboxEstados.Text = "ACT";
+                            if (rbActivo.Checked == true)
+                            {
+                                gboxEstados.Text = "ACT";
+                            }
+                            else
+                            {
+                                gboxEstados.Text = "INA";
+                            }
+
+                            List<SqlParameter> estParametros = new List<SqlParameter>();
+                            estParametros.Add(new SqlParameter("@RolCod", cmbRol.SelectedValue));
+                            string estado = "Select * from roles where rolcod=@RolCod";
+                            DataTable dtroles = new DataTable();
+                            dtroles = crud.getInfo(estado, estParametros);
+                            string estadoRol = dtroles.Rows[0]["rolEst"].ToString();
+
+                            if (estadoRol != "ACT")
+                            {
+                                msj.Aviso("El Rol Seleccionado se encuentra Inactivo, por favor seleccione otro Rol");
+                                return;
+                            }
+
+                            List<SqlParameter> parametros = new List<SqlParameter>();
+                            parametros.Add(new SqlParameter("@nombre_usuario", txtuser.Text));
+                            parametros.Add(new SqlParameter("@password", txtcontraseña.Text));
+                            parametros.Add(new SqlParameter("@estado", gboxEstados.Text));
+                            parametros.Add(new SqlParameter("@usercode", dgvUsuario.CurrentRow.Cells["Codigo"].Value.ToString()));
+                            string Query = "UPDATE usuarios SET nombre_usuario=@nombre_usuario,pswd_usuario=@password," +
+                                "estado_usuario=@estado where usercode=@usercode";
+                            crud.executeQuery(Query, parametros, "");
+
+                            List<SqlParameter> parametrosRol = new List<SqlParameter>();
+                            parametrosRol.Add(new SqlParameter("@UserCode", dgvUsuario.CurrentRow.Cells["Codigo"].Value.ToString()));
+                            parametrosRol.Add(new SqlParameter("@rolcode", cmbRol.SelectedValue));
+                            parametrosRol.Add(new SqlParameter("@RolesEst", estadoRol));
+
+                            string QueryRol = "UPDATE roles_Usuario SET rolcod=@rolcode,rolesUserEst=@RolesEst where usercode=@UserCode";
+                            crud.executeQuery(QueryRol, parametrosRol, "Usuario Actualizado Correctamente");
+                            limpiar();
+                            tabControl1.TabPages.Remove(tabPageFormUsuarios);
+                            tabControl1.TabPages.Add(tabpageListUsuario);
+                            AlcargarListUsuario();
                         }
-                        else
-                        {
-                            gboxEstados.Text = "INA";
-                        }
-
-                        List<SqlParameter> estParametros = new List<SqlParameter>();
-                        estParametros.Add(new SqlParameter("@RolCod", cmbRol.SelectedValue));
-                        string estado = "Select * from roles where rolcod=@RolCod";
-                        DataTable dtroles = new DataTable();
-                        dtroles = crud.getInfo(estado, estParametros);
-                        string estadoRol = dtroles.Rows[0]["rolEst"].ToString();
-
-                        if (estadoRol != "ACT")
-                        {
-                            msj.Aviso("El Rol Seleccionado se encuentra Inactivo, por favor seleccione otro Rol");
-                            return;
-                        }
-
-                        List<SqlParameter> parametros = new List<SqlParameter>();
-                        parametros.Add(new SqlParameter("@nombre_usuario", txtuser.Text));
-                        parametros.Add(new SqlParameter("@password", txtcontraseña.Text));
-                        parametros.Add(new SqlParameter("@estado", gboxEstados.Text));
-                        parametros.Add(new SqlParameter("@usercode", dgvUsuario.CurrentRow.Cells["Codigo"].Value.ToString()));
-                        string Query = "UPDATE usuarios SET nombre_usuario=@nombre_usuario,pswd_usuario=@password," +
-                            "estado_usuario=@estado where usercode=@usercode";
-                        crud.executeQuery(Query, parametros, "");
-
-                        List<SqlParameter> parametrosRol = new List<SqlParameter>();
-                        parametrosRol.Add(new SqlParameter("@UserCode", dgvUsuario.CurrentRow.Cells["Codigo"].Value.ToString()));
-                        parametrosRol.Add(new SqlParameter("@rolcode", cmbRol.SelectedValue));
-                        parametrosRol.Add(new SqlParameter("@RolesEst", estadoRol));
-
-                        string QueryRol = "UPDATE roles_Usuario SET rolcod=@rolcode,rolesUserEst=@RolesEst where usercode=@UserCode";
-                        crud.executeQuery(QueryRol, parametrosRol, "Usuario Actualizado Correctamente");
-                        limpiar();
-                        tabControl1.TabPages.Remove(tabPageFormUsuarios);
-                        tabControl1.TabPages.Add(tabpageListUsuario);
-                        AlcargarListUsuario();
                     }
                 }
+                else
+                {
+                    msj.Aviso("El Usuario ya se encuentra Registrado");
+                    return;
+                }
             }
-            else
-            {
-                msj.Aviso("El Usuario ya se encuentra Registrado");
-                return;
-            }
-
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)

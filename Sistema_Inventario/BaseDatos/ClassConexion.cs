@@ -9,10 +9,6 @@ namespace Sistema_Inventario.BaseDatos
 {
     internal class ClassConexion : BaseDatos.ClassDatosSql
     {
-        public static string ServerNam_ = "LAPTOP-NGSPQNQG\\CRISTOPHERNUÑEZ"; // Definir el nombre del servidor
-        public static string DB_ = "alphaInventary"; // Definir el nombre de la base de datos
-        public static string user_ = "criss"; // Definir el nombre de usuario
-        public static string pswd_ = "12345"; // Definir la contraseña
 
         public static string ConnectionString = "Server=" + ServerNam_ + ";Database=" + DB_ + ";User id=" + user_ + ";Password=" + pswd_ + ";";
 
