@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            textId = new TextBox();
+            textNombre = new TextBox();
+            textApellido = new TextBox();
+            textDireccion = new TextBox();
+            textEmail = new TextBox();
             lblcodigo = new Label();
             lblnombre = new Label();
             lblapellido = new Label();
@@ -44,8 +45,8 @@
             lblemail = new Label();
             lblsalario = new Label();
             tabControl1 = new TabControl();
-            listUsuario = new TabPage();
-            dataGridView1 = new DataGridView();
+            tabpageListClientes = new TabPage();
+            dgvCliente = new DataGridView();
             BtnEstado = new Button();
             BtnEditar = new Button();
             BtnNuevo = new Button();
@@ -53,180 +54,194 @@
             groupBox1 = new GroupBox();
             rbNombre = new RadioButton();
             rbId = new RadioButton();
-            textBox4 = new TextBox();
-            formUsuarios = new TabPage();
+            textBuscar = new TextBox();
+            tabPageFormClientes = new TabPage();
+            BtnConfirmar = new Button();
             BtnCancelar = new Button();
             BtnGuardar = new Button();
-            maskedTextBox1 = new MaskedTextBox();
+            maskedtbTel = new MaskedTextBox();
             tabControl1.SuspendLayout();
-            listUsuario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabpageListClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCliente).BeginInit();
             groupBox1.SuspendLayout();
-            formUsuarios.SuspendLayout();
+            tabPageFormClientes.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // textId
             // 
-            textBox1.Location = new Point(204, 80);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(345, 29);
-            textBox1.TabIndex = 20;
+            textId.Location = new Point(233, 107);
+            textId.Margin = new Padding(3, 4, 3, 4);
+            textId.Name = "textId";
+            textId.Size = new Size(394, 34);
+            textId.TabIndex = 20;
             // 
-            // textBox2
+            // textNombre
             // 
-            textBox2.Location = new Point(204, 131);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(345, 29);
-            textBox2.TabIndex = 21;
+            textNombre.Location = new Point(233, 175);
+            textNombre.Margin = new Padding(3, 4, 3, 4);
+            textNombre.Name = "textNombre";
+            textNombre.Size = new Size(394, 34);
+            textNombre.TabIndex = 21;
             // 
-            // textBox3
+            // textApellido
             // 
-            textBox3.Location = new Point(712, 131);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(345, 29);
-            textBox3.TabIndex = 22;
+            textApellido.Location = new Point(814, 175);
+            textApellido.Margin = new Padding(3, 4, 3, 4);
+            textApellido.Name = "textApellido";
+            textApellido.Size = new Size(394, 34);
+            textApellido.TabIndex = 22;
             // 
-            // textBox5
+            // textDireccion
             // 
-            textBox5.Location = new Point(204, 246);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(853, 29);
-            textBox5.TabIndex = 24;
+            textDireccion.Location = new Point(233, 328);
+            textDireccion.Margin = new Padding(3, 4, 3, 4);
+            textDireccion.Name = "textDireccion";
+            textDireccion.Size = new Size(974, 34);
+            textDireccion.TabIndex = 24;
             // 
-            // textBox6
+            // textEmail
             // 
-            textBox6.Location = new Point(204, 187);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 29);
-            textBox6.TabIndex = 25;
+            textEmail.Location = new Point(233, 249);
+            textEmail.Margin = new Padding(3, 4, 3, 4);
+            textEmail.Name = "textEmail";
+            textEmail.Size = new Size(114, 34);
+            textEmail.TabIndex = 25;
             // 
             // lblcodigo
             // 
             lblcodigo.AutoSize = true;
-            lblcodigo.Location = new Point(83, 83);
+            lblcodigo.Location = new Point(95, 111);
             lblcodigo.Name = "lblcodigo";
-            lblcodigo.Size = new Size(106, 21);
+            lblcodigo.Size = new Size(136, 28);
             lblcodigo.TabIndex = 26;
             lblcodigo.Text = "No. Identidad:";
             // 
             // lblnombre
             // 
             lblnombre.AutoSize = true;
-            lblnombre.Location = new Point(118, 134);
+            lblnombre.Location = new Point(135, 179);
             lblnombre.Name = "lblnombre";
-            lblnombre.Size = new Size(71, 21);
+            lblnombre.Size = new Size(89, 28);
             lblnombre.TabIndex = 27;
             lblnombre.Text = "Nombre:";
             // 
             // lblapellido
             // 
             lblapellido.AutoSize = true;
-            lblapellido.Location = new Point(612, 134);
+            lblapellido.Location = new Point(699, 179);
             lblapellido.Name = "lblapellido";
-            lblapellido.Size = new Size(70, 21);
+            lblapellido.Size = new Size(90, 28);
             lblapellido.TabIndex = 28;
             lblapellido.Text = "Apellido:";
             // 
             // lbltelefono
             // 
             lbltelefono.AutoSize = true;
-            lbltelefono.Location = new Point(611, 190);
+            lbltelefono.Location = new Point(698, 253);
             lbltelefono.Name = "lbltelefono";
-            lbltelefono.Size = new Size(71, 21);
+            lbltelefono.Size = new Size(90, 28);
             lbltelefono.TabIndex = 29;
             lbltelefono.Text = "Telefono:";
             // 
             // lblemail
             // 
             lblemail.AutoSize = true;
-            lblemail.Location = new Point(111, 249);
+            lblemail.Location = new Point(127, 332);
             lblemail.Name = "lblemail";
-            lblemail.Size = new Size(78, 21);
+            lblemail.Size = new Size(98, 28);
             lblemail.TabIndex = 30;
             lblemail.Text = "Direccion:";
             // 
             // lblsalario
             // 
             lblsalario.AutoSize = true;
-            lblsalario.Location = new Point(138, 190);
+            lblsalario.Location = new Point(158, 253);
             lblsalario.Name = "lblsalario";
-            lblsalario.Size = new Size(51, 21);
+            lblsalario.Size = new Size(63, 28);
             lblsalario.TabIndex = 31;
             lblsalario.Text = "Email:";
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(listUsuario);
-            tabControl1.Controls.Add(formUsuarios);
+            tabControl1.Controls.Add(tabpageListClientes);
+            tabControl1.Controls.Add(tabPageFormClientes);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(3, 4, 3, 4);
             tabControl1.Name = "tabControl1";
             tabControl1.Padding = new Point(10, 3);
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1223, 693);
+            tabControl1.Size = new Size(1398, 924);
             tabControl1.TabIndex = 32;
             // 
-            // listUsuario
+            // tabpageListClientes
             // 
-            listUsuario.Controls.Add(dataGridView1);
-            listUsuario.Controls.Add(BtnEstado);
-            listUsuario.Controls.Add(BtnEditar);
-            listUsuario.Controls.Add(BtnNuevo);
-            listUsuario.Controls.Add(button2);
-            listUsuario.Controls.Add(groupBox1);
-            listUsuario.Location = new Point(4, 30);
-            listUsuario.Name = "listUsuario";
-            listUsuario.Padding = new Padding(3);
-            listUsuario.Size = new Size(1215, 659);
-            listUsuario.TabIndex = 0;
-            listUsuario.Text = "Lista Usuarios";
-            listUsuario.UseVisualStyleBackColor = true;
+            tabpageListClientes.Controls.Add(dgvCliente);
+            tabpageListClientes.Controls.Add(BtnEstado);
+            tabpageListClientes.Controls.Add(BtnEditar);
+            tabpageListClientes.Controls.Add(BtnNuevo);
+            tabpageListClientes.Controls.Add(button2);
+            tabpageListClientes.Controls.Add(groupBox1);
+            tabpageListClientes.Location = new Point(4, 37);
+            tabpageListClientes.Margin = new Padding(3, 4, 3, 4);
+            tabpageListClientes.Name = "tabpageListClientes";
+            tabpageListClientes.Padding = new Padding(3, 4, 3, 4);
+            tabpageListClientes.Size = new Size(1390, 883);
+            tabpageListClientes.TabIndex = 0;
+            tabpageListClientes.Text = "Lista Usuarios";
+            tabpageListClientes.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvCliente
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.Teal;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
-            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.GridColor = Color.FromArgb(234, 219, 240);
-            dataGridView1.Location = new Point(83, 153);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(910, 478);
-            dataGridView1.TabIndex = 62;
+            dgvCliente.AllowUserToAddRows = false;
+            dgvCliente.AllowUserToDeleteRows = false;
+            dgvCliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCliente.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCliente.BackgroundColor = Color.White;
+            dgvCliente.BorderStyle = BorderStyle.None;
+            dgvCliente.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.Teal;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dgvCliente.ColumnHeadersHeight = 30;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(243, 216, 255);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvCliente.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvCliente.EnableHeadersVisualStyles = false;
+            dgvCliente.GridColor = Color.FromArgb(234, 219, 240);
+            dgvCliente.Location = new Point(95, 204);
+            dgvCliente.Margin = new Padding(3, 4, 3, 4);
+            dgvCliente.Name = "dgvCliente";
+            dgvCliente.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgvCliente.RowHeadersVisible = false;
+            dgvCliente.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dgvCliente.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dgvCliente.RowTemplate.Height = 25;
+            dgvCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCliente.Size = new Size(1040, 637);
+            dgvCliente.TabIndex = 62;
+            dgvCliente.CellContentClick += dgvCliente_CellContentClick;
+            dgvCliente.Click += dgvCliente_Click;
             // 
             // BtnEstado
             // 
@@ -235,9 +250,10 @@
             BtnEstado.FlatStyle = FlatStyle.Flat;
             BtnEstado.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnEstado.ForeColor = SystemColors.ButtonHighlight;
-            BtnEstado.Location = new Point(1022, 275);
+            BtnEstado.Location = new Point(1168, 367);
+            BtnEstado.Margin = new Padding(3, 4, 3, 4);
             BtnEstado.Name = "BtnEstado";
-            BtnEstado.Size = new Size(168, 49);
+            BtnEstado.Size = new Size(192, 65);
             BtnEstado.TabIndex = 61;
             BtnEstado.Text = "Estado";
             BtnEstado.UseVisualStyleBackColor = false;
@@ -249,12 +265,14 @@
             BtnEditar.FlatStyle = FlatStyle.Flat;
             BtnEditar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnEditar.ForeColor = SystemColors.ButtonHighlight;
-            BtnEditar.Location = new Point(1022, 214);
+            BtnEditar.Location = new Point(1168, 285);
+            BtnEditar.Margin = new Padding(3, 4, 3, 4);
             BtnEditar.Name = "BtnEditar";
-            BtnEditar.Size = new Size(168, 49);
+            BtnEditar.Size = new Size(192, 65);
             BtnEditar.TabIndex = 60;
             BtnEditar.Text = "Editar";
             BtnEditar.UseVisualStyleBackColor = false;
+            BtnEditar.Click += BtnEditar_Click;
             // 
             // BtnNuevo
             // 
@@ -263,12 +281,14 @@
             BtnNuevo.FlatStyle = FlatStyle.Flat;
             BtnNuevo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnNuevo.ForeColor = SystemColors.ButtonHighlight;
-            BtnNuevo.Location = new Point(1022, 153);
+            BtnNuevo.Location = new Point(1168, 204);
+            BtnNuevo.Margin = new Padding(3, 4, 3, 4);
             BtnNuevo.Name = "BtnNuevo";
-            BtnNuevo.Size = new Size(168, 49);
+            BtnNuevo.Size = new Size(192, 65);
             BtnNuevo.TabIndex = 59;
             BtnNuevo.Text = "Nuevo";
             BtnNuevo.UseVisualStyleBackColor = false;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
             // button2
             // 
@@ -279,10 +299,9 @@
             button2.ForeColor = Color.White;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(1022, 340);
-            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Location = new Point(1168, 453);
             button2.Name = "button2";
-            button2.Size = new Size(168, 50);
+            button2.Size = new Size(192, 67);
             button2.TabIndex = 58;
             button2.Text = "    Reporte ";
             button2.UseVisualStyleBackColor = false;
@@ -292,12 +311,10 @@
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(rbNombre);
             groupBox1.Controls.Add(rbId);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Location = new Point(83, 53);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
+            groupBox1.Controls.Add(textBuscar);
+            groupBox1.Location = new Point(95, 71);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(910, 80);
+            groupBox1.Size = new Size(1040, 107);
             groupBox1.TabIndex = 35;
             groupBox1.TabStop = false;
             groupBox1.Text = "Buscar por:";
@@ -305,9 +322,10 @@
             // rbNombre
             // 
             rbNombre.AutoSize = true;
-            rbNombre.Location = new Point(469, 34);
+            rbNombre.Location = new Point(536, 45);
+            rbNombre.Margin = new Padding(3, 4, 3, 4);
             rbNombre.Name = "rbNombre";
-            rbNombre.Size = new Size(86, 25);
+            rbNombre.Size = new Size(106, 32);
             rbNombre.TabIndex = 31;
             rbNombre.TabStop = true;
             rbNombre.Text = "Nombre";
@@ -316,46 +334,64 @@
             // rbId
             // 
             rbId.AutoSize = true;
-            rbId.Location = new Point(320, 34);
+            rbId.Location = new Point(366, 45);
+            rbId.Margin = new Padding(3, 4, 3, 4);
             rbId.Name = "rbId";
-            rbId.Size = new Size(121, 25);
+            rbId.Size = new Size(153, 32);
             rbId.TabIndex = 30;
             rbId.TabStop = true;
             rbId.Text = "No. Identidad";
             rbId.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // textBuscar
             // 
-            textBox4.Location = new Point(6, 30);
-            textBox4.Margin = new Padding(3, 2, 3, 2);
-            textBox4.MaxLength = 20;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(270, 29);
-            textBox4.TabIndex = 12;
+            textBuscar.Location = new Point(7, 40);
+            textBuscar.MaxLength = 20;
+            textBuscar.Name = "textBuscar";
+            textBuscar.Size = new Size(308, 34);
+            textBuscar.TabIndex = 12;
+            textBuscar.TextChanged += textBuscar_TextChanged;
             // 
-            // formUsuarios
+            // tabPageFormClientes
             // 
-            formUsuarios.Controls.Add(BtnCancelar);
-            formUsuarios.Controls.Add(BtnGuardar);
-            formUsuarios.Controls.Add(maskedTextBox1);
-            formUsuarios.Controls.Add(textBox1);
-            formUsuarios.Controls.Add(lblsalario);
-            formUsuarios.Controls.Add(textBox2);
-            formUsuarios.Controls.Add(lblemail);
-            formUsuarios.Controls.Add(textBox3);
-            formUsuarios.Controls.Add(lbltelefono);
-            formUsuarios.Controls.Add(lblapellido);
-            formUsuarios.Controls.Add(textBox5);
-            formUsuarios.Controls.Add(lblnombre);
-            formUsuarios.Controls.Add(textBox6);
-            formUsuarios.Controls.Add(lblcodigo);
-            formUsuarios.Location = new Point(4, 30);
-            formUsuarios.Name = "formUsuarios";
-            formUsuarios.Padding = new Padding(3);
-            formUsuarios.Size = new Size(1215, 659);
-            formUsuarios.TabIndex = 1;
-            formUsuarios.Text = "Formulario Usuarios";
-            formUsuarios.UseVisualStyleBackColor = true;
+            tabPageFormClientes.Controls.Add(BtnConfirmar);
+            tabPageFormClientes.Controls.Add(BtnCancelar);
+            tabPageFormClientes.Controls.Add(BtnGuardar);
+            tabPageFormClientes.Controls.Add(maskedtbTel);
+            tabPageFormClientes.Controls.Add(textId);
+            tabPageFormClientes.Controls.Add(lblsalario);
+            tabPageFormClientes.Controls.Add(textNombre);
+            tabPageFormClientes.Controls.Add(lblemail);
+            tabPageFormClientes.Controls.Add(textApellido);
+            tabPageFormClientes.Controls.Add(lbltelefono);
+            tabPageFormClientes.Controls.Add(lblapellido);
+            tabPageFormClientes.Controls.Add(textDireccion);
+            tabPageFormClientes.Controls.Add(lblnombre);
+            tabPageFormClientes.Controls.Add(textEmail);
+            tabPageFormClientes.Controls.Add(lblcodigo);
+            tabPageFormClientes.Location = new Point(4, 37);
+            tabPageFormClientes.Margin = new Padding(3, 4, 3, 4);
+            tabPageFormClientes.Name = "tabPageFormClientes";
+            tabPageFormClientes.Padding = new Padding(3, 4, 3, 4);
+            tabPageFormClientes.Size = new Size(1390, 883);
+            tabPageFormClientes.TabIndex = 1;
+            tabPageFormClientes.Text = "Formulario Usuarios";
+            tabPageFormClientes.UseVisualStyleBackColor = true;
+            // 
+            // BtnConfirmar
+            // 
+            BtnConfirmar.Anchor = AnchorStyles.None;
+            BtnConfirmar.BackColor = Color.FromArgb(0, 64, 64);
+            BtnConfirmar.FlatAppearance.BorderSize = 0;
+            BtnConfirmar.ForeColor = Color.White;
+            BtnConfirmar.Location = new Point(487, 517);
+            BtnConfirmar.Margin = new Padding(3, 4, 3, 4);
+            BtnConfirmar.Name = "BtnConfirmar";
+            BtnConfirmar.Size = new Size(175, 59);
+            BtnConfirmar.TabIndex = 35;
+            BtnConfirmar.Text = "Confirmar";
+            BtnConfirmar.UseVisualStyleBackColor = false;
+            BtnConfirmar.Click += btnConfirmar_Click;
             // 
             // BtnCancelar
             // 
@@ -363,12 +399,14 @@
             BtnCancelar.BackColor = Color.Maroon;
             BtnCancelar.FlatAppearance.BorderSize = 0;
             BtnCancelar.ForeColor = Color.White;
-            BtnCancelar.Location = new Point(631, 388);
+            BtnCancelar.Location = new Point(721, 517);
+            BtnCancelar.Margin = new Padding(3, 4, 3, 4);
             BtnCancelar.Name = "BtnCancelar";
-            BtnCancelar.Size = new Size(153, 44);
+            BtnCancelar.Size = new Size(175, 59);
             BtnCancelar.TabIndex = 34;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = false;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnGuardar
             // 
@@ -376,46 +414,50 @@
             BtnGuardar.BackColor = Color.FromArgb(0, 64, 64);
             BtnGuardar.FlatAppearance.BorderSize = 0;
             BtnGuardar.ForeColor = Color.White;
-            BtnGuardar.Location = new Point(426, 388);
+            BtnGuardar.Location = new Point(487, 517);
+            BtnGuardar.Margin = new Padding(3, 4, 3, 4);
             BtnGuardar.Name = "BtnGuardar";
-            BtnGuardar.Size = new Size(153, 44);
+            BtnGuardar.Size = new Size(175, 59);
             BtnGuardar.TabIndex = 33;
             BtnGuardar.Text = "Guardar";
             BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
-            // maskedTextBox1
+            // maskedtbTel
             // 
-            maskedTextBox1.Location = new Point(712, 187);
-            maskedTextBox1.Mask = "0000-0000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(345, 29);
-            maskedTextBox1.TabIndex = 32;
+            maskedtbTel.Location = new Point(814, 249);
+            maskedtbTel.Margin = new Padding(3, 4, 3, 4);
+            maskedtbTel.Mask = "0000-0000";
+            maskedtbTel.Name = "maskedtbTel";
+            maskedtbTel.Size = new Size(394, 34);
+            maskedtbTel.TabIndex = 32;
             // 
             // FrmCliente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1223, 693);
+            ClientSize = new Size(1398, 924);
             Controls.Add(tabControl1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmCliente";
             Text = "Cliente";
             Load += FrmCliente_Load;
             tabControl1.ResumeLayout(false);
-            listUsuario.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabpageListClientes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvCliente).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            formUsuarios.ResumeLayout(false);
-            formUsuarios.PerformLayout();
+            tabPageFormClientes.ResumeLayout(false);
+            tabPageFormClientes.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox textId;
+        private TextBox textNombre;
+        private TextBox textApellido;
+        private TextBox textDireccion;
+        private TextBox textEmail;
         private Label lblcodigo;
         private Label lblnombre;
         private Label lblapellido;
@@ -423,19 +465,20 @@
         private Label lblemail;
         private Label lblsalario;
         private TabControl tabControl1;
-        private TabPage listUsuario;
-        private TabPage formUsuarios;
-        private MaskedTextBox maskedTextBox1;
+        private TabPage tabpageListClientes;
+        private TabPage tabPageFormClientes;
+        private MaskedTextBox maskedtbTel;
         private Button button2;
         private GroupBox groupBox1;
         private RadioButton rbNombre;
         private RadioButton rbId;
-        private TextBox textBox4;
+        private TextBox textBuscar;
         private Button BtnCancelar;
         private Button BtnGuardar;
         private Button BtnEstado;
         private Button BtnEditar;
         private Button BtnNuevo;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCliente;
+        private Button BtnConfirmar;
     }
 }

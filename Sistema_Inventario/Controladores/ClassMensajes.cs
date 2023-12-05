@@ -19,7 +19,7 @@ namespace Sistema_Inventario.Controladores
         {
             MessageBoxButtons opciones = MessageBoxButtons.OK;
             MessageBoxIcon icono = MessageBoxIcon.Information;
-            MessageBox.Show(mensaje, "Atendion", opciones, icono);
+            MessageBox.Show(mensaje, "Atencion", opciones, icono);
 
         }
 
