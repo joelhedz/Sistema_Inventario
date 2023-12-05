@@ -104,6 +104,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Usuario";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // dateTimePicker1
             // 

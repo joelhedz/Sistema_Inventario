@@ -13,7 +13,7 @@ namespace Sistema_Inventario.Controladores
     internal class ClassRoles 
     {
         private static DataTable dtFunciones_Roles = new DataTable();
-
+        private string Rol = Controladores.ClassDatosUsuario.Rol;
         //Se crea un metodo para cargar los botones del menu, segun el rol del usuario
         public void AlCargarForm(
             Panel  panelName,
@@ -54,7 +54,7 @@ namespace Sistema_Inventario.Controladores
 
             //Se valida si el usuario tiene permiso para ver el formulario
             List<SqlParameter> Params = new List<SqlParameter>();
-            Params.Add(new SqlParameter("@rolcode", "ADMIN"));
+            Params.Add(new SqlParameter("@rolcode", Rol));
 
             BaseDatos.ClassCrud crud = new BaseDatos.ClassCrud();
             

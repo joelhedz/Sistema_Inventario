@@ -92,13 +92,19 @@ namespace Sistema_Inventario.Formularios
 
         private void FrmMenu_Load_1(object sender, EventArgs e)
         {
+            LblUsuario.Text = Controladores.ClassDatosUsuario.Usuario;
             roles.AlCargarForm(panelIzquierdo,BtnBitacora,BtnClientes,BtnCompras,BtnFactura,BtnProductos,BtnProveedores,BtnUsuarios,BtnVentas);
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             if (msj.Confirmar("¿Desea salir del sistema?") == true)
-                this.Close();
+            {
+                Formularios.FrmLogin login = new Formularios.FrmLogin();
+                login.Show();
+                this.Hide();
+            }
+        
         }
 
         private void reset()

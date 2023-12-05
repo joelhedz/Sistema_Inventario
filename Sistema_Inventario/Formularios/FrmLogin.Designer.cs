@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            button3 = new Button();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            BtnAgregar = new Button();
+            txtPaswd = new TextBox();
+            txtUsuario = new TextBox();
             label2 = new Label();
             label1 = new Label();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            lblError = new Label();
             btnVer = new Button();
             label4 = new Label();
             BtnOcultar = new Button();
@@ -48,41 +49,42 @@
             panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // button3
+            // BtnAgregar
             // 
-            button3.FlatAppearance.MouseOverBackColor = Color.FromArgb(13, 93, 142);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(137, 282);
-            button3.Name = "button3";
-            button3.Size = new Size(347, 39);
-            button3.TabIndex = 11;
-            button3.Text = "Ingresar";
-            button3.UseVisualStyleBackColor = true;
+            BtnAgregar.FlatAppearance.MouseOverBackColor = Color.FromArgb(13, 93, 142);
+            BtnAgregar.FlatStyle = FlatStyle.Flat;
+            BtnAgregar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnAgregar.ForeColor = Color.White;
+            BtnAgregar.Location = new Point(137, 282);
+            BtnAgregar.Name = "BtnAgregar";
+            BtnAgregar.Size = new Size(347, 39);
+            BtnAgregar.TabIndex = 11;
+            BtnAgregar.Text = "Ingresar";
+            BtnAgregar.UseVisualStyleBackColor = true;
+            BtnAgregar.Click += BtnAgregar_Click;
             // 
-            // textBox2
+            // txtPaswd
             // 
-            textBox2.BackColor = Color.FromArgb(4, 41, 68);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(271, 189);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.Size = new Size(264, 22);
-            textBox2.TabIndex = 10;
+            txtPaswd.BackColor = Color.FromArgb(4, 41, 68);
+            txtPaswd.BorderStyle = BorderStyle.None;
+            txtPaswd.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtPaswd.ForeColor = Color.White;
+            txtPaswd.Location = new Point(271, 189);
+            txtPaswd.Name = "txtPaswd";
+            txtPaswd.PasswordChar = '*';
+            txtPaswd.Size = new Size(264, 22);
+            txtPaswd.TabIndex = 10;
             // 
-            // textBox1
+            // txtUsuario
             // 
-            textBox1.BackColor = Color.FromArgb(4, 41, 68);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(271, 127);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(264, 22);
-            textBox1.TabIndex = 9;
+            txtUsuario.BackColor = Color.FromArgb(4, 41, 68);
+            txtUsuario.BorderStyle = BorderStyle.None;
+            txtUsuario.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtUsuario.ForeColor = Color.White;
+            txtUsuario.Location = new Point(271, 127);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(264, 22);
+            txtUsuario.TabIndex = 9;
             // 
             // label2
             // 
@@ -129,23 +131,37 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(4, 41, 68);
+            panel2.Controls.Add(lblError);
             panel2.Controls.Add(btnVer);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(BtnOcultar);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(btnSalir);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(txtUsuario);
             panel2.Controls.Add(label1);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(BtnAgregar);
             panel2.Controls.Add(label2);
-            panel2.Controls.Add(textBox2);
+            panel2.Controls.Add(txtPaswd);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(258, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(607, 398);
             panel2.TabIndex = 13;
             panel2.Paint += panel2_Paint;
+            // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblError.ForeColor = Color.FromArgb(255, 128, 128);
+            lblError.Location = new Point(263, 239);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(24, 19);
+            lblError.TabIndex = 18;
+            lblError.Text = ".....";
+            lblError.Visible = false;
+            lblError.Click += label5_Click;
             // 
             // btnVer
             // 
@@ -160,6 +176,7 @@
             btnVer.Size = new Size(26, 23);
             btnVer.TabIndex = 15;
             btnVer.UseVisualStyleBackColor = false;
+            btnVer.Click += btnVer_Click;
             // 
             // label4
             // 
@@ -185,6 +202,7 @@
             BtnOcultar.Size = new Size(26, 23);
             BtnOcultar.TabIndex = 16;
             BtnOcultar.UseVisualStyleBackColor = false;
+            BtnOcultar.Click += BtnOcultar_Click;
             // 
             // label6
             // 
@@ -247,9 +265,9 @@
 
         #endregion
 
-        private Button button3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private Button BtnAgregar;
+        private TextBox txtPaswd;
+        private TextBox txtUsuario;
         private Label label2;
         private Label label1;
         private Panel panel1;
@@ -261,5 +279,6 @@
         private Button BtnOcultar;
         private Button btnVer;
         private Label label4;
+        private Label lblError;
     }
 }

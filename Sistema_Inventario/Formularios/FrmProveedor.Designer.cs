@@ -144,7 +144,6 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(903, 481);
             dataGridView1.TabIndex = 70;
-    
             dataGridView1.Click += dataGridView1_Click_1;
             // 
             // label1
@@ -268,6 +267,7 @@
             BtnCancelar.TabIndex = 16;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = false;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnGuardar
             // 

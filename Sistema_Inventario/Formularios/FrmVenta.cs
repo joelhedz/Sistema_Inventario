@@ -121,22 +121,27 @@ namespace Sistema_Inventario.Formularios
 
         private void DgvVentas_Click(object sender, EventArgs e)
         {
-            idVenta = Convert.ToInt32(DgvVentas.CurrentRow.Cells[0].Value.ToString());
-            List<SqlParameter> parametros = new List<SqlParameter>();
-            parametros.Add(new SqlParameter("@idVenta", idVenta.ToString()));
-            string Query = "Select * from View_Ventas where Codigo = @idVenta";
-            DataTable dtVentas = new DataTable();
-            dtVentas = crud.getInfo(Query, parametros);
+            if(DgvVentas.Rows.Count >0)
+            {
+                idVenta = Convert.ToInt32(DgvVentas.CurrentRow.Cells[0].Value.ToString());
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter("@idVenta", idVenta.ToString()));
+                string Query = "Select * from View_Ventas where Codigo = @idVenta";
+                DataTable dtVentas = new DataTable();
+                dtVentas = crud.getInfo(Query, parametros);
 
-            string Estado = dtVentas.Rows[0]["Estado"].ToString();
-            if (Estado == "ACT")
-            {
-                BtnAnular.Enabled = false;
+                string Estado = dtVentas.Rows[0]["Estado"].ToString();
+                if (Estado == "ACT")
+                {
+                    BtnAnular.Enabled = false;
+                }
+                else
+                {
+                    BtnAnular.Enabled = true;
+                }
             }
-            else
-            {
-                BtnAnular.Enabled = true;
-            }
+
+            
         }
     }
 }

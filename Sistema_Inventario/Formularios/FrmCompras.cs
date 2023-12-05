@@ -16,5 +16,10 @@ namespace Sistema_Inventario.Formularios
         {
             InitializeComponent();
         }
+
+        private void FrmCompras_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

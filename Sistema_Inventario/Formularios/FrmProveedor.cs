@@ -286,5 +286,17 @@ namespace Sistema_Inventario.Formularios
                 dataGridView1.Refresh();
             }
         }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            if(msj.Confirmar("¿Desea Cancelar?")==true)
+            {
+                Limpiar();
+                AlcargarFormulario();
+                tabControl1.TabPages.Remove(FormProveedor);
+                tabControl1.TabPages.Add(ListProveedores);
+                txtRtn.Enabled = true;
+            }   
+        }
     }
 }

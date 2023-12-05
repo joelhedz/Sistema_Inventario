@@ -399,6 +399,7 @@
             Controls.Add(tabControl1);
             Name = "FrmCliente";
             Text = "Cliente";
+            Load += FrmCliente_Load;
             tabControl1.ResumeLayout(false);
             listUsuario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
