@@ -383,10 +383,30 @@ namespace Sistema_Inventario.Formularios
 
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if(TxtBuscar.Text == "")
+            if (TxtBuscar.Text == "")
             {
                 getUsuarios();
             }
+        }
+
+        private void tabPageFormUsuarios_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void rbInactivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gboxEstados_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
