@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             textId = new TextBox();
             textNombre = new TextBox();
@@ -69,95 +69,90 @@
             // 
             // textId
             // 
-            textId.Location = new Point(233, 107);
-            textId.Margin = new Padding(3, 4, 3, 4);
+            textId.Location = new Point(204, 80);
             textId.Name = "textId";
-            textId.Size = new Size(394, 34);
+            textId.Size = new Size(345, 29);
             textId.TabIndex = 20;
             // 
             // textNombre
             // 
-            textNombre.Location = new Point(233, 175);
-            textNombre.Margin = new Padding(3, 4, 3, 4);
+            textNombre.Location = new Point(204, 131);
             textNombre.Name = "textNombre";
-            textNombre.Size = new Size(394, 34);
+            textNombre.Size = new Size(345, 29);
             textNombre.TabIndex = 21;
             // 
             // textApellido
             // 
-            textApellido.Location = new Point(814, 175);
-            textApellido.Margin = new Padding(3, 4, 3, 4);
+            textApellido.Location = new Point(712, 131);
             textApellido.Name = "textApellido";
-            textApellido.Size = new Size(394, 34);
+            textApellido.Size = new Size(345, 29);
             textApellido.TabIndex = 22;
             // 
             // textDireccion
             // 
-            textDireccion.Location = new Point(233, 328);
-            textDireccion.Margin = new Padding(3, 4, 3, 4);
+            textDireccion.Location = new Point(204, 246);
             textDireccion.Name = "textDireccion";
-            textDireccion.Size = new Size(974, 34);
+            textDireccion.Size = new Size(853, 29);
             textDireccion.TabIndex = 24;
             // 
             // textEmail
             // 
-            textEmail.Location = new Point(233, 249);
-            textEmail.Margin = new Padding(3, 4, 3, 4);
+            textEmail.Location = new Point(204, 187);
             textEmail.Name = "textEmail";
-            textEmail.Size = new Size(114, 34);
+            textEmail.Size = new Size(100, 29);
             textEmail.TabIndex = 25;
             // 
             // lblcodigo
             // 
             lblcodigo.AutoSize = true;
-            lblcodigo.Location = new Point(95, 111);
+            lblcodigo.Location = new Point(83, 83);
             lblcodigo.Name = "lblcodigo";
-            lblcodigo.Size = new Size(136, 28);
+            lblcodigo.Size = new Size(106, 21);
             lblcodigo.TabIndex = 26;
             lblcodigo.Text = "No. Identidad:";
             // 
             // lblnombre
             // 
             lblnombre.AutoSize = true;
-            lblnombre.Location = new Point(135, 179);
+            lblnombre.Location = new Point(118, 134);
             lblnombre.Name = "lblnombre";
-            lblnombre.Size = new Size(89, 28);
+            lblnombre.Size = new Size(71, 21);
             lblnombre.TabIndex = 27;
             lblnombre.Text = "Nombre:";
             // 
             // lblapellido
             // 
             lblapellido.AutoSize = true;
-            lblapellido.Location = new Point(699, 179);
+            lblapellido.Location = new Point(612, 134);
             lblapellido.Name = "lblapellido";
-            lblapellido.Size = new Size(90, 28);
+            lblapellido.Size = new Size(70, 21);
             lblapellido.TabIndex = 28;
             lblapellido.Text = "Apellido:";
             // 
             // lbltelefono
             // 
             lbltelefono.AutoSize = true;
-            lbltelefono.Location = new Point(698, 253);
+            lbltelefono.Location = new Point(611, 190);
             lbltelefono.Name = "lbltelefono";
-            lbltelefono.Size = new Size(90, 28);
+            lbltelefono.Size = new Size(71, 21);
             lbltelefono.TabIndex = 29;
             lbltelefono.Text = "Telefono:";
             // 
             // lblemail
             // 
             lblemail.AutoSize = true;
-            lblemail.Location = new Point(127, 332);
+            lblemail.Location = new Point(111, 249);
             lblemail.Name = "lblemail";
-            lblemail.Size = new Size(98, 28);
+            lblemail.Size = new Size(78, 21);
             lblemail.TabIndex = 30;
             lblemail.Text = "Direccion:";
             // 
             // lblsalario
             // 
             lblsalario.AutoSize = true;
-            lblsalario.Location = new Point(158, 253);
+            lblsalario.Location = new Point(138, 190);
             lblsalario.Name = "lblsalario";
-            lblsalario.Size = new Size(63, 28);
+            lblsalario.Size = new Size(51, 21);
             lblsalario.TabIndex = 31;
             lblsalario.Text = "Email:";
             // 
@@ -168,11 +163,10 @@
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tabControl1.Location = new Point(0, 0);
-            tabControl1.Margin = new Padding(3, 4, 3, 4);
             tabControl1.Name = "tabControl1";
             tabControl1.Padding = new Point(10, 3);
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1398, 924);
+            tabControl1.Size = new Size(1199, 562);
             tabControl1.TabIndex = 32;
             // 
             // tabpageListClientes
@@ -183,11 +177,10 @@
             tabpageListClientes.Controls.Add(BtnNuevo);
             tabpageListClientes.Controls.Add(button2);
             tabpageListClientes.Controls.Add(groupBox1);
-            tabpageListClientes.Location = new Point(4, 37);
-            tabpageListClientes.Margin = new Padding(3, 4, 3, 4);
+            tabpageListClientes.Location = new Point(4, 30);
             tabpageListClientes.Name = "tabpageListClientes";
-            tabpageListClientes.Padding = new Padding(3, 4, 3, 4);
-            tabpageListClientes.Size = new Size(1390, 883);
+            tabpageListClientes.Padding = new Padding(3, 3, 3, 3);
+            tabpageListClientes.Size = new Size(1191, 528);
             tabpageListClientes.TabIndex = 0;
             tabpageListClientes.Text = "Lista Usuarios";
             tabpageListClientes.UseVisualStyleBackColor = true;
@@ -201,44 +194,43 @@
             dgvCliente.BackgroundColor = Color.White;
             dgvCliente.BorderStyle = BorderStyle.None;
             dgvCliente.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.Teal;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = Color.Teal;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Teal;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvCliente.ColumnHeadersHeight = 30;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ButtonHighlight;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(243, 216, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvCliente.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(243, 216, 255);
+            dataGridViewCellStyle2.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvCliente.DefaultCellStyle = dataGridViewCellStyle2;
             dgvCliente.EnableHeadersVisualStyles = false;
             dgvCliente.GridColor = Color.FromArgb(234, 219, 240);
-            dgvCliente.Location = new Point(95, 204);
-            dgvCliente.Margin = new Padding(3, 4, 3, 4);
+            dgvCliente.Location = new Point(83, 153);
             dgvCliente.Name = "dgvCliente";
             dgvCliente.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Control;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvCliente.RowHeadersVisible = false;
             dgvCliente.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dgvCliente.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dgvCliente.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvCliente.RowTemplate.Height = 25;
             dgvCliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCliente.Size = new Size(1040, 637);
+            dgvCliente.Size = new Size(886, 347);
             dgvCliente.TabIndex = 62;
             dgvCliente.CellContentClick += dgvCliente_CellContentClick;
             dgvCliente.Click += dgvCliente_Click;
@@ -250,10 +242,9 @@
             BtnEstado.FlatStyle = FlatStyle.Flat;
             BtnEstado.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnEstado.ForeColor = SystemColors.ButtonHighlight;
-            BtnEstado.Location = new Point(1168, 367);
-            BtnEstado.Margin = new Padding(3, 4, 3, 4);
+            BtnEstado.Location = new Point(998, 275);
             BtnEstado.Name = "BtnEstado";
-            BtnEstado.Size = new Size(192, 65);
+            BtnEstado.Size = new Size(168, 49);
             BtnEstado.TabIndex = 61;
             BtnEstado.Text = "Estado";
             BtnEstado.UseVisualStyleBackColor = false;
@@ -265,10 +256,9 @@
             BtnEditar.FlatStyle = FlatStyle.Flat;
             BtnEditar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnEditar.ForeColor = SystemColors.ButtonHighlight;
-            BtnEditar.Location = new Point(1168, 285);
-            BtnEditar.Margin = new Padding(3, 4, 3, 4);
+            BtnEditar.Location = new Point(998, 214);
             BtnEditar.Name = "BtnEditar";
-            BtnEditar.Size = new Size(192, 65);
+            BtnEditar.Size = new Size(168, 49);
             BtnEditar.TabIndex = 60;
             BtnEditar.Text = "Editar";
             BtnEditar.UseVisualStyleBackColor = false;
@@ -281,10 +271,9 @@
             BtnNuevo.FlatStyle = FlatStyle.Flat;
             BtnNuevo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnNuevo.ForeColor = SystemColors.ButtonHighlight;
-            BtnNuevo.Location = new Point(1168, 204);
-            BtnNuevo.Margin = new Padding(3, 4, 3, 4);
+            BtnNuevo.Location = new Point(998, 153);
             BtnNuevo.Name = "BtnNuevo";
-            BtnNuevo.Size = new Size(192, 65);
+            BtnNuevo.Size = new Size(168, 49);
             BtnNuevo.TabIndex = 59;
             BtnNuevo.Text = "Nuevo";
             BtnNuevo.UseVisualStyleBackColor = false;
@@ -299,12 +288,14 @@
             button2.ForeColor = Color.White;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(1168, 453);
+            button2.Location = new Point(998, 340);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(192, 67);
+            button2.Size = new Size(168, 50);
             button2.TabIndex = 58;
             button2.Text = "    Reporte ";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // groupBox1
             // 
@@ -312,9 +303,11 @@
             groupBox1.Controls.Add(rbNombre);
             groupBox1.Controls.Add(rbId);
             groupBox1.Controls.Add(textBuscar);
-            groupBox1.Location = new Point(95, 71);
+            groupBox1.Location = new Point(83, 53);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1040, 107);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(886, 80);
             groupBox1.TabIndex = 35;
             groupBox1.TabStop = false;
             groupBox1.Text = "Buscar por:";
@@ -322,10 +315,9 @@
             // rbNombre
             // 
             rbNombre.AutoSize = true;
-            rbNombre.Location = new Point(536, 45);
-            rbNombre.Margin = new Padding(3, 4, 3, 4);
+            rbNombre.Location = new Point(469, 34);
             rbNombre.Name = "rbNombre";
-            rbNombre.Size = new Size(106, 32);
+            rbNombre.Size = new Size(86, 25);
             rbNombre.TabIndex = 31;
             rbNombre.TabStop = true;
             rbNombre.Text = "Nombre";
@@ -334,10 +326,9 @@
             // rbId
             // 
             rbId.AutoSize = true;
-            rbId.Location = new Point(366, 45);
-            rbId.Margin = new Padding(3, 4, 3, 4);
+            rbId.Location = new Point(320, 34);
             rbId.Name = "rbId";
-            rbId.Size = new Size(153, 32);
+            rbId.Size = new Size(121, 25);
             rbId.TabIndex = 30;
             rbId.TabStop = true;
             rbId.Text = "No. Identidad";
@@ -345,10 +336,11 @@
             // 
             // textBuscar
             // 
-            textBuscar.Location = new Point(7, 40);
+            textBuscar.Location = new Point(6, 30);
+            textBuscar.Margin = new Padding(3, 2, 3, 2);
             textBuscar.MaxLength = 20;
             textBuscar.Name = "textBuscar";
-            textBuscar.Size = new Size(308, 34);
+            textBuscar.Size = new Size(270, 29);
             textBuscar.TabIndex = 12;
             textBuscar.TextChanged += textBuscar_TextChanged;
             // 
@@ -369,11 +361,10 @@
             tabPageFormClientes.Controls.Add(lblnombre);
             tabPageFormClientes.Controls.Add(textEmail);
             tabPageFormClientes.Controls.Add(lblcodigo);
-            tabPageFormClientes.Location = new Point(4, 37);
-            tabPageFormClientes.Margin = new Padding(3, 4, 3, 4);
+            tabPageFormClientes.Location = new Point(4, 30);
             tabPageFormClientes.Name = "tabPageFormClientes";
-            tabPageFormClientes.Padding = new Padding(3, 4, 3, 4);
-            tabPageFormClientes.Size = new Size(1390, 883);
+            tabPageFormClientes.Padding = new Padding(3, 3, 3, 3);
+            tabPageFormClientes.Size = new Size(1215, 659);
             tabPageFormClientes.TabIndex = 1;
             tabPageFormClientes.Text = "Formulario Usuarios";
             tabPageFormClientes.UseVisualStyleBackColor = true;
@@ -384,10 +375,9 @@
             BtnConfirmar.BackColor = Color.FromArgb(0, 64, 64);
             BtnConfirmar.FlatAppearance.BorderSize = 0;
             BtnConfirmar.ForeColor = Color.White;
-            BtnConfirmar.Location = new Point(487, 517);
-            BtnConfirmar.Margin = new Padding(3, 4, 3, 4);
+            BtnConfirmar.Location = new Point(426, 388);
             BtnConfirmar.Name = "BtnConfirmar";
-            BtnConfirmar.Size = new Size(175, 59);
+            BtnConfirmar.Size = new Size(153, 44);
             BtnConfirmar.TabIndex = 35;
             BtnConfirmar.Text = "Confirmar";
             BtnConfirmar.UseVisualStyleBackColor = false;
@@ -399,10 +389,9 @@
             BtnCancelar.BackColor = Color.Maroon;
             BtnCancelar.FlatAppearance.BorderSize = 0;
             BtnCancelar.ForeColor = Color.White;
-            BtnCancelar.Location = new Point(721, 517);
-            BtnCancelar.Margin = new Padding(3, 4, 3, 4);
+            BtnCancelar.Location = new Point(631, 388);
             BtnCancelar.Name = "BtnCancelar";
-            BtnCancelar.Size = new Size(175, 59);
+            BtnCancelar.Size = new Size(153, 44);
             BtnCancelar.TabIndex = 34;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = false;
@@ -414,10 +403,9 @@
             BtnGuardar.BackColor = Color.FromArgb(0, 64, 64);
             BtnGuardar.FlatAppearance.BorderSize = 0;
             BtnGuardar.ForeColor = Color.White;
-            BtnGuardar.Location = new Point(487, 517);
-            BtnGuardar.Margin = new Padding(3, 4, 3, 4);
+            BtnGuardar.Location = new Point(426, 388);
             BtnGuardar.Name = "BtnGuardar";
-            BtnGuardar.Size = new Size(175, 59);
+            BtnGuardar.Size = new Size(153, 44);
             BtnGuardar.TabIndex = 33;
             BtnGuardar.Text = "Guardar";
             BtnGuardar.UseVisualStyleBackColor = false;
@@ -425,20 +413,18 @@
             // 
             // maskedtbTel
             // 
-            maskedtbTel.Location = new Point(814, 249);
-            maskedtbTel.Margin = new Padding(3, 4, 3, 4);
+            maskedtbTel.Location = new Point(712, 187);
             maskedtbTel.Mask = "0000-0000";
             maskedtbTel.Name = "maskedtbTel";
-            maskedtbTel.Size = new Size(394, 34);
+            maskedtbTel.Size = new Size(345, 29);
             maskedtbTel.TabIndex = 32;
             // 
             // FrmCliente
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1398, 924);
+            ClientSize = new Size(1199, 562);
             Controls.Add(tabControl1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmCliente";
             Text = "Cliente";
             Load += FrmCliente_Load;

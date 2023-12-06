@@ -40,6 +40,7 @@
     <PackageReference Include="EPPlusFree" Version="4.5.3.8" />
     <PackageReference Include="EPPlusHelper" Version="2.5.5" />
     <PackageReference Include="FastReport.Cloud.SDK" Version="2023.1.60" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
     <PackageReference Include="Magicodes.IE.EPPlus" Version="2.7.4.5" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
     <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />

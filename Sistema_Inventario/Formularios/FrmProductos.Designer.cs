@@ -267,6 +267,7 @@
             BtnReporte.TextAlign = ContentAlignment.MiddleLeft;
             BtnReporte.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnReporte.UseVisualStyleBackColor = false;
+            BtnReporte.Click += BtnReporte_Click;
             // 
             // ListProductos
             // 

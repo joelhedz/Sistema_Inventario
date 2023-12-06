@@ -1,4 +1,6 @@
-﻿using Sistema_Inventario.Controladores;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text;
+using Sistema_Inventario.Controladores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -593,6 +595,50 @@ namespace Sistema_Inventario.Formularios
                     cmbProveedores.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     dtFecha.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value.ToString());
                 }
+            }
+        }
+
+        private void BtnReportes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                saveFileDialog.FileName = "ReporteCompras.pdf";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    Document pdf = new Document(PageSize.A4);
+                    PdfWriter.GetInstance(pdf, new FileStream(saveFileDialog.FileName, FileMode.Create));
+
+                    pdf.Open();
+
+                    PdfPTable table = new PdfPTable(dataGridView1.Columns.Count);
+
+                    // Agregar encabezados de columna
+                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                    {
+                        table.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText));
+                    }
+
+                    // Agregar filas y celdas
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                        {
+                            table.AddCell(new Phrase(dataGridView1.Rows[i].Cells[j].Value?.ToString()));
+                        }
+                    }
+
+                    pdf.Add(table);
+                    pdf.Close();
+
+                    MessageBox.Show("Archivo PDF generado exitosamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el archivo PDF: " + ex.Message);
             }
         }
     }

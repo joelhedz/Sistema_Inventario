@@ -226,6 +226,7 @@
             btnReporte.TabIndex = 63;
             btnReporte.Text = "    Reporte ";
             btnReporte.UseVisualStyleBackColor = false;
+            btnReporte.Click += btnReporte_Click;
             // 
             // FormProveedor
             // 

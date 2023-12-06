@@ -1,4 +1,6 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -165,7 +167,7 @@ namespace Sistema_Inventario.Formularios
                 crud.executeQuery(Query, parametros, "Usuario Registrado Correctamente");
 
 
-               
+
                 limpiar();
                 tabControl1.TabPages.Remove(tabPageFormClientes);
                 tabControl1.TabPages.Add(tabpageListClientes);
@@ -218,42 +220,86 @@ namespace Sistema_Inventario.Formularios
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            
 
-           
-               
-                    if (msj.Confirmar("¿Desea Actualizar el usuario?") == true)
-                    {
-                         
 
-                    
 
-                            List<SqlParameter> parametros = new List<SqlParameter>();
-                            parametros.Add(new SqlParameter("@idcliente", textId.Text));
-                            parametros.Add(new SqlParameter("@nombre_cliente", textNombre.Text));
-                            parametros.Add(new SqlParameter("@apellidos_cliente", textApellido.Text));
-                            parametros.Add(new SqlParameter("@correo_Electronico", textEmail.Text));
-                            parametros.Add(new SqlParameter("@telefono_cliente", maskedtbTel.Text));
-                            parametros.Add(new SqlParameter("@direccion_cliente", textDireccion.Text));
-               
-                            string Query = "UPDATE cliente SET idcliente=@idcliente,nombre_cliente=@nombre_cliente," +
-                                "apellidos_cliente=@apellidos_cliente,correo_Electronico=@correo_Electronico,telefono_cliente=@telefono_cliente," +
-                                "direccion_cliente=@direccion_cliente where idcliente=@idcliente";
-                            crud.executeQuery(Query, parametros, "");
 
-                            limpiar();
-                            tabControl1.TabPages.Remove(tabPageFormClientes);
-                            tabControl1.TabPages.Add(tabpageListClientes);
-                            AlcargarListClientes();
-                        
-                    }
-                
-                else
+            if (msj.Confirmar("¿Desea Actualizar el usuario?") == true)
+            {
+
+
+
+
+                List<SqlParameter> parametros = new List<SqlParameter>();
+                parametros.Add(new SqlParameter("@idcliente", textId.Text));
+                parametros.Add(new SqlParameter("@nombre_cliente", textNombre.Text));
+                parametros.Add(new SqlParameter("@apellidos_cliente", textApellido.Text));
+                parametros.Add(new SqlParameter("@correo_Electronico", textEmail.Text));
+                parametros.Add(new SqlParameter("@telefono_cliente", maskedtbTel.Text));
+                parametros.Add(new SqlParameter("@direccion_cliente", textDireccion.Text));
+
+                string Query = "UPDATE cliente SET idcliente=@idcliente,nombre_cliente=@nombre_cliente," +
+                    "apellidos_cliente=@apellidos_cliente,correo_Electronico=@correo_Electronico,telefono_cliente=@telefono_cliente," +
+                    "direccion_cliente=@direccion_cliente where idcliente=@idcliente";
+                crud.executeQuery(Query, parametros, "");
+
+                limpiar();
+                tabControl1.TabPages.Remove(tabPageFormClientes);
+                tabControl1.TabPages.Add(tabpageListClientes);
+                AlcargarListClientes();
+
+            }
+
+            else
+            {
+                msj.Aviso("El Usuario ya se encuentra Registrado");
+                return;
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                saveFileDialog.FileName = "ReporteClientes.pdf";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    msj.Aviso("El Usuario ya se encuentra Registrado");
-                    return;
+                    Document pdf = new Document(PageSize.A4);
+                    PdfWriter.GetInstance(pdf, new FileStream(saveFileDialog.FileName, FileMode.Create));
+
+                    pdf.Open();
+
+                    PdfPTable table = new PdfPTable(dgvCliente.Columns.Count);
+
+                    // Agregar encabezados de columna
+                    for (int i = 0; i < dgvCliente.Columns.Count; i++)
+                    {
+                        table.AddCell(new Phrase(dgvCliente.Columns[i].HeaderText));
+                    }
+
+                    // Agregar filas y celdas
+                    for (int i = 0; i < dgvCliente.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < dgvCliente.Columns.Count; j++)
+                        {
+                            table.AddCell(new Phrase(dgvCliente.Rows[i].Cells[j].Value?.ToString()));
+                        }
+                    }
+
+                    pdf.Add(table);
+                    pdf.Close();
+
+                    MessageBox.Show("Archivo PDF generado exitosamente.");
                 }
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el archivo PDF: " + ex.Message);
+            }
         }
     }
 }
