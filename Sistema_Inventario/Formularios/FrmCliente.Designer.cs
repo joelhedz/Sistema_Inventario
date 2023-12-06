@@ -179,7 +179,7 @@
             tabpageListClientes.Controls.Add(groupBox1);
             tabpageListClientes.Location = new Point(4, 30);
             tabpageListClientes.Name = "tabpageListClientes";
-            tabpageListClientes.Padding = new Padding(3, 3, 3, 3);
+            tabpageListClientes.Padding = new Padding(3);
             tabpageListClientes.Size = new Size(1191, 528);
             tabpageListClientes.TabIndex = 0;
             tabpageListClientes.Text = "Lista Usuarios";
@@ -248,6 +248,7 @@
             BtnEstado.TabIndex = 61;
             BtnEstado.Text = "Estado";
             BtnEstado.UseVisualStyleBackColor = false;
+            BtnEstado.Click += BtnEstado_Click;
             // 
             // BtnEditar
             // 
@@ -363,8 +364,8 @@
             tabPageFormClientes.Controls.Add(lblcodigo);
             tabPageFormClientes.Location = new Point(4, 30);
             tabPageFormClientes.Name = "tabPageFormClientes";
-            tabPageFormClientes.Padding = new Padding(3, 3, 3, 3);
-            tabPageFormClientes.Size = new Size(1215, 659);
+            tabPageFormClientes.Padding = new Padding(3);
+            tabPageFormClientes.Size = new Size(1191, 528);
             tabPageFormClientes.TabIndex = 1;
             tabPageFormClientes.Text = "Formulario Usuarios";
             tabPageFormClientes.UseVisualStyleBackColor = true;

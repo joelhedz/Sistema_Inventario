@@ -46,12 +46,12 @@
             Precio = new DataGridViewTextBoxColumn();
             Total = new DataGridViewTextBoxColumn();
             gbDetalles = new GroupBox();
+            cmbArticulo = new ComboBox();
             txtCantidad = new NumericUpDown();
             lblStoks = new Label();
             txtPrecio = new TextBox();
             label10 = new Label();
             label9 = new Label();
-            txtArticulo = new TextBox();
             label8 = new Label();
             rbPendiente = new RadioButton();
             rbCompletada = new RadioButton();
@@ -61,8 +61,8 @@
             txtIdArticulo = new TextBox();
             btnModificar = new Button();
             gbCliente = new GroupBox();
+            cmbCliente = new ComboBox();
             txtCliente = new TextBox();
-            txtIdCliente = new TextBox();
             label2 = new Label();
             btnEliminar = new Button();
             btnAgregar = new Button();
@@ -87,6 +87,7 @@
             btnNueva.TabIndex = 30;
             btnNueva.Text = "Nueva";
             btnNueva.UseVisualStyleBackColor = false;
+            btnNueva.Click += btnNueva_Click;
             // 
             // btnCancelar
             // 
@@ -140,6 +141,7 @@
             txtEfectivo.Name = "txtEfectivo";
             txtEfectivo.Size = new Size(228, 29);
             txtEfectivo.TabIndex = 36;
+            txtEfectivo.TextChanged += txtEfectivo_TextChanged;
             // 
             // label7
             // 
@@ -237,12 +239,12 @@
             // 
             // gbDetalles
             // 
+            gbDetalles.Controls.Add(cmbArticulo);
             gbDetalles.Controls.Add(txtCantidad);
             gbDetalles.Controls.Add(lblStoks);
             gbDetalles.Controls.Add(txtPrecio);
             gbDetalles.Controls.Add(label10);
             gbDetalles.Controls.Add(label9);
-            gbDetalles.Controls.Add(txtArticulo);
             gbDetalles.Controls.Add(label8);
             gbDetalles.Controls.Add(rbPendiente);
             gbDetalles.Controls.Add(rbCompletada);
@@ -259,6 +261,15 @@
             gbDetalles.TabIndex = 38;
             gbDetalles.TabStop = false;
             gbDetalles.Text = "Detalles";
+            // 
+            // cmbArticulo
+            // 
+            cmbArticulo.FormattingEnabled = true;
+            cmbArticulo.Location = new Point(350, 63);
+            cmbArticulo.Name = "cmbArticulo";
+            cmbArticulo.Size = new Size(355, 29);
+            cmbArticulo.TabIndex = 15;
+            cmbArticulo.SelectedIndexChanged += cmbArticulo_SelectedIndexChanged;
             // 
             // txtCantidad
             // 
@@ -303,16 +314,6 @@
             label9.Size = new Size(75, 21);
             label9.TabIndex = 26;
             label9.Text = "Cantidad:";
-            // 
-            // txtArticulo
-            // 
-            txtArticulo.Enabled = false;
-            txtArticulo.Location = new Point(350, 63);
-            txtArticulo.Margin = new Padding(3, 2, 3, 2);
-            txtArticulo.Multiline = true;
-            txtArticulo.Name = "txtArticulo";
-            txtArticulo.Size = new Size(355, 23);
-            txtArticulo.TabIndex = 7;
             // 
             // label8
             // 
@@ -373,6 +374,7 @@
             // 
             // txtIdArticulo
             // 
+            txtIdArticulo.Enabled = false;
             txtIdArticulo.Location = new Point(99, 64);
             txtIdArticulo.Margin = new Padding(3, 2, 3, 2);
             txtIdArticulo.Multiline = true;
@@ -397,8 +399,8 @@
             // 
             // gbCliente
             // 
+            gbCliente.Controls.Add(cmbCliente);
             gbCliente.Controls.Add(txtCliente);
-            gbCliente.Controls.Add(txtIdCliente);
             gbCliente.Controls.Add(label2);
             gbCliente.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             gbCliente.Location = new Point(54, 38);
@@ -410,33 +412,32 @@
             gbCliente.TabStop = false;
             gbCliente.Text = "Cliente";
             // 
+            // cmbCliente
+            // 
+            cmbCliente.FormattingEnabled = true;
+            cmbCliente.Location = new Point(114, 37);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(418, 29);
+            cmbCliente.TabIndex = 14;
+            // 
             // txtCliente
             // 
             txtCliente.Enabled = false;
-            txtCliente.Location = new Point(326, 38);
+            txtCliente.Location = new Point(159, 37);
             txtCliente.Margin = new Padding(3, 2, 3, 2);
             txtCliente.Multiline = true;
             txtCliente.Name = "txtCliente";
             txtCliente.Size = new Size(356, 23);
             txtCliente.TabIndex = 2;
             // 
-            // txtIdCliente
-            // 
-            txtIdCliente.Location = new Point(106, 37);
-            txtIdCliente.Margin = new Padding(3, 2, 3, 2);
-            txtIdCliente.Multiline = true;
-            txtIdCliente.Name = "txtIdCliente";
-            txtIdCliente.Size = new Size(152, 23);
-            txtIdCliente.TabIndex = 1;
-            // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(20, 40);
             label2.Name = "label2";
-            label2.Size = new Size(74, 21);
+            label2.Size = new Size(71, 21);
             label2.TabIndex = 13;
-            label2.Text = "IdCliente:";
+            label2.Text = "Nombre:";
             // 
             // btnEliminar
             // 
@@ -529,7 +530,6 @@
         private TextBox txtPrecio;
         private Label label10;
         private Label label9;
-        private TextBox txtArticulo;
         private Label label8;
         private RadioButton rbPendiente;
         private RadioButton rbCompletada;
@@ -540,10 +540,11 @@
         private Button btnModificar;
         private GroupBox gbCliente;
         private TextBox txtCliente;
-        private TextBox txtIdCliente;
         private Label label2;
         private Button btnEliminar;
         private Button btnAgregar;
         private ErrorProvider errorProvider1;
+        private ComboBox cmbCliente;
+        private ComboBox cmbArticulo;
     }
 }

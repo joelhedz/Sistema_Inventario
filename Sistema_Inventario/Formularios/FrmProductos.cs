@@ -46,7 +46,7 @@ namespace Sistema_Inventario.Formularios
             BtnEstado.Enabled = false;
             BtnReporte.Enabled = true;
 
-            tabControl1.TabPages.Remove(FormProducto);
+            tabControl1.TabPages.Remove(ListProductos);
             dataGridView1.Refresh();
         }
 
@@ -128,6 +128,14 @@ namespace Sistema_Inventario.Formularios
             {
                 BtnEditar.Enabled = true;
                 int idArticulo = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                if (dataGridView1.CurrentRow.Cells[7].Value.ToString() == "ACT")
+                {
+                    BtnEstado.Text = "Deshabilitar";
+                }
+                else
+                {
+                    BtnEstado.Text = "Activar";
+                }
                 if (isProductVent(idArticulo) == false)
                 {
                     BtnEstado.Enabled = true;
@@ -162,7 +170,7 @@ namespace Sistema_Inventario.Formularios
             if (dataGridView1.Rows.Count > 0)
             {
                 int idArticulo = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                string estado = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                string estado = dataGridView1.CurrentRow.Cells[7].Value.ToString();
                 string query = "";
 
                 List<SqlParameter> lst = new List<SqlParameter>();
@@ -178,7 +186,6 @@ namespace Sistema_Inventario.Formularios
 
                 crud.executeQuery(query, lst, "Se cambio el estado del producto");
                 bitacora.InsertarBitacora("Se cambio el estado del producto");
-                Limpiar();
                 getProductos();
                 alcargarCompras();
             }

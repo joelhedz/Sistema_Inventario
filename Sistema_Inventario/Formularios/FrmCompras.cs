@@ -272,6 +272,7 @@ namespace Sistema_Inventario.Formularios
             errorProvider1.Clear();
             if (val.contError == 0)
             {
+                int IdArticulo = 0;
                 string FotoDir;
                 if (PbFoto.ImageLocation == null)
                 {
@@ -309,6 +310,15 @@ namespace Sistema_Inventario.Formularios
                             "Stock,Descripcion,foto)values(@IdCategoria,@NombreProducto,@Precio, " +
                             "@Stokc, @Descrip, @foto)";
                         crud.executeQuery(Query0, Parametros, "");
+
+                        
+                        string Query = "SELECT MAX(IdArticulo) FROM articulo";
+                        DataTable dt = new DataTable();
+                        dt = crud.getInfo(Query);
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            IdArticulo = Convert.ToInt32(dr[0].ToString());
+                        }
                     }
                 }
                 else if (rbExistente.Checked == true)
@@ -327,6 +337,7 @@ namespace Sistema_Inventario.Formularios
                     "Nombre_Articulo=@NombreProducto, Precio_Venta=@Precio, Stock=@Stokc," +
                     "Descripcion=@Descrip ,foto=@foto where IdArticulo= @IdArticulo";
                     crud.executeQuery(Query, ParametrosUpdtArticulo, "");
+                    IdArticulo = Convert.ToInt32(TxtIdArticulo.Text);
                 }
 
                 string dtFecha_ = dtFecha.Value.ToString("yyyy-MM-dd");
@@ -340,7 +351,7 @@ namespace Sistema_Inventario.Formularios
                 crud.executeQuery(Query2, ParametrosIngreso, "");
 
                 List<SqlParameter> ParametrosDetalleIngreso = new List<SqlParameter>();
-                ParametrosDetalleIngreso.Add(new SqlParameter("@IdArticulo", TxtIdArticulo.Text));
+                ParametrosDetalleIngreso.Add(new SqlParameter("@IdArticulo", IdArticulo));
                 ParametrosDetalleIngreso.Add(new SqlParameter("@Cantidad", TxtCantidad.Text));
                 ParametrosDetalleIngreso.Add(new SqlParameter("@Precio", TxtPrecio.Text));
                 ParametrosDetalleIngreso.Add(new SqlParameter("@IdIngreso", IdIngreso()));
@@ -447,6 +458,12 @@ namespace Sistema_Inventario.Formularios
             TxtProducto.Enabled = true;
             TxtProducto.BringToFront();
             CmbProductos.Enabled = false;
+            TxtIdArticulo.Clear();
+            TxtProducto.Clear();
+            TxtPrecio.Clear();
+            TxtDescripcion.Clear();
+            PbFoto.ImageLocation = null;
+
         }
 
 
@@ -492,6 +509,10 @@ namespace Sistema_Inventario.Formularios
             TxtProducto.SendToBack();
             CmbProductos.Enabled = true;
             CmbProductos.BringToFront();
+            TxtPrecio.Clear();
+            TxtDescripcion.Clear();
+            PbFoto.ImageLocation = null;
+
         }
 
         private void rbId_CheckedChanged(object sender, EventArgs e)

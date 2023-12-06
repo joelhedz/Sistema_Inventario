@@ -8,10 +8,10 @@ namespace Sistema_Inventario.BaseDatos
 {
     internal class ClassDatosSql
     {
-        private static string SERVERNAME = "DESKTOP-D68DSEB\\SQLEXPRESS";
+        private static string SERVERNAME = "DEEL-PC";
         private static string DATABASE = "alphaInventary";
-        private static string USER = "angel_1";
-        private static string PASSWORD = "123456";
+        private static string USER = "JoelHerdz";
+        private static string PASSWORD = "joel1310";
 
         public static string ServerNam_
         {

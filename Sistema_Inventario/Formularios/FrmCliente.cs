@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistema_Inventario.BaseDatos;
 
 namespace Sistema_Inventario.Formularios
 {
@@ -18,6 +19,7 @@ namespace Sistema_Inventario.Formularios
         Controladores.ClassRoles roles = new Controladores.ClassRoles();
         Controladores.ClassMensajes msj = new Controladores.ClassMensajes();
         Controladores.ClassValidaciones val = new Controladores.ClassValidaciones();
+        ClassBitacora bitacora = new ClassBitacora();
         BaseDatos.ClassCrud crud = new BaseDatos.ClassCrud();
         private Form activeForm;
 
@@ -143,9 +145,6 @@ namespace Sistema_Inventario.Formularios
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
 
-
-
-
             //Validar si el usuario ya existe
 
             if (ExistenciaUsuario(textNombre).Rows.Count > 0)
@@ -166,7 +165,7 @@ namespace Sistema_Inventario.Formularios
                 "Values(@idcliente,@nombre_cliente,@apellidos_cliente,@direccion_cliente,@telefono_cliente,@correo_Electronico) ";
                 crud.executeQuery(Query, parametros, "Usuario Registrado Correctamente");
 
-
+                bitacora.InsertarBitacora(" Se registro un cliente");
 
                 limpiar();
                 tabControl1.TabPages.Remove(tabPageFormClientes);
@@ -221,15 +220,8 @@ namespace Sistema_Inventario.Formularios
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
-
-
-
             if (msj.Confirmar("¿Desea Actualizar el usuario?") == true)
             {
-
-
-
-
                 List<SqlParameter> parametros = new List<SqlParameter>();
                 parametros.Add(new SqlParameter("@idcliente", textId.Text));
                 parametros.Add(new SqlParameter("@nombre_cliente", textNombre.Text));
@@ -244,9 +236,13 @@ namespace Sistema_Inventario.Formularios
                 crud.executeQuery(Query, parametros, "");
 
                 limpiar();
+
+                bitacora.InsertarBitacora(" Se actualizo un cliente");
                 tabControl1.TabPages.Remove(tabPageFormClientes);
                 tabControl1.TabPages.Add(tabpageListClientes);
+                getClientes();
                 AlcargarListClientes();
+
 
             }
 
@@ -299,6 +295,20 @@ namespace Sistema_Inventario.Formularios
             catch (Exception ex)
             {
                 MessageBox.Show("Error al generar el archivo PDF: " + ex.Message);
+            }
+        }
+
+        private void BtnEstado_Click(object sender, EventArgs e)
+        {
+            if(msj.Confirmar("¿Desea Eliminar el cliente?")==true)
+            {
+                //List<SqlParameter> parametros = new List<SqlParameter>();
+                //parametros.Add(new SqlParameter("@idcliente", textId.Text));
+                //string Query = "UPDATE cliente SET estado_cliente=0 where idcliente=@idcliente";
+                //crud.executeQuery(Query, parametros, "");
+                //bitacora.InsertarBitacora(" Se cambio el estado de un cliente");
+                //getClientes();
+                //AlcargarListClientes();
             }
         }
     }
