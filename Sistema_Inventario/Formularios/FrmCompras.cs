@@ -158,7 +158,7 @@ namespace Sistema_Inventario.Formularios
             GetCompras();
             GetProveedores();
             GetCategorias();
-            rol.BotonesAccesos(BtnNuevo, BtnGuardar, BtnEditar, BtnEstado, BtnConfirmar, dataGridView1, BtnReportes);
+            rol.BotonesAccesos(BtnNuevo, BtnGuardar, BtnEditar, BtnEstado, BtnConfirmar, dataGridView1 );
 
         }
 
