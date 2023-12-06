@@ -1,5 +1,4 @@
 ﻿using Sistema_Inventario.Controladores;
-using Sistema_Inventario.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -192,12 +191,7 @@ namespace Sistema_Inventario.Formularios
             limpiarText();
             alcargarForm();
             dataGridView1.Rows.Clear();
-            if (MessageBox.Show("Desea mostrar Factura?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Reportes.FrmReporteFactura factura = new FrmReporteFactura();
-                factura.Show();
-
-            }
+            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

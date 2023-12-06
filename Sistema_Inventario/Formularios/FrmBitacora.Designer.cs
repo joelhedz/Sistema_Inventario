@@ -33,11 +33,11 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtUsuario = new TextBox();
             groupBox1 = new GroupBox();
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
-            dateTimePicker1 = new DateTimePicker();
+            datetimeFecha = new DateTimePicker();
             dataGridView1 = new DataGridView();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -63,13 +63,14 @@
             label2.TabIndex = 2;
             label2.Text = "Fecha";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(66, 108);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(364, 29);
-            textBox1.TabIndex = 3;
+            txtUsuario.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUsuario.Location = new Point(66, 108);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(364, 29);
+            txtUsuario.TabIndex = 3;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // groupBox1
             // 
@@ -93,6 +94,7 @@
             radioButton2.TabStop = true;
             radioButton2.Text = "Fecha";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // radioButton1
             // 
@@ -106,14 +108,15 @@
             radioButton1.UseVisualStyleBackColor = true;
             radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
-            // dateTimePicker1
+            // datetimeFecha
             // 
-            dateTimePicker1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(491, 108);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(398, 29);
-            dateTimePicker1.TabIndex = 6;
+            datetimeFecha.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            datetimeFecha.Format = DateTimePickerFormat.Short;
+            datetimeFecha.Location = new Point(491, 108);
+            datetimeFecha.Name = "datetimeFecha";
+            datetimeFecha.Size = new Size(398, 29);
+            datetimeFecha.TabIndex = 6;
+            datetimeFecha.ValueChanged += datetimeFecha_ValueChanged;
             // 
             // dataGridView1
             // 
@@ -166,13 +169,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1223, 693);
             Controls.Add(dataGridView1);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(datetimeFecha);
             Controls.Add(groupBox1);
-            Controls.Add(textBox1);
+            Controls.Add(txtUsuario);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "FrmBitacora";
             Text = "Bitacora";
+            Load += FrmBitacora_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -183,11 +187,11 @@
         #endregion
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtUsuario;
         private GroupBox groupBox1;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker datetimeFecha;
         private DataGridView dataGridView1;
     }
 }
