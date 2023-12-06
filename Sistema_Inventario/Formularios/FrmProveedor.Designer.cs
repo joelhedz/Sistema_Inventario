@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             tabControl1 = new TabControl();
             ListProveedores = new TabPage();
+            btnReporte = new Button();
             dataGridView1 = new DataGridView();
             label1 = new Label();
             txtBuscar = new TextBox();
             BtnEstado = new Button();
             BtnEditar = new Button();
             BtnNuevo = new Button();
-            btnReporte = new Button();
             FormProveedor = new TabPage();
             BtnConfirmar = new Button();
             BtnCancelar = new Button();
@@ -83,13 +83,13 @@
             // 
             // ListProveedores
             // 
+            ListProveedores.Controls.Add(btnReporte);
             ListProveedores.Controls.Add(dataGridView1);
             ListProveedores.Controls.Add(label1);
             ListProveedores.Controls.Add(txtBuscar);
             ListProveedores.Controls.Add(BtnEstado);
             ListProveedores.Controls.Add(BtnEditar);
             ListProveedores.Controls.Add(BtnNuevo);
-            ListProveedores.Controls.Add(btnReporte);
             ListProveedores.Location = new Point(4, 30);
             ListProveedores.Name = "ListProveedores";
             ListProveedores.Padding = new Padding(3);
@@ -97,6 +97,24 @@
             ListProveedores.TabIndex = 0;
             ListProveedores.Text = "Proveedores";
             ListProveedores.UseVisualStyleBackColor = true;
+            // 
+            // btnReporte
+            // 
+            btnReporte.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnReporte.BackColor = Color.FromArgb(38, 56, 78);
+            btnReporte.FlatStyle = FlatStyle.Flat;
+            btnReporte.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnReporte.ForeColor = Color.White;
+            btnReporte.Image = (Image)resources.GetObject("btnReporte.Image");
+            btnReporte.ImageAlign = ContentAlignment.MiddleLeft;
+            btnReporte.Location = new Point(1000, 326);
+            btnReporte.Margin = new Padding(3, 2, 3, 2);
+            btnReporte.Name = "btnReporte";
+            btnReporte.Size = new Size(168, 50);
+            btnReporte.TabIndex = 71;
+            btnReporte.Text = "    Reporte ";
+            btnReporte.UseVisualStyleBackColor = false;
+            btnReporte.Click += btnReporte_Click_1;
             // 
             // dataGridView1
             // 
@@ -209,24 +227,6 @@
             BtnNuevo.Text = "Nuevo";
             BtnNuevo.UseVisualStyleBackColor = false;
             BtnNuevo.Click += BtnNuevo_Click;
-            // 
-            // btnReporte
-            // 
-            btnReporte.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnReporte.BackColor = Color.FromArgb(38, 56, 78);
-            btnReporte.FlatStyle = FlatStyle.Flat;
-            btnReporte.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnReporte.ForeColor = Color.White;
-            btnReporte.Image = (Image)resources.GetObject("btnReporte.Image");
-            btnReporte.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReporte.Location = new Point(1000, 303);
-            btnReporte.Margin = new Padding(3, 2, 3, 2);
-            btnReporte.Name = "btnReporte";
-            btnReporte.Size = new Size(168, 50);
-            btnReporte.TabIndex = 63;
-            btnReporte.Text = "    Reporte ";
-            btnReporte.UseVisualStyleBackColor = false;
-            btnReporte.Click += btnReporte_Click;
             // 
             // FormProveedor
             // 
@@ -427,7 +427,6 @@
         private Button BtnEstado;
         private Button BtnEditar;
         private Button BtnNuevo;
-        private Button btnReporte;
         private Button BtnCancelar;
         private Button BtnGuardar;
         private Label label1;
@@ -435,5 +434,6 @@
         private Button BtnConfirmar;
         private ErrorProvider errorProvider1;
         private DataGridView dataGridView1;
+        private Button btnReporte;
     }
 }

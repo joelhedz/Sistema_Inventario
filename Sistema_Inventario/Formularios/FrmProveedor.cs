@@ -79,7 +79,7 @@ namespace Sistema_Inventario.Formularios
         private void FrmProveedor_Load(object sender, EventArgs e)
         {
             AlcargarFormulario();
-            rol.BotonesAccesos(BtnNuevo, BtnGuardar, BtnEditar, BtnEstado, BtnConfirmar, dataGridView1, btnReporte);
+            rol.BotonesAccesos(BtnNuevo, BtnGuardar, BtnEditar, BtnEstado, BtnConfirmar, dataGridView1);
             GetProveedores();
         }
 
@@ -301,7 +301,9 @@ namespace Sistema_Inventario.Formularios
             }
         }
 
-        private void btnReporte_Click(object sender, EventArgs e)
+       
+
+        private void btnReporte_Click_1(object sender, EventArgs e)
         {
             try
             {
