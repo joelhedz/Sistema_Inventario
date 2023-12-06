@@ -62,6 +62,7 @@
             BtnReporte.TabIndex = 67;
             BtnReporte.Text = "    Reporte ";
             BtnReporte.UseVisualStyleBackColor = false;
+            BtnReporte.Click += BtnReporte_Click;
             // 
             // DgvVentas
             // 

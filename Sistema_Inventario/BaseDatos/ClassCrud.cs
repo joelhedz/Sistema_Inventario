@@ -11,86 +11,95 @@ namespace Sistema_Inventario.BaseDatos
 {
     internal class ClassCrud : BaseDatos.ClassConexion
     {
-        Controladores.ClassMensajes mensaje = new Controladores.ClassMensajes();
-        private SqlCommand com = new SqlCommand();
-        private SqlDataReader reader; 
-        private DataTable recordset = new DataTable();
+        private SqlConnection connection;
+        private string connectionString;
 
-        public void executeQuery(string Query,List<SqlParameter> parametros, string msg) {
-            try {
-                using (com = new SqlCommand(Query, ConSql_))
+        
+        
+            Controladores.ClassMensajes mensaje = new Controladores.ClassMensajes();
+            private SqlCommand com = new SqlCommand();
+            private SqlDataReader reader;
+            private DataTable recordset = new DataTable();
+
+            public void executeQuery(string query, List<SqlParameter> parameters, string msg)
+            {
+                try
                 {
-                    foreach (SqlParameter parameter in parametros)
+                    using (com = new SqlCommand(query, ConSql_))
                     {
-                        if (!com.Parameters.Contains(parameter))
-                        {
-                            com.Parameters.Add(parameter);
-                        }
-                    }
-
-                    ConSql_.Open();
-                    com.ExecuteNonQuery();
-                    com.Dispose();
-                    ConSql_.Close();
-
-                    if (msg != "")
-                    {
-                        mensaje.Exito(msg);               
-                    }
-                }
-                    
-            }
-            catch (SqlException Error){ 
-                MessageBox.Show(Error.Message);
-            }
-            finally {
-                if (ConSql_.State == System.Data.ConnectionState.Open)
-                {
-                    ConSql_.Close();
-                }
-            }
-        }
-
-      
-        public DataTable getInfo(string Query, List<SqlParameter> parametros=null) {
-            recordset = new DataTable();
-
-            try {
-                using (com = new SqlCommand(Query,ConSql_))
-                {
-                    if (parametros != null)
-                    {
-                        foreach (SqlParameter parameter in parametros)
+                        foreach (SqlParameter parameter in parameters)
                         {
                             if (!com.Parameters.Contains(parameter))
                             {
                                 com.Parameters.Add(parameter);
                             }
                         }
-                    }
-                    
-                    ConSql_.Open();
-                    reader = com.ExecuteReader();  
 
-                    recordset.Load(reader);
-                    reader.Close();
-                    com.Dispose();
-                    ConSql_.Close();
+                        ConSql_.Open();
+                        com.ExecuteNonQuery();
+                        com.Dispose();
+                        ConSql_.Close();
+
+                        if (!string.IsNullOrEmpty(msg))
+                        {
+                            mensaje.Exito(msg);
+                        }
+                    }
                 }
-            }
-            catch (SqlException Error) 
-            {
-                MessageBox.Show(Error.Message);            
-            }
-            finally 
-            { 
-                if(ConSql_.State==System.Data.ConnectionState.Open)
+                catch (SqlException Error)
                 {
-                    ConSql_.Close() ;
+                    MessageBox.Show(Error.Message);
+                }
+                finally
+                {
+                    if (ConSql_.State == System.Data.ConnectionState.Open)
+                    {
+                        ConSql_.Close();
+                    }
                 }
             }
-            return recordset;
+
+      
+        public DataTable getInfo(string Query, List<SqlParameter> parametros=null) {
+            recordset = new DataTable();
+
+                try
+                {
+                    using (com = new SqlCommand(query, ConSql_))
+                    {
+                        if (parameters != null)
+                        {
+                            foreach (SqlParameter parameter in parameters)
+                            {
+                                if (!com.Parameters.Contains(parameter))
+                                {
+                                    com.Parameters.Add(parameter);
+                                }
+                            }
+                        }
+
+                        ConSql_.Open();
+                        reader = com.ExecuteReader();
+                        recordset.Load(reader);
+                        reader.Close();
+                        com.Dispose();
+                        ConSql_.Close();
+                    }
+                }
+                catch (SqlException Error)
+                {
+                    MessageBox.Show(Error.Message);
+                }
+                finally
+                {
+                    if (ConSql_.State == System.Data.ConnectionState.Open)
+                    {
+                        ConSql_.Close();
+                    }
+                }
+
+                return recordset;
+            }
         }
 
     }
-}

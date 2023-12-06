@@ -8,7 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Sistema_Inventario.BaseDatos;
+using Stimulsoft.Report.Viewer;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using System.IO;
+using Stimulsoft.Controls.Win.DotNetBar.Controls;
+using OfficeOpenXml;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 namespace Sistema_Inventario.Formularios
 {
     public partial class FrmVenta : Form
@@ -34,14 +42,18 @@ namespace Sistema_Inventario.Formularios
         {
             btnEliminarFiltro.BackColor = Color.Teal;
             btnEliminarFiltro.ForeColor = Color.White;
-            string fechaInicio, fechaFinal;
-            fechaInicio = dateTimePickerinicio.Value.ToString("yyyy-MM-dd");
-            fechaFinal = dateTimePickerfinal.Value.ToString("yyyy-MM-dd");
 
-            string Consulta = "Select * from View_Ventas where Fecha_Venta BETWEEN '" + fechaInicio + "'" +
-                "and '" + fechaFinal + "'";
+            DateTime fechaInicio = dateTimePickerinicio.Value.Date;
+            DateTime fechaFinal = dateTimePickerfinal.Value.Date;
+
+            string consulta = "SELECT * FROM venta WHERE Fecha_Venta BETWEEN @FechaInicio AND @FechaFinal";
+
+            List<SqlParameter> parametros = new List<SqlParameter>();
+            parametros.Add(new SqlParameter("@FechaInicio", fechaInicio));
+            parametros.Add(new SqlParameter("@FechaFinal", fechaFinal.AddDays(1).AddSeconds(-1))); // Ajuste para incluir toda la fecha final
+
             DataTable dtVentas = new DataTable();
-            dtVentas = crud.getInfo(Consulta);
+            dtVentas = crud.getInfo(consulta, parametros);
             DgvVentas.DataSource = dtVentas;
             DgvVentas.Refresh();
         }
@@ -58,90 +70,145 @@ namespace Sistema_Inventario.Formularios
         private void BtnAnular_Click(object sender, EventArgs e)
         {
             DateTime fechaHoy = DateTime.Now;
-            string Query = "Select * from View_Ventas where Codigo = @idVenta";
+            string queryVenta = "Select * from venta where NombreColumna = @idVenta";
             List<SqlParameter> parametros = new List<SqlParameter>();
             parametros.Add(new SqlParameter("@idVenta", idVenta.ToString()));
-            DataTable dtVentas = new DataTable();
-            dtVentas = crud.getInfo(Query,parametros);
+            DataTable dtVentas = crud.getInfo(queryVenta, parametros);
 
-            DateTime FechaVenta = new DateTime();
             if (dtVentas.Rows.Count > 0)
             {
-                FechaVenta = Convert.ToDateTime(dtVentas.Rows[0]["Fecha_Venta"].ToString());
-            }
-            if(fechaHoy.Date > FechaVenta.Date)
-            {
-                msj.Aviso("No se puede anular una venta de dias anteriores");
-            }
-            else
-            {
-                int stoks;
-                string QueryVenta = "Sekect * from detalle_venta where idventa = @idVenta";
-                List<SqlParameter> parametrosVentas = new List<SqlParameter>();
-                parametrosVentas.Add(new SqlParameter("@idVenta", idVenta.ToString()));
-                DataTable dtDetalleVenta = new DataTable();
-                dtDetalleVenta = crud.getInfo(QueryVenta, parametrosVentas);
+                DateTime FechaVenta = Convert.ToDateTime(dtVentas.Rows[0]["Fecha_Venta"]);
 
-                for (int i = 0; i < dtDetalleVenta.Rows.Count; i++)
+                if (fechaHoy.Date > FechaVenta.Date)
                 {
-                    stoks = 0;
-                    string id_Articulo = dtDetalleVenta.Rows[i][1].ToString();
-                    stoks = Convert.ToInt32(dtDetalleVenta.Rows[i][2].ToString());
-                    string QueryStock = "Select * from articulo where IdArticulo = @IdArticulo";
-                    List<SqlParameter> parametrosStock = new List<SqlParameter>();
-                    parametrosStock.Add(new SqlParameter("@IdArticulo", id_Articulo));
-                    DataTable dtStock = new DataTable();
-                    dtStock = crud.getInfo(QueryStock, parametrosStock);
+                    msj.Aviso("No se puede anular una venta de días anteriores");
+                }
+                else
+                {
+                    string queryDetalleVenta = "Select * from detalle_venta where idventa = @idVenta";
+                    List<SqlParameter> parametrosDetalleVenta = new List<SqlParameter>();
+                    parametrosDetalleVenta.Add(new SqlParameter("@idVenta", idVenta.ToString()));
+                    DataTable dtDetalleVenta = crud.getInfo(queryDetalleVenta, parametrosDetalleVenta);
 
-                    stoks  += Convert.ToInt32(dtStock.Rows[0][4].ToString());
+                    foreach (DataRow detalleVentaRow in dtDetalleVenta.Rows)
+                    {
+                        int stocks = 0;
+                        string id_Articulo = detalleVentaRow[1].ToString();
+                        stocks = Convert.ToInt32(detalleVentaRow[2].ToString());
 
-                    string QueryUpdate = "Update articulo set Stock = @Stock where IdArticulo = @IdArticulo";
-                    List<SqlParameter> parametrosUpdate = new List<SqlParameter>();
-                    parametrosUpdate.Add(new SqlParameter("@Stock", stoks.ToString()));
-                    parametrosUpdate.Add(new SqlParameter("@IdArticulo", id_Articulo));
-                    crud.executeQuery(QueryUpdate, parametrosUpdate,"");
-                } 
-                string Query2 = "Update venta set estado_venta = 'INA' where IdVenta = @IdVenta";
-                List<SqlParameter> parametrosUpdateVenta = new List<SqlParameter>();
-                parametrosUpdateVenta.Add(new SqlParameter("@IdVenta", idVenta.ToString()));
-                crud.executeQuery(Query2, parametrosUpdateVenta, "Venta Anulada");
+                        string queryStock = "Select * from articulo where IdArticulo = @IdArticulo";
+                        List<SqlParameter> parametrosStock = new List<SqlParameter>();
+                        parametrosStock.Add(new SqlParameter("@IdArticulo", id_Articulo));
+                        DataTable dtStock = crud.getInfo(queryStock, parametrosStock);
 
-                fechaHoy.ToString("yyyy-MM-dd");
-                string Bitacora = "Insert into bitacora(fecha_hora,tipo_de_Evento,usercode)values(@fecha,@accion,@usuario)";
-                List<SqlParameter> parametrosBitacora = new List<SqlParameter>();
-                parametrosBitacora.Add(new SqlParameter("@fecha", fechaHoy));
-                parametrosBitacora.Add(new SqlParameter("@accion", "Anulacion de Venta con el id '"+idVenta+"'"));
-                parametrosBitacora.Add(new SqlParameter("@usuario", Controladores.ClassDatosUsuario.Usuario)); ;
-                crud.executeQuery(Bitacora, parametrosBitacora, "");
-                GetVentas();
+                        stocks += Convert.ToInt32(dtStock.Rows[0][4].ToString());
 
+                        string queryUpdateStock = "Update articulo set Stock = @Stock where IdArticulo = @IdArticulo";
+                        List<SqlParameter> parametrosUpdateStock = new List<SqlParameter>();
+                        parametrosUpdateStock.Add(new SqlParameter("@Stock", stocks.ToString()));
+                        parametrosUpdateStock.Add(new SqlParameter("@IdArticulo", id_Articulo));
+                        crud.executeQuery(queryUpdateStock, parametrosUpdateStock, "");
+                    }
 
+                    string queryAnularVenta = "Update venta set estado_venta = 'INA' where IdVenta = @IdVenta";
+                    List<SqlParameter> parametrosUpdateVenta = new List<SqlParameter>();
+                    parametrosUpdateVenta.Add(new SqlParameter("@IdVenta", idVenta.ToString()));
+                    crud.executeQuery(queryAnularVenta, parametrosUpdateVenta, "Venta Anulada");
+
+                    string fechaHoyFormato = fechaHoy.ToString("yyyy-MM-dd");
+                    string queryBitacora = "Insert into bitacora(fecha_hora,tipo_de_Evento,usercode)values(@fecha,@accion,@usuario)";
+                    List<SqlParameter> parametrosBitacora = new List<SqlParameter>();
+                    parametrosBitacora.Add(new SqlParameter("@fecha", fechaHoyFormato));
+                    parametrosBitacora.Add(new SqlParameter("@accion", "Anulacion de Venta con el id '" + idVenta + "'"));
+                    parametrosBitacora.Add(new SqlParameter("@usuario", Controladores.ClassDatosUsuario.Usuario));
+                    crud.executeQuery(queryBitacora, parametrosBitacora, "");
+                    GetVentas();
+                }
             }
         }
 
         private void DgvVentas_Click(object sender, EventArgs e)
         {
-            if(DgvVentas.Rows.Count >0)
+
+            if (DgvVentas.Rows.Count > 0 && DgvVentas.CurrentRow != null && DgvVentas.CurrentRow.Cells[0].Value != null)
             {
                 idVenta = Convert.ToInt32(DgvVentas.CurrentRow.Cells[0].Value.ToString());
                 List<SqlParameter> parametros = new List<SqlParameter>();
                 parametros.Add(new SqlParameter("@idVenta", idVenta.ToString()));
-                string Query = "Select * from View_Ventas where Codigo = @idVenta";
+                string Query = "SELECT * FROM venta WHERE Codigo = @idVenta";
                 DataTable dtVentas = new DataTable();
                 dtVentas = crud.getInfo(Query, parametros);
 
-                string Estado = dtVentas.Rows[0]["Estado"].ToString();
-                if (Estado == "ACT")
+                if (dtVentas.Rows.Count > 0) // Verificar si hay filas en el DataTable
                 {
-                    BtnAnular.Enabled = false;
+                    string Estado = dtVentas.Rows[0]["Estado"].ToString();
+                    if (Estado == "ACT")
+                    {
+                        BtnAnular.Enabled = false;
+                    }
+                    else
+                    {
+                        BtnAnular.Enabled = true;
+                    }
                 }
                 else
                 {
-                    BtnAnular.Enabled = true;
+
+
                 }
             }
-
-            
         }
+
+        private void FrmVenta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnReporte_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                saveFileDialog.FileName = "ReporteVentas.pdf";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    Document pdf = new Document(PageSize.A4);
+                    PdfWriter.GetInstance(pdf, new FileStream(saveFileDialog.FileName, FileMode.Create));
+
+                    pdf.Open();
+
+                    PdfPTable table = new PdfPTable(DgvVentas.Columns.Count);
+
+                    // Agregar encabezados de columna
+                    for (int i = 0; i < DgvVentas.Columns.Count; i++)
+                    {
+                        table.AddCell(new Phrase(DgvVentas.Columns[i].HeaderText));
+                    }
+
+                    // Agregar filas y celdas
+                    for (int i = 0; i < DgvVentas.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < DgvVentas.Columns.Count; j++)
+                        {
+                            table.AddCell(new Phrase(DgvVentas.Rows[i].Cells[j].Value?.ToString()));
+                        }
+                    }
+
+                    pdf.Add(table);
+                    pdf.Close();
+
+                    MessageBox.Show("Archivo PDF generado exitosamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar el archivo PDF: " + ex.Message);
+            }
+        }
+
     }
+
 }
+
