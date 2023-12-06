@@ -8,9 +8,9 @@ namespace Sistema_Inventario.BaseDatos
 {
     internal class ClassDatosSql
     {
-        private static string SERVERNAME = "MSI\\SQL_JOELHDZ";
+        private static string SERVERNAME = "DEEL-PC";
         private static string DATABASE = "alphaInventary";
-        private static string USER = "Joelherdz";
+        private static string USER = "JoelHerdz";
         private static string PASSWORD = "joel1310";
 
         public static string ServerNam_

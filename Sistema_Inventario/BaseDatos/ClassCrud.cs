@@ -51,6 +51,7 @@ namespace Sistema_Inventario.BaseDatos
             }
         }
 
+      
         public DataTable getInfo(string Query, List<SqlParameter> parametros=null) {
             recordset = new DataTable();
 

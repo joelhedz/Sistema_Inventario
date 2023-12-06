@@ -17,8 +17,9 @@ namespace Sistema_Inventario.Formularios
         Controladores.ClassMensajes msj = new Controladores.ClassMensajes();
         Controladores.ClassValidaciones val = new Controladores.ClassValidaciones();
 
-        public string usuario;
-        public string rol;
+        private int iduser; 
+        private  string usuario;
+        private string rol;
         public FrmLogin()
         {
             InitializeComponent();
@@ -85,9 +86,10 @@ namespace Sistema_Inventario.Formularios
                     msj.Aviso("Usuario fuera de servicio o deshabilitado");
                     return;
                 }
+                iduser = Convert.ToInt32(dtValUser.Rows[0]["usercode"].ToString());
                 usuario = dtValUser.Rows[0]["nombre_usuario"].ToString();
                 rol = dtValUser.Rows[0]["rolcod"].ToString();
-                Controladores.ClassDatosUsuario objUser = new Controladores.ClassDatosUsuario(usuario, rol);
+                Controladores.ClassDatosUsuario objUser = new Controladores.ClassDatosUsuario(iduser,usuario, rol);
                 FrmLoanding cargar = new FrmLoanding();
                 cargar.Show();
                 this.Hide();
