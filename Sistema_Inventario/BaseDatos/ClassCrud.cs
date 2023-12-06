@@ -11,11 +11,6 @@ namespace Sistema_Inventario.BaseDatos
 {
     internal class ClassCrud : BaseDatos.ClassConexion
     {
-        private SqlConnection connection;
-        private string connectionString;
-
-        
-        
             Controladores.ClassMensajes mensaje = new Controladores.ClassMensajes();
             private SqlCommand com = new SqlCommand();
             private SqlDataReader reader;

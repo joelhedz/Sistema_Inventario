@@ -1,5 +1,5 @@
 ﻿using Sistema_Inventario.Controladores;
-using Stimulsoft.Controls.Win.DotNetBar.Validator;
+using Sistema_Inventario.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -128,12 +128,27 @@ namespace Sistema_Inventario.Formularios
 
         }
 
+        private int idventa()
+        {
+            int idventa;
+            string Query = "Select MAX(idventa) from venta";
+            DataTable dt = crud.getInfo(Query);
+            idventa = Convert.ToInt32(dt.Rows[0][0]);
+
+            return idventa;
+        }
+
         private void btnRVenta_Click(object sender, EventArgs e)
         {
             string Fecha_ = dtFecha.Value.ToString("yyyy-MM-dd");
-            string Query = "Insert into venta(idcliente,idusuario,fecha_venta)values" +
-                "(" + txtIdCliente.Text + ",'" + ClassDatosUsuario.IdUsuario + "','" + Fecha_ + "')";
-            crud.Sistema(Query, "");
+            List<SqlParameter> Parametros = new List<SqlParameter>();
+            Parametros.Add(new SqlParameter("@IdCliente", txtIdCliente.Text));
+            Parametros.Add(new SqlParameter("@IdUsuario", ClassDatosUsuario.IdUsuario));
+            Parametros.Add(new SqlParameter("@Fecha_Venta", Fecha_));
+            string Query = "INSERT INTO venta(IdCliente, IdUsuario, Fecha_Venta) VALUES " +
+                "(@IdCliente, @IdUsuario, @Fecha_Venta)";
+            
+            crud.executeQuery(Query,Parametros, "");
 
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -143,30 +158,43 @@ namespace Sistema_Inventario.Formularios
                 int cantidad = Convert.ToInt32(row.Cells[2].Value);
                 precio = row.Cells[3].Value.ToString();
 
-                string Articulo = "Select * from articulo where IdArticulo ='" + idArticulo + "'";
-                DataTable Recordser = crud.getInfo(Articulo);
+                List<SqlParameter> Parametros2 = new List<SqlParameter>();
+                Parametros2.Add(new SqlParameter("@IdArticulo", idArticulo));
+
+                string Articulo = "Select * from articulo where IdArticulo =@IdArticulo";
+                DataTable Recordser = crud.getInfo(Articulo,Parametros2);
                 int stoks = 0;
                 if (Recordser.Rows.Count > 0)
                 {
                     stoks = Convert.ToInt32(Recordser.Rows[0][4]);
                     stoks -= cantidad;
-                    string updateStok = "Update articulo set Stock='" + stoks + "' " +
-                        "where IdArticulo='" + idArticulo + "'";
-                    crud.Sistema(updateStok, "");
+                    List<SqlParameter> Parametros3 = new List<SqlParameter>();
+                    Parametros3.Add(new SqlParameter("@IdArticulo", idArticulo));
+                    Parametros3.Add(new SqlParameter("@Stock", stoks));
+
+                    string updateStok = "Update articulo set Stock=@Stock " +
+                        "where IdArticulo=@IdArticulo ";
+                    crud.executeQuery(updateStok,Parametros3, "");
                 }
 
-                string Query2 = "Insert into detalle_venta(idventa,idarticulo,cantidad,precio)values" +
-                    "(" + idventa() + "," + idArticulo + "," + cantidad + "," + precio + ")";
-                crud.Sistema(Query2, "");
-            }
+                List<SqlParameter> Parametros4 = new List<SqlParameter>();  
+                Parametros4.Add(new SqlParameter("@IdArticulo", idArticulo));
+                Parametros4.Add(new SqlParameter("@Cantidad", cantidad));
+                Parametros4.Add(new SqlParameter("@Precio", precio));
+                Parametros4.Add(new SqlParameter("@IdVenta", idventa()));
 
-            MessageBox.Show("Venta realizada!", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string Query2 = "Insert into detalle_venta(idventa,idarticulo,cantidad,precio)values" +
+                    "(@IdVenta, @IdArticulo, @Cantidad, @Precio)";
+                crud.executeQuery(Query2,Parametros4, "");
+            }
+            bitacora.InsertarBitacora("Venta Realizada");
+            msj.Exito("Venta Realizada");
             limpiarText();
             alcargarForm();
             dataGridView1.Rows.Clear();
             if (MessageBox.Show("Desea mostrar Factura?", "Factura", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                FrmReporteFactura factura = new FrmReporteFactura(idventa());
+                Reportes.FrmReporteFactura factura = new FrmReporteFactura();
                 factura.Show();
 
             }
@@ -188,11 +216,20 @@ namespace Sistema_Inventario.Formularios
             }
         }
 
+        private double total()
+        {
+            double total = 0;
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                total += Convert.ToDouble(row.Cells[4].Value);
+            }
+            return total;
+        }
+
         private void dataGridView1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count > 0)
-            {
-                rol.dgvAccesos(dataGridView1, btnNueva, btnAgregar, btnModificar, btnCancelar, btnEliminar);
+            { 
                 txtIdArticulo.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                 txtArticulo.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                 txtCantidad.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
@@ -224,7 +261,7 @@ namespace Sistema_Inventario.Formularios
                     txtCantidad.Value = 0;
                     txtArticulo.Clear();
                     txtPrecio.Clear();
-                    rol.nuevo(btnNueva, btnAgregar, btnModificar, btnCancelar, btnEliminar);
+                   
                 }
             }
         }

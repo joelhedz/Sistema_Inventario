@@ -585,14 +585,12 @@ namespace Sistema_Inventario.Formularios
                     TxtProducto.Enabled = false;
                     TxtProducto.SendToBack();
                     CmbProductos.Enabled = false;
-                    TxtIdArticulo.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    CmbCategoria.SelectedValue = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    TxtIdArticulo.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                    CmbCategoria.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
                     TxtProducto.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                    TxtPrecio.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    TxtPrecio.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                     TxtCantidad.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                    TxtDescripcion.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                    PbFoto.ImageLocation = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                    cmbProveedores.SelectedValue = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                    cmbProveedores.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
                     dtFecha.Value = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[7].Value.ToString());
                 }
             }
