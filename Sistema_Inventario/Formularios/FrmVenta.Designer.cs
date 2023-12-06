@@ -221,6 +221,7 @@
             Controls.Add(BtnAnular);
             Name = "FrmVenta";
             Text = "FrmVenta";
+            Load += FrmVenta_Load_1;
             ((System.ComponentModel.ISupportInitialize)DgvVentas).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

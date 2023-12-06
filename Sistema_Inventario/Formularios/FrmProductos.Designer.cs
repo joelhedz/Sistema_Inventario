@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -35,29 +36,30 @@
             tabControl1 = new TabControl();
             FormProducto = new TabPage();
             dataGridView1 = new DataGridView();
-            button1 = new Button();
+            BtnEliminar = new Button();
             groupBox3 = new GroupBox();
-            radioButton1 = new RadioButton();
+            comboBox1 = new ComboBox();
             rbNombre = new RadioButton();
             rbId = new RadioButton();
             textBox1 = new TextBox();
             BtnEstado = new Button();
             BtnEditar = new Button();
-            button2 = new Button();
+            BtnReporte = new Button();
             ListProductos = new TabPage();
             BtnCancelar = new Button();
             BtnGuardar = new Button();
             groupBox1 = new GroupBox();
             PbFoto = new PictureBox();
             btnimagen = new Button();
-            comboBox1 = new ComboBox();
-            textBox6 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
+            CmbCategorias = new ComboBox();
+            txtNombreArticulo = new TextBox();
+            TxtPrecioVenta = new TextBox();
+            TxtDescripcion = new TextBox();
             label6 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
+            errorProvider1 = new ErrorProvider(components);
             tabControl1.SuspendLayout();
             FormProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -65,6 +67,7 @@
             ListProductos.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PbFoto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -72,6 +75,7 @@
             tabControl1.Controls.Add(FormProducto);
             tabControl1.Controls.Add(ListProductos);
             tabControl1.Dock = DockStyle.Fill;
+            tabControl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -81,15 +85,16 @@
             // FormProducto
             // 
             FormProducto.Controls.Add(dataGridView1);
-            FormProducto.Controls.Add(button1);
+            FormProducto.Controls.Add(BtnEliminar);
             FormProducto.Controls.Add(groupBox3);
             FormProducto.Controls.Add(BtnEstado);
             FormProducto.Controls.Add(BtnEditar);
-            FormProducto.Controls.Add(button2);
-            FormProducto.Location = new Point(4, 24);
+            FormProducto.Controls.Add(BtnReporte);
+            FormProducto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            FormProducto.Location = new Point(4, 30);
             FormProducto.Name = "FormProducto";
             FormProducto.Padding = new Padding(3);
-            FormProducto.Size = new Size(1215, 665);
+            FormProducto.Size = new Size(1215, 659);
             FormProducto.TabIndex = 0;
             FormProducto.Text = "Productos";
             FormProducto.UseVisualStyleBackColor = true;
@@ -136,27 +141,29 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(910, 455);
+            dataGridView1.Size = new Size(910, 449);
             dataGridView1.TabIndex = 75;
+            dataGridView1.Click += dataGridView1_Click;
             // 
-            // button1
+            // BtnEliminar
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.BackColor = Color.Maroon;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(1005, 293);
-            button1.Name = "button1";
-            button1.Size = new Size(168, 49);
-            button1.TabIndex = 74;
-            button1.Text = "Suspender";
-            button1.UseVisualStyleBackColor = false;
+            BtnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnEliminar.BackColor = Color.Maroon;
+            BtnEliminar.FlatStyle = FlatStyle.Flat;
+            BtnEliminar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnEliminar.ForeColor = SystemColors.ButtonHighlight;
+            BtnEliminar.Location = new Point(1005, 293);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(168, 49);
+            BtnEliminar.TabIndex = 74;
+            BtnEliminar.Text = "Eliminar";
+            BtnEliminar.UseVisualStyleBackColor = false;
+            BtnEliminar.Click += BtnEliminar_Click;
             // 
             // groupBox3
             // 
             groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox3.Controls.Add(radioButton1);
+            groupBox3.Controls.Add(comboBox1);
             groupBox3.Controls.Add(rbNombre);
             groupBox3.Controls.Add(rbId);
             groupBox3.Controls.Add(textBox1);
@@ -169,17 +176,15 @@
             groupBox3.TabIndex = 73;
             groupBox3.TabStop = false;
             groupBox3.Text = "Buscar por:";
+            groupBox3.Enter += groupBox3_Enter;
             // 
-            // radioButton1
+            // comboBox1
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(549, 34);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(71, 25);
-            radioButton1.TabIndex = 32;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Precio";
-            radioButton1.UseVisualStyleBackColor = true;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(6, 30);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(270, 29);
+            comboBox1.TabIndex = 76;
             // 
             // rbNombre
             // 
@@ -191,6 +196,7 @@
             rbNombre.TabStop = true;
             rbNombre.Text = "Categoria";
             rbNombre.UseVisualStyleBackColor = true;
+            rbNombre.CheckedChanged += rbNombre_CheckedChanged;
             // 
             // rbId
             // 
@@ -202,6 +208,7 @@
             rbId.TabStop = true;
             rbId.Text = "Nombre";
             rbId.UseVisualStyleBackColor = true;
+            rbId.CheckedChanged += rbId_CheckedChanged;
             // 
             // textBox1
             // 
@@ -211,6 +218,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(270, 29);
             textBox1.TabIndex = 12;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // BtnEstado
             // 
@@ -225,6 +233,7 @@
             BtnEstado.TabIndex = 71;
             BtnEstado.Text = "Activar";
             BtnEstado.UseVisualStyleBackColor = false;
+            BtnEstado.Click += BtnEstado_Click;
             // 
             // BtnEditar
             // 
@@ -239,34 +248,36 @@
             BtnEditar.TabIndex = 70;
             BtnEditar.Text = "Editar";
             BtnEditar.UseVisualStyleBackColor = false;
+            BtnEditar.Click += BtnEditar_Click;
             // 
-            // button2
+            // BtnReporte
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button2.BackColor = Color.FromArgb(38, 56, 78);
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.White;
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.Location = new Point(1005, 362);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(168, 50);
-            button2.TabIndex = 68;
-            button2.Text = "    Reporte ";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button2.UseVisualStyleBackColor = false;
+            BtnReporte.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            BtnReporte.BackColor = Color.FromArgb(38, 56, 78);
+            BtnReporte.FlatStyle = FlatStyle.Flat;
+            BtnReporte.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnReporte.ForeColor = Color.White;
+            BtnReporte.Image = (Image)resources.GetObject("BtnReporte.Image");
+            BtnReporte.Location = new Point(1005, 362);
+            BtnReporte.Margin = new Padding(3, 2, 3, 2);
+            BtnReporte.Name = "BtnReporte";
+            BtnReporte.Size = new Size(168, 50);
+            BtnReporte.TabIndex = 68;
+            BtnReporte.Text = "    Reporte ";
+            BtnReporte.TextAlign = ContentAlignment.MiddleLeft;
+            BtnReporte.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnReporte.UseVisualStyleBackColor = false;
             // 
             // ListProductos
             // 
             ListProductos.Controls.Add(BtnCancelar);
             ListProductos.Controls.Add(BtnGuardar);
             ListProductos.Controls.Add(groupBox1);
-            ListProductos.Location = new Point(4, 24);
+            ListProductos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ListProductos.Location = new Point(4, 30);
             ListProductos.Name = "ListProductos";
             ListProductos.Padding = new Padding(3);
-            ListProductos.Size = new Size(1215, 665);
+            ListProductos.Size = new Size(1215, 659);
             ListProductos.TabIndex = 1;
             ListProductos.Text = "Producto";
             ListProductos.UseVisualStyleBackColor = true;
@@ -278,12 +289,13 @@
             BtnCancelar.FlatAppearance.BorderSize = 0;
             BtnCancelar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnCancelar.ForeColor = Color.White;
-            BtnCancelar.Location = new Point(627, 427);
+            BtnCancelar.Location = new Point(627, 424);
             BtnCancelar.Name = "BtnCancelar";
             BtnCancelar.Size = new Size(169, 44);
             BtnCancelar.TabIndex = 38;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.UseVisualStyleBackColor = false;
+            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnGuardar
             // 
@@ -292,21 +304,22 @@
             BtnGuardar.FlatAppearance.BorderSize = 0;
             BtnGuardar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             BtnGuardar.ForeColor = Color.White;
-            BtnGuardar.Location = new Point(422, 427);
+            BtnGuardar.Location = new Point(422, 424);
             BtnGuardar.Name = "BtnGuardar";
             BtnGuardar.Size = new Size(169, 44);
             BtnGuardar.TabIndex = 37;
             BtnGuardar.Text = "Guardar";
             BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(PbFoto);
             groupBox1.Controls.Add(btnimagen);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(textBox6);
-            groupBox1.Controls.Add(textBox4);
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(CmbCategorias);
+            groupBox1.Controls.Add(txtNombreArticulo);
+            groupBox1.Controls.Add(TxtPrecioVenta);
+            groupBox1.Controls.Add(TxtDescripcion);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -343,34 +356,34 @@
             btnimagen.Text = "Cargar Imagen";
             btnimagen.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // CmbCategorias
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(157, 194);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(480, 29);
-            comboBox1.TabIndex = 15;
+            CmbCategorias.FormattingEnabled = true;
+            CmbCategorias.Location = new Point(157, 194);
+            CmbCategorias.Name = "CmbCategorias";
+            CmbCategorias.Size = new Size(480, 29);
+            CmbCategorias.TabIndex = 15;
             // 
-            // textBox6
+            // txtNombreArticulo
             // 
-            textBox6.Location = new Point(157, 45);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(480, 29);
-            textBox6.TabIndex = 14;
+            txtNombreArticulo.Location = new Point(157, 45);
+            txtNombreArticulo.Name = "txtNombreArticulo";
+            txtNombreArticulo.Size = new Size(480, 29);
+            txtNombreArticulo.TabIndex = 14;
             // 
-            // textBox4
+            // TxtPrecioVenta
             // 
-            textBox4.Location = new Point(157, 91);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(480, 29);
-            textBox4.TabIndex = 12;
+            TxtPrecioVenta.Location = new Point(157, 91);
+            TxtPrecioVenta.Name = "TxtPrecioVenta";
+            TxtPrecioVenta.Size = new Size(480, 29);
+            TxtPrecioVenta.TabIndex = 12;
             // 
-            // textBox3
+            // TxtDescripcion
             // 
-            textBox3.Location = new Point(157, 137);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(480, 29);
-            textBox3.TabIndex = 11;
+            TxtDescripcion.Location = new Point(157, 137);
+            TxtDescripcion.Name = "TxtDescripcion";
+            TxtDescripcion.Size = new Size(480, 29);
+            TxtDescripcion.TabIndex = 11;
             // 
             // label6
             // 
@@ -408,6 +421,10 @@
             label2.TabIndex = 3;
             label2.Text = "Nombre Articulo";
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // FrmProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -426,6 +443,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PbFoto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
@@ -435,10 +453,10 @@
         private TabPage FormProducto;
         private TabPage ListProductos;
         private GroupBox groupBox1;
-        private ComboBox comboBox1;
-        private TextBox textBox6;
-        private TextBox textBox4;
-        private TextBox textBox3;
+        private ComboBox CmbCategorias;
+        private TextBox txtNombreArticulo;
+        private TextBox TxtPrecioVenta;
+        private TextBox TxtDescripcion;
         private Label label6;
         private Label label4;
         private Label label3;
@@ -448,14 +466,15 @@
         private Button BtnCancelar;
         private Button BtnGuardar;
         private GroupBox groupBox3;
-        private RadioButton radioButton1;
         private RadioButton rbNombre;
         private RadioButton rbId;
         private TextBox textBox1;
         private Button BtnEstado;
         private Button BtnEditar;
-        private Button button2;
-        private Button button1;
+        private Button BtnReporte;
+        private Button BtnEliminar;
         private DataGridView dataGridView1;
+        private ErrorProvider errorProvider1;
+        private ComboBox comboBox1;
     }
 }

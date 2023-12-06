@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFactura));
             btnNueva = new Button();
             btnCancelar = new Button();
@@ -65,10 +66,12 @@
             label2 = new Label();
             btnEliminar = new Button();
             btnAgregar = new Button();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             gbDetalles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtCantidad).BeginInit();
             gbCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // btnNueva
@@ -91,13 +94,14 @@
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(1012, 200);
+            btnCancelar.Location = new Point(1012, 261);
             btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(154, 40);
             btnCancelar.TabIndex = 34;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnRVenta
             // 
@@ -114,6 +118,7 @@
             btnRVenta.Text = "Realizar Venta";
             btnRVenta.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnRVenta.UseVisualStyleBackColor = false;
+            btnRVenta.Click += btnRVenta_Click;
             // 
             // txtDevolucion
             // 
@@ -193,6 +198,7 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1112, 189);
             dataGridView1.TabIndex = 39;
+            dataGridView1.Click += dataGridView1_Click;
             // 
             // IdArticulo
             // 
@@ -387,6 +393,7 @@
             btnModificar.TabIndex = 32;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // gbCliente
             // 
@@ -437,13 +444,14 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(1012, 255);
+            btnEliminar.Location = new Point(1012, 201);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(154, 39);
             btnEliminar.TabIndex = 35;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnAgregar
             // 
@@ -458,6 +466,11 @@
             btnAgregar.TabIndex = 31;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // FrmFactura
             // 
@@ -488,6 +501,7 @@
             ((System.ComponentModel.ISupportInitialize)txtCantidad).EndInit();
             gbCliente.ResumeLayout(false);
             gbCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -530,5 +544,6 @@
         private Label label2;
         private Button btnEliminar;
         private Button btnAgregar;
+        private ErrorProvider errorProvider1;
     }
 }

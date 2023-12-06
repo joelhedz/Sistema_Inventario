@@ -60,16 +60,16 @@ namespace Sistema_Inventario.BaseDatos
             }
 
       
-        public DataTable getInfo(string Query, List<SqlParameter> parametros=null) {
+        public DataTable getInfo(string query, List<SqlParameter> parametros=null) {
             recordset = new DataTable();
 
                 try
                 {
                     using (com = new SqlCommand(query, ConSql_))
                     {
-                        if (parameters != null)
+                        if (parametros != null)
                         {
-                            foreach (SqlParameter parameter in parameters)
+                            foreach (SqlParameter parameter in parametros)
                             {
                                 if (!com.Parameters.Contains(parameter))
                                 {

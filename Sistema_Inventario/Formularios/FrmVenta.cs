@@ -161,7 +161,7 @@ namespace Sistema_Inventario.Formularios
 
         private void FrmVenta_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void BtnReporte_Click(object sender, EventArgs e)
@@ -208,6 +208,10 @@ namespace Sistema_Inventario.Formularios
             }
         }
 
+        private void FrmVenta_Load_1(object sender, EventArgs e)
+        {
+            GetVentas();
+        }
     }
 
 }

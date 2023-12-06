@@ -66,14 +66,6 @@
             BtnConfirmar = new Button();
             ListCompra = new TabPage();
             dataGridView1 = new DataGridView();
-            ColumIdCompra = new DataGridViewTextBoxColumn();
-            ColumnProveedor = new DataGridViewTextBoxColumn();
-            ColumnIdArticulo = new DataGridViewTextBoxColumn();
-            ColumnCategoria = new DataGridViewTextBoxColumn();
-            ColumnCantidad = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            ColumnEstado = new DataGridViewTextBoxColumn();
-            ColumnFecha = new DataGridViewTextBoxColumn();
             groupBox3 = new GroupBox();
             rbNombre = new RadioButton();
             rbId = new RadioButton();
@@ -83,6 +75,15 @@
             BtnEditar = new Button();
             BtnReportes = new Button();
             tabControl1 = new TabControl();
+            ColumIdCompra = new DataGridViewTextBoxColumn();
+            ColumnProveedor = new DataGridViewTextBoxColumn();
+            ColumnIdArticulo = new DataGridViewTextBoxColumn();
+            ColumnCategoria = new DataGridViewTextBoxColumn();
+            ColumnCantidad = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            ColumnEstado = new DataGridViewTextBoxColumn();
+            ColumnFecha = new DataGridViewTextBoxColumn();
+            IdArticulo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             FormCompra.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -455,7 +456,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeight = 30;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumIdCompra, ColumnProveedor, ColumnIdArticulo, ColumnCategoria, ColumnCantidad, Precio, ColumnEstado, ColumnFecha });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ColumIdCompra, ColumnProveedor, ColumnIdArticulo, ColumnCategoria, ColumnCantidad, Precio, ColumnEstado, ColumnFecha, IdArticulo });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.White;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -483,54 +484,6 @@
             dataGridView1.Size = new Size(910, 448);
             dataGridView1.TabIndex = 68;
             dataGridView1.Click += dataGridView1_Click;
-            // 
-            // ColumIdCompra
-            // 
-            ColumIdCompra.HeaderText = "Id Compra";
-            ColumIdCompra.Name = "ColumIdCompra";
-            ColumIdCompra.ReadOnly = true;
-            // 
-            // ColumnProveedor
-            // 
-            ColumnProveedor.HeaderText = "Proveedor";
-            ColumnProveedor.Name = "ColumnProveedor";
-            ColumnProveedor.ReadOnly = true;
-            // 
-            // ColumnIdArticulo
-            // 
-            ColumnIdArticulo.HeaderText = "Articulo";
-            ColumnIdArticulo.Name = "ColumnIdArticulo";
-            ColumnIdArticulo.ReadOnly = true;
-            // 
-            // ColumnCategoria
-            // 
-            ColumnCategoria.HeaderText = "Categoria";
-            ColumnCategoria.Name = "ColumnCategoria";
-            ColumnCategoria.ReadOnly = true;
-            // 
-            // ColumnCantidad
-            // 
-            ColumnCantidad.HeaderText = "Cantidad";
-            ColumnCantidad.Name = "ColumnCantidad";
-            ColumnCantidad.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // ColumnEstado
-            // 
-            ColumnEstado.HeaderText = "Estado";
-            ColumnEstado.Name = "ColumnEstado";
-            ColumnEstado.ReadOnly = true;
-            // 
-            // ColumnFecha
-            // 
-            ColumnFecha.HeaderText = "Fecha";
-            ColumnFecha.Name = "ColumnFecha";
-            ColumnFecha.ReadOnly = true;
             // 
             // groupBox3
             // 
@@ -655,6 +608,60 @@
             tabControl1.Size = new Size(1223, 693);
             tabControl1.TabIndex = 20;
             // 
+            // ColumIdCompra
+            // 
+            ColumIdCompra.HeaderText = "Id Compra";
+            ColumIdCompra.Name = "ColumIdCompra";
+            ColumIdCompra.ReadOnly = true;
+            // 
+            // ColumnProveedor
+            // 
+            ColumnProveedor.HeaderText = "Proveedor";
+            ColumnProveedor.Name = "ColumnProveedor";
+            ColumnProveedor.ReadOnly = true;
+            // 
+            // ColumnIdArticulo
+            // 
+            ColumnIdArticulo.HeaderText = "Articulo";
+            ColumnIdArticulo.Name = "ColumnIdArticulo";
+            ColumnIdArticulo.ReadOnly = true;
+            // 
+            // ColumnCategoria
+            // 
+            ColumnCategoria.HeaderText = "Categoria";
+            ColumnCategoria.Name = "ColumnCategoria";
+            ColumnCategoria.ReadOnly = true;
+            // 
+            // ColumnCantidad
+            // 
+            ColumnCantidad.HeaderText = "Cantidad";
+            ColumnCantidad.Name = "ColumnCantidad";
+            ColumnCantidad.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // ColumnEstado
+            // 
+            ColumnEstado.HeaderText = "Estado";
+            ColumnEstado.Name = "ColumnEstado";
+            ColumnEstado.ReadOnly = true;
+            // 
+            // ColumnFecha
+            // 
+            ColumnFecha.HeaderText = "Fecha";
+            ColumnFecha.Name = "ColumnFecha";
+            ColumnFecha.ReadOnly = true;
+            // 
+            // IdArticulo
+            // 
+            IdArticulo.HeaderText = "IdArticulo";
+            IdArticulo.Name = "IdArticulo";
+            IdArticulo.ReadOnly = true;
+            // 
             // FrmCompras
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -685,14 +692,6 @@
         private TabControl tabControl1;
         private TabPage ListCompra;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ColumIdCompra;
-        private DataGridViewTextBoxColumn ColumnProveedor;
-        private DataGridViewTextBoxColumn ColumnIdArticulo;
-        private DataGridViewTextBoxColumn ColumnCategoria;
-        private DataGridViewTextBoxColumn ColumnCantidad;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn ColumnEstado;
-        private DataGridViewTextBoxColumn ColumnFecha;
         private GroupBox groupBox3;
         private RadioButton rbNombre;
         private RadioButton rbId;
@@ -730,5 +729,14 @@
         private Label lBLIGV;
         private ComboBox CmbProductos;
         private Button BtnConfirmar;
+        private DataGridViewTextBoxColumn ColumIdCompra;
+        private DataGridViewTextBoxColumn ColumnProveedor;
+        private DataGridViewTextBoxColumn ColumnIdArticulo;
+        private DataGridViewTextBoxColumn ColumnCategoria;
+        private DataGridViewTextBoxColumn ColumnCantidad;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn ColumnEstado;
+        private DataGridViewTextBoxColumn ColumnFecha;
+        private DataGridViewTextBoxColumn IdArticulo;
     }
 }
