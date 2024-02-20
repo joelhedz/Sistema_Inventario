@@ -8,8 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+
 
 namespace Sistema_Inventario.Formularios
 {
@@ -302,46 +301,12 @@ namespace Sistema_Inventario.Formularios
 
         private void BtnReporte_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
-                saveFileDialog.FileName = "ReporteProductos.pdf";
+            
+        }
 
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    Document pdf = new Document(PageSize.A4);
-                    PdfWriter.GetInstance(pdf, new FileStream(saveFileDialog.FileName, FileMode.Create));
+        private void btnimagen_Click(object sender, EventArgs e)
+        {
 
-                    pdf.Open();
-
-                    PdfPTable table = new PdfPTable(dataGridView1.Columns.Count);
-
-                    // Agregar encabezados de columna
-                    for (int i = 0; i < dataGridView1.Columns.Count; i++)
-                    {
-                        table.AddCell(new Phrase(dataGridView1.Columns[i].HeaderText));
-                    }
-
-                    // Agregar filas y celdas
-                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                    {
-                        for (int j = 0; j < dataGridView1.Columns.Count; j++)
-                        {
-                            table.AddCell(new Phrase(dataGridView1.Rows[i].Cells[j].Value?.ToString()));
-                        }
-                    }
-
-                    pdf.Add(table);
-                    pdf.Close();
-
-                    MessageBox.Show("Archivo PDF generado exitosamente.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al generar el archivo PDF: " + ex.Message);
-            }
         }
     }
 }

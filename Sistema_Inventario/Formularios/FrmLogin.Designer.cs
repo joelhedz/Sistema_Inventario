@@ -228,6 +228,7 @@
             btnSalir.TabIndex = 13;
             btnSalir.Text = "X";
             btnSalir.UseVisualStyleBackColor = false;
+            btnSalir.Click += btnSalir_Click;
             // 
             // label3
             // 

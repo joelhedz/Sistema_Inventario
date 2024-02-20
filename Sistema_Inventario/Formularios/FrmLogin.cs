@@ -17,8 +17,8 @@ namespace Sistema_Inventario.Formularios
         Controladores.ClassMensajes msj = new Controladores.ClassMensajes();
         Controladores.ClassValidaciones val = new Controladores.ClassValidaciones();
 
-        private int iduser; 
-        private  string usuario;
+        private int iduser;
+        private string usuario;
         private string rol;
         public FrmLogin()
         {
@@ -89,7 +89,7 @@ namespace Sistema_Inventario.Formularios
                 iduser = Convert.ToInt32(dtValUser.Rows[0]["usercode"].ToString());
                 usuario = dtValUser.Rows[0]["nombre_usuario"].ToString();
                 rol = dtValUser.Rows[0]["rolcod"].ToString();
-                Controladores.ClassDatosUsuario objUser = new Controladores.ClassDatosUsuario(iduser,usuario, rol);
+                Controladores.ClassDatosUsuario objUser = new Controladores.ClassDatosUsuario(iduser, usuario, rol);
                 FrmLoanding cargar = new FrmLoanding();
                 cargar.Show();
                 this.Hide();
@@ -128,7 +128,12 @@ namespace Sistema_Inventario.Formularios
             BtnOcultar.Enabled = false;
             btnVer.Enabled = true;
             txtPaswd.Focus();
-             
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();   
         }
     }
 }

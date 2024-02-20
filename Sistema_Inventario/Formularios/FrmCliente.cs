@@ -1,6 +1,4 @@
-﻿using iTextSharp.text.pdf;
-using iTextSharp.text;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -256,46 +254,7 @@ namespace Sistema_Inventario.Formularios
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
-                saveFileDialog.FileName = "ReporteClientes.pdf";
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    Document pdf = new Document(PageSize.A4);
-                    PdfWriter.GetInstance(pdf, new FileStream(saveFileDialog.FileName, FileMode.Create));
-
-                    pdf.Open();
-
-                    PdfPTable table = new PdfPTable(dgvCliente.Columns.Count);
-
-                    // Agregar encabezados de columna
-                    for (int i = 0; i < dgvCliente.Columns.Count; i++)
-                    {
-                        table.AddCell(new Phrase(dgvCliente.Columns[i].HeaderText));
-                    }
-
-                    // Agregar filas y celdas
-                    for (int i = 0; i < dgvCliente.Rows.Count; i++)
-                    {
-                        for (int j = 0; j < dgvCliente.Columns.Count; j++)
-                        {
-                            table.AddCell(new Phrase(dgvCliente.Rows[i].Cells[j].Value?.ToString()));
-                        }
-                    }
-
-                    pdf.Add(table);
-                    pdf.Close();
-
-                    MessageBox.Show("Archivo PDF generado exitosamente.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al generar el archivo PDF: " + ex.Message);
-            }
+           
         }
 
         private void BtnEstado_Click(object sender, EventArgs e)

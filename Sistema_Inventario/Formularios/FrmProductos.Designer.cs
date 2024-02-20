@@ -356,6 +356,7 @@
             btnimagen.TabIndex = 40;
             btnimagen.Text = "Cargar Imagen";
             btnimagen.UseVisualStyleBackColor = false;
+            btnimagen.Click += btnimagen_Click;
             // 
             // CmbCategorias
             // 
